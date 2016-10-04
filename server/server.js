@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
+const restaurants = require('./routes/AllRestaurants.js')
 var dirname = path.join(__dirname, '/../');
 
 
@@ -27,6 +28,8 @@ if(env === 'development') {
 	app.listen(3000, () => {
 		console.log('listening on port 3000')
 	})
+
+	app.use('/restaurants', restaurants)
 
 	app.get('/', (req, res) => {
 	res.sendFile(dirname+ '/Public/index.html')

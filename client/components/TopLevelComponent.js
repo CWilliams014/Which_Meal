@@ -1,13 +1,33 @@
 import React from 'react'
-import Landing from './Landing'
-console.log('hello from TopLevelComponent.js')
+import SearchBar from './SearchBar'
+import axios from 'axios'
 
-class TopLevelComponent extends React.Component{
+
+const TopLevelComponent = React.createClass({
+	getInitialState() {
+	    return {
+	        restaurants: []  
+	    };
+	},
+	componentDidMount() {
+    return axios.get('/restaurants').then((response)=> {
+    	this.setState({restaurants: response.data})
+    	console.log('response', response)
+    	console.log('Top Level STATE', this.state)
+    }).catch((error) => {
+    	console.log('error on componentDidMount request', error)
+    })
+	},
+
 	render() {
 		return (
-			<Landing />
+			<div>
+			<SearchBar restaurantList={this.state.restaurants}/>
+			</div>
 		)
 	}
-}
+})
 
 export default TopLevelComponent
+
+// <SearchBar restaurantList={this.state.restaurants}/>

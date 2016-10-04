@@ -42,6 +42,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
+				include: [path.join(__dirname, 'Public')],
 				exclude: /node_modules/,
 				loaders: ['style', 'css', 'autoprefixer']
 			},
