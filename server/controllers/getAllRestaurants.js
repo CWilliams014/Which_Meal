@@ -12,10 +12,8 @@ const getRestaurants = (req, res, next) => {
 		let $ = cheerio.load(html, {
 			normalizeWhitespace: true
 		});
-
 		let categories = [];
 		let foodItemInfo = []
-
 		let columnName = $('table th').each((index, element) => {
 			categories.push(cheerio(element).text())
 
@@ -28,7 +26,8 @@ const getRestaurants = (req, res, next) => {
 				foodItemInfo.push(o)
 			})
 		})
+		res.json(foodItemInfo)
 	})
 }
 
-module.exports =  {getRestaurants, foodItemInfo}
+export default getRestaurants
