@@ -3,6 +3,7 @@ import SearchBar from './SearchBar'
 import Dropdown from './DropdownMenu'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
+import Table from './compare/Table'
 import axios from 'axios'
 import allRestaurantTitles from '../../data/ListOfRestaurantNames'
 
@@ -12,8 +13,11 @@ const TopLevelComponent = React.createClass({
 	getInitialState() {
 	    return {
 	        restaurantTitles: [],
+	        mealsToCompare: [],
 	        restaurantSelected: '',
 	        menuDisplayed: '',
+	        meal1: '',
+	        meal2: '',
 	        allMenus: []  
 	    };
 	},
@@ -23,6 +27,15 @@ const TopLevelComponent = React.createClass({
 		console.log('select restaurant', e.target.name)
 		this.setState({restaurantSelected : e.target.name})
 
+	},
+
+	selectMeal(e, item) {
+		let newMealsToCompare = this.state.mealsToCompare.slice()
+		if(newMealsToCompare.indexOf(item) === -1	) { 
+			newMealsToCompare.push(item)
+			this.setState({mealsToCompare: newMealsToCompare})
+			console.log('STATE after row click', this.state)
+		}
 	},
 
 	componentDidMount() {
@@ -40,7 +53,8 @@ const TopLevelComponent = React.createClass({
 									restaurantTitles={allRestaurantTitles}	/>
 
 				<SelectedRestaurant restaurant={this.state.restaurantSelected} />
-				<MenuDisplay menu={this.state.allMenus} />
+				<MenuDisplay selectMeal={this.selectMeal} menu={this.state.allMenus} />
+				<Table meals={this.state.mealsToCompare} />
 			</div>
 		)
 	}
