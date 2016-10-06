@@ -27,9 +27,8 @@ const TopLevelComponent = React.createClass({
 
 	componentDidMount() {
 		return axios.get('/restaurants').then((response) => {
-			console.log('RESPONSE', response)
-			this.setState({allMenus: response.data[0]})
-			console.log('data 0', response.data[0])
+			console.log('RESPONSE', response.data)
+			this.setState({allMenus: response.data})
 		})
 	},
 

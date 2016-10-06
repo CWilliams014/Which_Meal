@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Entrees = (props) => {
-console.log('A;LSDKJFALSK', props)
+const Entree = (props) => {
+console.log('ENTREE PROPS', props)
+	for(let i = 0; i <)
 	return (
-		<li>
-		hello
-		</li>
+		<tr>
+
+		</tr>
 	)
 }
 

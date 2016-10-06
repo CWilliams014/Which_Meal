@@ -47,6 +47,8 @@
     "eslint-plugin-react": "^6.3.0",
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.5",
+    "react-json-table": "^0.1.1",
+    "reactable": "^0.14.0",
     "request": "^2.75.0"
   }
 }
