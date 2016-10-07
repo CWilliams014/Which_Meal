@@ -11,7 +11,7 @@ const Calculate = function(obj1, obj2) {
 	obj1Clone.score = 0;
 	obj2Clone.score = 0;
 
-	Os.forEach(function(element, index) {
+	Os.forEach((element, index) => {
 		
 		for (let value in element) {
 			let keyWithoutSpace = value.replace(/ /g, '')
@@ -89,7 +89,6 @@ const Calculate = function(obj1, obj2) {
 	return winner
 }
 
- Calculate(a, b)
 
 
 

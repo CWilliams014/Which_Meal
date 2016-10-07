@@ -4,7 +4,7 @@ import Calculate from '../.././helpers/CalculateMeals'
 
 const CalculateComparison = (props) => {
 	return (
-		<button onClick={props.Calc}>COMPARE</button>
+		<button onClick={props.calc}>COMPARE</button>
 	)
 }
  

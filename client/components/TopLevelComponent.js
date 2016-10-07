@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import Dropdown from './DropdownMenu'
+import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
 import Table from './compare/Table'
@@ -20,8 +21,8 @@ const TopLevelComponent = React.createClass({
 	        menuDisplayed: '',
 	        meal1: '',
 	        meal2: '',
-	        allMenus: [],
-	        winningMeal: '',  
+	        allMenus: [],  
+	        winningMeal: ''
 	    };
 	},
 
@@ -43,9 +44,14 @@ const TopLevelComponent = React.createClass({
 	},
 
 	compareMeals() {
-		console.log('compare meals top level')
-		Calculate(this.state.mealsToCompare[0], this.state.mealsToCompare[1])
-		
+		let winner = Calculate(this.state.mealsToCompare[0], this.state.mealsToCompare[1])
+		this.setState({winningMeal: winner})
+		console.log('compare meals top level', this.state)
+	},
+
+	clearMeals() {
+		this.setState({mealsToCompare : [], winningMeal: null})
+		console.log('clear meals', this.state)
 	},
 
 	componentDidMount() {
@@ -63,9 +69,14 @@ const TopLevelComponent = React.createClass({
 									restaurantTitles={allRestaurantTitles}	/>
 
 				<SelectedRestaurant restaurant={this.state.restaurantSelected} />
-				<MenuDisplay selectMeal={this.selectMeal} menu={this.state.allMenus} />
-				<Table meals={this.state.mealsToCompare} />
-				<CalculateComparison Calc={this.compareMeals} />
+				<MenuDisplay selectMeal={this.selectMeal} 
+										 menu={this.state.allMenus} />
+
+				<Table calc={this.compareMeals} 
+							 clearMeals={this.clearMeals}
+							 winningMeal={this.state.winningMeal}
+							 meals={this.state.mealsToCompare} />
+				<Winner winningMeal={this.state.winningMeal}/>
 			</div>
 		)
 	}

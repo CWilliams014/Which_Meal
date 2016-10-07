@@ -1,5 +1,8 @@
 import React from 'react'
+import createFragment from 'react-addons-create-fragment';
 import JsonTable from 'react-json-table'
+import ClearFields from '.././buttons/ClearFields'
+import CalculateComparison from '.././buttons/CalculateComparison'
 
 const Table = React.createClass({
 	getInitialState() {
@@ -15,9 +18,6 @@ const Table = React.createClass({
 	    }  
 	},
 	render() {
-		const meals = this.state.meal1
-		console.log('MEALS', meals)
-		const rowData = [{'calories': 100}]
 		console.log('table props', this.props)
 		let columns = [
 			{key: 'menu item', label: 'Entree'},
@@ -32,8 +32,9 @@ const Table = React.createClass({
 		]
 		return(
 			<div>
-			<JsonTable  rows={this.props.meals} columns={columns} />
-
+				<JsonTable  rows={this.props.meals} columns={columns} />
+				<CalculateComparison calc={this.props.calc} />
+				<ClearFields clearMeals={this.props.clearMeals} />
 			</div>
 		)
 	}
