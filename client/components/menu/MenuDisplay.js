@@ -58,7 +58,17 @@ const MenuDisplay = React.createClass ({
 			}
 		}
 
-		let columns = [{key:'menu item', label: 'Menu Items'} , {key: 'calories', label: 'Calories'} , {key: 'protein', label: 'Protein'} , {key:'carbohydrates', label: 'Carbohydrates'}, {key: 'sugars', label: 'Sugar'}, {key: 'sat fat', label: 'Saturated Fat'}, {key:'trans fat', label: 'Trans Fat'}, {key: 'sodium', label: 'Sodium'}]
+		let columns = [
+			{key:'menu item', label: 'Menu Items'}, 
+			{key: 'calories', label: 'Calories'} , 
+			{key: 'protein', label: 'Protein'} , 
+			{key:'carbohydrates', label: 'Carbohydrates'}, 
+			{key: 'sugars', label: 'Sugar'}, 
+			{key: 'sat fat', label: 'Saturated Fat'}, 
+			{key:'trans fat', label: 'Trans Fat'}, 
+			{key: 'sodium', label: 'Sodium'},
+			{key: 'fiber', label: 'Fiber'}
+			]
 		
 		return (
 			<div>

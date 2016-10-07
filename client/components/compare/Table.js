@@ -24,6 +24,7 @@ const Table = React.createClass({
 			{key: 'calories', label: 'Calories'} , 
 			{key: 'protein', label: 'Protein'} , 
 			{key:'carbohydrates', label: 'Carbohydrates'}, 
+			{key: 'fiber', label: 'Fiber'},
 			{key: 'sugars', label: 'Sugar'}, 
 			{key: 'sat fat', label: 'Saturated Fat'}, 
 			{key:'trans fat', label: 'Trans Fat'}, 
