@@ -22,14 +22,16 @@ const getRestaurants = (req, res, next) => {
 
 		$('tbody tr').each((index, element) => {
 			var children = $(element).children('td')
-			var a = []
 			let o = {}
+
 			$(children).map((index, element) => {
 				let key = categories[index].toLowerCase()
+				let value = cheerio(element).text().replace(/[^\w\s]/gi, '')
+
 				if (key === 'total carbs') {
-					o['carbohydrates'] = cheerio(element).text()
+					o['carbohydrates'] = value
 				} else {
-				o[key] = cheerio(element).text()
+				o[key] = value
 				}
 			})
 			foodItemInfo.push(o)
