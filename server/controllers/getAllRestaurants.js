@@ -5,8 +5,9 @@ const cheerio = require('cheerio');
 const request = require('request');
 // currently working just for whataburger for now
 const getRestaurants = (req, res, next) => {
-	const url = 'http://www.shapefit.com/restaurants/whataburger-calories.html'
-
+	console.log('~~~~~~~~~~~~~~~~~~~~~~getRestaurants req', req.query.id)
+	const url = 'http://www.shapefit.com/restaurants/' + req.query.id + '-calories.html'
+	console.log('url', url)
 	request(url, (error, response, html) => {
 		console.log('Cheerio request fired')
 

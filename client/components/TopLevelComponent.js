@@ -9,6 +9,7 @@ import CalculateComparison from './buttons/CalculateComparison'
 import Calculate from '.././helpers/CalculateMeals'
 import axios from 'axios'
 import allRestaurantTitles from '../../data/ListOfRestaurantNames'
+import MealWrapper from './MealContainer'
 
 
 
@@ -30,7 +31,16 @@ const TopLevelComponent = React.createClass({
 		e.preventDefault()
 		console.log('select restaurant', e.target.name)
 		this.setState({restaurantSelected : e.target.name})
+		this.getRestaurantData(e.target.name)
+	},
 
+	getRestaurantData(name) {
+		let _name = name
+		return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
+			console.log('get rest response', response)
+			this.setState({restaurant1: response.data})
+			console.log('getrestaurat state', this.state)
+		})
 	},
 
 	selectMeal(e, item) {
@@ -63,15 +73,16 @@ const TopLevelComponent = React.createClass({
 
 	render() {
 		return (
-			<div>
-			<MealWrapper 
+			<div className="row-fluid">
+				<div className="col-xs-6">
+					<MealWrapper 
 									selectRestaurant={this.selectRestaurant}
 									restaurantSelected={this.state.restaurantSelected}
 									restaurantTitles={allRestaurantTitles}	
 				 					restaurant={this.state.restaurantSelected} 
 				 					selectMeal={this.selectMeal} 
-									menu={this.state.allMenus} />
-
+									menu={this.state.restaurant1} />
+				</div>
 				<Table calc={this.compareMeals} 
 							 clearMeals={this.clearMeals}
 							 winningMeal={this.state.winningMeal}

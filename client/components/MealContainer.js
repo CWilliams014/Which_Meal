@@ -1,8 +1,8 @@
 import React from 'react'
-import Dropdown from '../DropdownMenu'
-import SelectedRestaurant from '../SelectedRestaurant'
-import MenuDisplay from '.././menu/MenuDisplay'
-import Table from '.././compare/Table'
+import Dropdown from './DropdownMenu'
+import SelectedRestaurant from './SelectedRestaurant'
+import MenuDisplay from './menu/MenuDisplay'
+import Table from './compare/Table'
 
 class MealWrapper extends React.Component {
     constructor(props) {
@@ -12,28 +12,29 @@ class MealWrapper extends React.Component {
         }
     }
     render() {
-        return 
-        	<div className="MealContainer">
-                <Dropdown selectRestaurant={this.props.selectRestaurant}
-                    restaurantSelected={this.props.restaurantSelected}
-                    restaurantTitles={this.props.restaurantTitles} />
-            
-            <SelectedRestaurant restaurant={this.props.restaurant} />
-            
-            <MenuDisplay selectMeal={this.props.selectMeal} 
-                         menu={this.props.menu} />
-        	</div>;
+      console.log('meal wrapper', this.props)
+        return (
+        	<div>
+              <Dropdown selectRestaurant={this.props.selectRestaurant}
+                        restaurantSelected={this.props.restaurantSelected}
+                        restaurantTitles={this.props.restaurantTitles} />
+
+              <SelectedRestaurant restaurant={this.props.restaurant} />
+
+              <MenuDisplay selectMeal={this.props.selectMeal} 
+                           menu={this.props.menu} />
+        	</div>
+        )
     }
 }
 
 export default MealWrapper;
 
+                // <Dropdown selectRestaurant={this.props.selectRestaurant}
+                //     restaurantSelected={this.props.restaurantSelected}
+                //     restaurantTitles={this.props.restaurantTitles} />
 
-  				// 	<Dropdown selectRestaurant={this.selectRestaurant}
-						// 				  restaurantSelected={this.state.restaurantSelected}
-						// 					restaurantTitles={allRestaurantTitles}	/>
+                // <SelectedRestaurant restaurant={this.props.restaurant} />
 
-						// <SelectedRestaurant restaurant={this.state.restaurantSelected} />
-						
-						// <MenuDisplay selectMeal={this.selectMeal} 
-						// 						 menu={this.props.menuSelected} />
+                         //    <MenuDisplay selectMeal={this.props.selectMeal} 
+                         // menu={this.props.menu} />

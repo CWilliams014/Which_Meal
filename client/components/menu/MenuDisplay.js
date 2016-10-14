@@ -8,55 +8,16 @@ import Table from '../compare/Table'
 //loop through menu object - sort and append data to proper position on table 
 
 const MenuDisplay = React.createClass ({
+	
+	componentWillReceiveProps(nextProps) {
+		if(nextProps != this.props.menu) {
+			this.render()
+		}
+	},
 	render() {
 		console.log('MENU DISPLAY', this.props)
 		const menu = this.props.menu
 
-		let menuItems = []
-		let calories = []
-		let protein = []
-		let carbohydrates = []
-		let sugar = []
-		let satFat = []
-		let transFat = []
-		let sodium = []
-
-		for(let i = 0; i < menu.length; i++) {
-			for(let key in menu[i]) {
-				let currentValue = menu[i]
-				let currentKey = key.toLowerCase()
-				switch(currentKey) {
-					case "protein":
-						protein.push(<li key={currentKey + i} className={currentKey + i}> {currentValue[key]} </li>)
-					break;
-
-					case "calories":
-						calories.push(<li key={currentKey + i} className={currentKey + i}> {currentValue[key]} </li>)
-					break;
-					case "menu item":
-						menuItems.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-						break;
-					case "total carbs": 
-						carbohydrates.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-						break;
-					case "total carbohyrdates":
-						carbohydrates.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-						break;
-					case "sugar": 
-						sugar.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-						break;
-					case "sat fat" :
-						satFat.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-						break;
-					case "trans fat" :
-						transFat.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-						break
-					case  "sodium" :
-						sodium.push(<li key={currentKey + i} className={currentKey + i}>{currentValue[key]}</li>)
-					default:		
-				}
-			}
-		}
 
 		let columns = [
 			{key:'menu item', label: 'Menu Items'}, 

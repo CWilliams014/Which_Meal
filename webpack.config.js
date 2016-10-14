@@ -9,7 +9,7 @@ const env = require('./.env');
 const webpack = require('webpack')
 
 module.exports = {
-	devtools: 'eval-source-map',
+	devtools: 'eval',
 	context: path.resolve('client'),
 	entry: [
 		'webpack-hot-middleware/client',

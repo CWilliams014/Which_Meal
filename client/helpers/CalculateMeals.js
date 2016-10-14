@@ -1,4 +1,5 @@
 // input are meals current selected in state.mealsToCompare, which are cloned, added a score property, and iterated over with their nutrient value determining the weight of the variable which updates the objects score. Highest score is returned
+//TODO: update nutrient calculations
 
 const Calculate = function(obj1, obj2) {
 	console.log('calculate function running')
