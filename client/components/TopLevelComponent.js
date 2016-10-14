@@ -23,7 +23,8 @@ const TopLevelComponent = React.createClass({
 	        meal1: '',
 	        meal2: '',
 	        allMenus: [],  
-	        winningMeal: ''
+	        winningMeal: '',
+	        showTable: false
 	    };
 	},
 
@@ -34,21 +35,12 @@ const TopLevelComponent = React.createClass({
 		this.getRestaurantData(e.target.name)
 	},
 
-	getRestaurantData(name) {
-		let _name = name
-		return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
-			console.log('get rest response', response)
-			this.setState({restaurant1: response.data})
-			console.log('getrestaurat state', this.state)
-		})
-	},
-
 	selectMeal(e, item) {
 		e.preventDefault()
 		let newMealsToCompare = this.state.mealsToCompare.slice()
 		if(newMealsToCompare.indexOf(item) === -1	) { 
 			newMealsToCompare.push(item)
-			this.setState({mealsToCompare: newMealsToCompare})
+			this.setState({mealsToCompare: newMealsToCompare, showTable: true})
 			console.log('STATE after row click', this.state)
 		}
 	},
@@ -60,15 +52,8 @@ const TopLevelComponent = React.createClass({
 	},
 
 	clearMeals() {
-		this.setState({mealsToCompare : [], winningMeal: null})
+		this.setState({mealsToCompare : [], winningMeal: null, showTable: false})
 		console.log('clear meals', this.state)
-	},
-
-	componentDidMount() {
-		return axios.get('/restaurants').then((response) => {
-			console.log('RESPONSE', response.data)
-			this.setState({allMenus: response.data})
-		})
 	},
 
 	render() {
@@ -76,20 +61,19 @@ const TopLevelComponent = React.createClass({
 			<div className="row-fluid">
 				<div className="col-xs-6">
 					<MealWrapper 
-									getRestaurantData={this.getRestaurantData}
-									selectRestaurant={this.selectRestaurant}
 									restaurantSelected={this.state.restaurantSelected}
 									restaurantTitles={allRestaurantTitles}	
 				 					restaurant={this.state.restaurantSelected} 
 				 					selectMeal={this.selectMeal} 
 									menu={this.state.restaurant1} />
 				</div>
-				<Table calc={this.compareMeals} 
-							 clearMeals={this.clearMeals}
-							 winningMeal={this.state.winningMeal}
-							 meals={this.state.mealsToCompare} />
-				
-				<Winner winningMeal={this.state.winningMeal}/>
+				{this.state.showTable &&
+					<Table calc={this.compareMeals} 
+							 	 clearMeals={this.clearMeals}
+								 winningMeal={this.state.winningMeal}
+								 meals={this.state.mealsToCompare} />
+				}
+				<Winner winningMeal={this.state.winningMeal}/>	
 			</div>
 		)
 	}

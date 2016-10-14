@@ -48,12 +48,3 @@ class MealWrapper extends React.Component {
 }
 
 export default MealWrapper;
-
-                // <Dropdown selectRestaurant={this.props.selectRestaurant}
-                //     restaurantSelected={this.props.restaurantSelected}
-                //     restaurantTitles={this.props.restaurantTitles} />
-
-                // <SelectedRestaurant restaurant={this.props.restaurant} />
-
-                         //    <MenuDisplay selectMeal={this.props.selectMeal} 
-                         // menu={this.props.menu} />

@@ -10,13 +10,6 @@ const Table = React.createClass({
 	          show: false
 	    };
 	},
-
-	componentWillReceiveProps(nextProps) {
-	    if(nextProps.meals != this.props.meals) {
-	    	this.setState({show: true})
-	    console.log('new table props', this.props)
-	    }  
-	},
 	render() {
 		console.log('table props', this.props)
 		let columns = [
@@ -30,19 +23,13 @@ const Table = React.createClass({
 			{key:'trans fat', label: 'Trans Fat'}, 
 			{key: 'sodium', label: 'Sodium'}
 		]
-		let showTableData;
-		if(this.state.show) {
-			showTableData = 
-				<div>
-					<JsonTable  rows={this.props.meals} columns={columns} />
-					<CalculateComparison calc={this.props.calc} />
-					<ClearFields clearMeals={this.props.clearMeals} />
-				</div>
-			}
-		return(
-			<div>
-				{showTableData}
-			</div>
+
+	return (
+		<div>
+			<JsonTable  rows={this.props.meals} columns={columns} />
+			<CalculateComparison calc={this.props.calc} />
+			<ClearFields clearMeals={this.props.clearMeals} />
+		</div>
 		)
 	}
 })
