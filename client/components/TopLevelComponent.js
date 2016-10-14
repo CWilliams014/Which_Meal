@@ -76,6 +76,7 @@ const TopLevelComponent = React.createClass({
 			<div className="row-fluid">
 				<div className="col-xs-6">
 					<MealWrapper 
+									getRestaurantData={this.getRestaurantData}
 									selectRestaurant={this.selectRestaurant}
 									restaurantSelected={this.state.restaurantSelected}
 									restaurantTitles={allRestaurantTitles}	

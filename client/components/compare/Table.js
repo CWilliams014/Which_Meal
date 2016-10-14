@@ -7,13 +7,13 @@ import CalculateComparison from '.././buttons/CalculateComparison'
 const Table = React.createClass({
 	getInitialState() {
 	    return {
-	          meals: []
+	          show: false
 	    };
 	},
 
 	componentWillReceiveProps(nextProps) {
-	    if(nextProps != this.props) {
-	    	this.setState({meals: this.props.meal1})
+	    if(nextProps.meals != this.props.meals) {
+	    	this.setState({show: true})
 	    console.log('new table props', this.props)
 	    }  
 	},
@@ -30,11 +30,18 @@ const Table = React.createClass({
 			{key:'trans fat', label: 'Trans Fat'}, 
 			{key: 'sodium', label: 'Sodium'}
 		]
+		let showTableData;
+		if(this.state.show) {
+			showTableData = 
+				<div>
+					<JsonTable  rows={this.props.meals} columns={columns} />
+					<CalculateComparison calc={this.props.calc} />
+					<ClearFields clearMeals={this.props.clearMeals} />
+				</div>
+			}
 		return(
 			<div>
-				<JsonTable  rows={this.props.meals} columns={columns} />
-				<CalculateComparison calc={this.props.calc} />
-				<ClearFields clearMeals={this.props.clearMeals} />
+				{showTableData}
 			</div>
 		)
 	}
