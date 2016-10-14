@@ -64,18 +64,19 @@ const TopLevelComponent = React.createClass({
 	render() {
 		return (
 			<div>
-				<Dropdown selectRestaurant={this.selectRestaurant}
+			<MealWrapper 
+									selectRestaurant={this.selectRestaurant}
 									restaurantSelected={this.state.restaurantSelected}
-									restaurantTitles={allRestaurantTitles}	/>
-
-				<SelectedRestaurant restaurant={this.state.restaurantSelected} />
-				<MenuDisplay selectMeal={this.selectMeal} 
-										 menu={this.state.allMenus} />
+									restaurantTitles={allRestaurantTitles}	
+				 					restaurant={this.state.restaurantSelected} 
+				 					selectMeal={this.selectMeal} 
+									menu={this.state.allMenus} />
 
 				<Table calc={this.compareMeals} 
 							 clearMeals={this.clearMeals}
 							 winningMeal={this.state.winningMeal}
 							 meals={this.state.mealsToCompare} />
+				
 				<Winner winningMeal={this.state.winningMeal}/>
 			</div>
 		)
@@ -83,5 +84,13 @@ const TopLevelComponent = React.createClass({
 })
 
 export default TopLevelComponent
+
+				// <Dropdown selectRestaurant={this.selectRestaurant}
+				// 					restaurantSelected={this.state.restaurantSelected}
+				// 					restaurantTitles={allRestaurantTitles}	/>
+
+				// <SelectedRestaurant restaurant={this.state.restaurantSelected} />
+				// <MenuDisplay selectMeal={this.selectMeal} 
+				// 						 menu={this.state.allMenus} />
 
 // <SearchBar restaurantList={this.state.restaurants}/>
