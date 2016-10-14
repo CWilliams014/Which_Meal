@@ -1,0 +1,11 @@
+- Allow user to select how much they'd like to weigh the variables
+	- i.e. how much do you hate sugar?
+
+- Save users to database and implement features like 'favorite meals'
+
+- Incorporate Google Maps API to find nearest location for their desired food
+
+- Use redis for quick caching rather than storing restaurants in state
+
+- Enable different modes - fat burning, mental performance, hungover, muscle building, etc..
+

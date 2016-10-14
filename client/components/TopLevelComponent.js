@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchBar from './SearchBar'
+import MealContainer from './mealContainers/MealContainer'
 import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
@@ -10,31 +11,46 @@ import Calculate from '.././helpers/CalculateMeals'
 import axios from 'axios'
 import allRestaurantTitles from '../../data/ListOfRestaurantNames'
 
-
+// Assigning each selected restaurant an id which will align with the restaurantsSelected array and 
+	//determine which mealContainer component is displaying which restaurants information
 
 const TopLevelComponent = React.createClass({
 	getInitialState() {
 	    return {
 	        restaurantTitles: [],
 	        mealsToCompare: [],
-	        restaurantSelected: '',
+	        restaurantsTitleSelected: [],
+	        restaurantsSelected: [],
 	        menuDisplayed: '',
 	        meal1: '',
 	        meal2: '',
 	        allMenus: [],  
-	        winningMeal: ''
+	        winningMeal: '',
+	        RestaurantID: 0
 	    };
 	},
 
 	selectRestaurant(e) {
-		e.preventDefault()
-		console.log('select restaurant', e.target.name)
-		this.setState({restaurantSelected : e.target.name})
+		let chosenRestaurantTitle = e.target.name
+		let newRestaurantTitleSelected = this.state.restaurantsTitleSelected.slice()
+		newRestaurantTitleSelected.push(chosenRestaurantTitle)
+		this.setState({restaurantsTitleSelected : chosenRestaurantTitle})
 
 	},
 
+	findRestaurant() {
+		let restaurantsSelectedAdded = this.state.restaurantsSelected.slice()
+		for(var i = 0; i < this.state.allMenus.length; i++) {
+			if(this.state.allMenus[i].title === restaurantSelected[restaurantSelected.length - 1]) {
+				this.state.allMenus[i].id = RestaurantID
+				restaurantsSelectedAdded.push(this.state.allMenus[i])
+			}
+		}
+		RestaurantID++
+		this.setState({restaurantsSelected: restaurantsSelectedAdded})
+	},
+
 	selectMeal(e, item) {
-		e.preventDefault()
 		let newMealsToCompare = this.state.mealsToCompare.slice()
 		if(newMealsToCompare.indexOf(item) === -1	) { 
 			newMealsToCompare.push(item)
@@ -64,13 +80,6 @@ const TopLevelComponent = React.createClass({
 	render() {
 		return (
 			<div>
-				<Dropdown selectRestaurant={this.selectRestaurant}
-									restaurantSelected={this.state.restaurantSelected}
-									restaurantTitles={allRestaurantTitles}	/>
-
-				<SelectedRestaurant restaurant={this.state.restaurantSelected} />
-				<MenuDisplay selectMeal={this.selectMeal} 
-										 menu={this.state.allMenus} />
 
 				<Table calc={this.compareMeals} 
 							 clearMeals={this.clearMeals}
@@ -83,5 +92,9 @@ const TopLevelComponent = React.createClass({
 })
 
 export default TopLevelComponent
+
+			// {this.state.restaurantsSelected.map((restaurant, index) {
+			// 	return (<MealContainer key={index} data={restaurant} />)
+			// })}
 
 // <SearchBar restaurantList={this.state.restaurants}/>

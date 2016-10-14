@@ -45,6 +45,8 @@
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "phantom": "^2.1.21",
+    "phantomjs-prebuilt": "^2.1.13",
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.5",
     "react-json-table": "^0.1.1",
