@@ -69,10 +69,18 @@ const TopLevelComponent = React.createClass({
 		this.setState({mealsToCompare : [], winningMeal: null})
 		console.log('clear meals', this.state)
 	},
-
+	{/* loops array of objects and grabs each value, which is a long string */}
 	componentDidMount() {
 		return axios.get('/restaurants').then((response) => {
-			console.log('RESPONSE', response.data)
+			let data = response.data[Object.keys(response.data[0])[0]]
+			let item = response.data[0].Data.replace(/\s+/g, " ")
+			let y = item.split(" ")
+			let x = JSON.stringify(item)
+			console.log('item', item)
+			console.log('YY', y)
+			console.log('x', x)
+			console.log('data', data)
+			console.log('response', response.data)
 			this.setState({allMenus: response.data})
 		})
 	},

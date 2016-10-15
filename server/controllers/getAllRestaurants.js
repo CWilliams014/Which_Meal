@@ -16,12 +16,10 @@ let Allinfo = []
 		.follow('@href')
 		.find('div#itemcontainer')
 		.contains('Calories')
-		.set('DAATTTAAAA')
-		.data(function(listing) {
-		    // do something with listing data
-		    let item = listing.replace(/\s/g, '')
-		    console.log('EACH LISTING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', item )
-		    Allinfo.push(item)
+		.set('Data')
+		.data(function(listing) { 
+		    console.log('EACH LISTING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', listing)
+		    Allinfo.push(listing)
 		})
 		.log(console.log)
 		.error(console.log)
