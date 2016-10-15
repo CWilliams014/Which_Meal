@@ -80,7 +80,6 @@ const TopLevelComponent = React.createClass({
 	render() {
 		return (
 			<div>
-
 				<Table calc={this.compareMeals} 
 							 clearMeals={this.clearMeals}
 							 winningMeal={this.state.winningMeal}
