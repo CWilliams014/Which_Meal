@@ -24,7 +24,7 @@ const TopLevelComponent = React.createClass({
 	        meal2: '',
 	        allMenus: [],  
 	        winningMeal: '',
-	        showTable: false
+	        showTable: false,
 	    };
 	},
 
@@ -57,15 +57,22 @@ const TopLevelComponent = React.createClass({
 	},
 
 	render() {
+
 		return (
 			<div className="row-fluid">
 				<div className="col-xs-6">
 					<MealWrapper 
-									restaurantSelected={this.state.restaurantSelected}
-									restaurantTitles={allRestaurantTitles}	
-				 					restaurant={this.state.restaurantSelected} 
-				 					selectMeal={this.selectMeal} 
-									menu={this.state.restaurant1} />
+											restaurantSelected={this.state.restaurantSelected}
+											restaurantTitles={allRestaurantTitles}	
+						 					restaurant={this.state.restaurantSelected} 
+						 					selectMeal={this.selectMeal} />
+				</div>
+				<div className="col-xs-6">
+					<MealWrapper 
+											restaurantSelected={this.state.restaurantSelected}
+											restaurantTitles={allRestaurantTitles}	
+						 					restaurant={this.state.restaurantSelected} 
+						 					selectMeal={this.selectMeal} />
 				</div>
 				{this.state.showTable &&
 					<Table calc={this.compareMeals} 

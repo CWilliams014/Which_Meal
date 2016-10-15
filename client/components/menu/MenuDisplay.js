@@ -17,8 +17,7 @@ const MenuDisplay = React.createClass ({
 	render() {
 		console.log('MENU DISPLAY', this.props)
 		const menu = this.props.menu
-
-
+		
 		let columns = [
 			{key:'menu item', label: 'Menu Items'}, 
 			{key: 'calories', label: 'Calories'} , 
