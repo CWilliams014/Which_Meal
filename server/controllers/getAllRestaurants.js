@@ -17,10 +17,8 @@ let Allinfo = []
 		.find('div#itemcontainer')
 		.contains('Calories')
 		.set('DAATTTAAAA')
-		.data(function(listing) {
+		.data(function(item) {
 		    // do something with listing data
-		    let item = listing.replace(/\s/g, '')
-		    console.log('EACH LISTING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', item )
 		    Allinfo.push(item)
 		})
 		.log(console.log)
@@ -29,6 +27,7 @@ let Allinfo = []
 		.done(function() {
 			res.send(Allinfo)
 	})	
+	next()
 
 }
 
