@@ -70,7 +70,6 @@ const TopLevelComponent = React.createClass({
 		this.setState({mealsToCompare : [], winningMeal: null, showTable: false})
 		console.log('clear meals', this.state)
 	},
-		{/* loops array of objects and grabs each value, which is a long string */}
 	componentDidMount() {
 		return axios.get('/restaurants').then((response) => {
 			console.log('response comp did mount', response )
@@ -78,7 +77,6 @@ const TopLevelComponent = React.createClass({
 		})
 	}, 
 
-<<<<<<< HEAD
 
 	render() {
 		return (
@@ -103,7 +101,8 @@ const TopLevelComponent = React.createClass({
 								 winningMeal={this.state.winningMeal}
 								 meals={this.state.mealsToCompare} />
 				}
-			<Winner winningMeal={this.state.winningMeal}/>	
+				<Winner winningMeal={this.state.winningMeal}/>	
+			</div>
 		)
 	}
 })

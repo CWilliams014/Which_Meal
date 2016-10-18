@@ -58,9 +58,8 @@ const parseScrapedData = (req, res, next) => {
 			let dietaryFiberDV=p[41]
 			let sugarsValue = p[43]
 			// eliminates letter 'g' from sugar value, calculates DV based on 20g serving of sugar per day
-			let sugarR = Number.isInteger(sugarsValue.charAt(1)) ? parseInt(sugarsValue.charAt(0)) + sugarsValue.charAt(1) : parseInt(sugarsValue.charAt(0))
-			console.log('sugar r', sugarR)
-			let sugarsDV = (sugarR/20) * 100 + '%'
+			let sugarR = parseInt(sugarsValue)
+			let sugarsDV = Math.floor((sugarR/20) * 100) + '%'
 			let proteinValue = p[45]
 			let proteinDV = p[46]
 			let vitaminADV = p[49]
@@ -69,7 +68,6 @@ const parseScrapedData = (req, res, next) => {
 			let ironDV = p[56]
 
 			restaurantFinalMenu['menu item'] = itemName
-			restaurantFinalMenu['item-info'] = parsedMenu
 
 			dailyPercentageValue = {
 				'calories from fat' : caloriesFromFatValue,
@@ -104,6 +102,8 @@ const parseScrapedData = (req, res, next) => {
 			results.push(restaurantFinalMenu)
 		}
 		res.send(results)
+		req.menu=results
+		next()
 }
 
 export default parseScrapedData
