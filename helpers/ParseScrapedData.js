@@ -39,19 +39,13 @@ const ParseScrapedData = (req, res, next) => {
 			let calories = p[8]
 			let caloriesValue = p[9]
 			let caloriesFromFat = p[10] + " " +  p[11] + " " + p[12]
-			console.log('calories from fat', caloriesFromFat)
 			let caloriesFromFatValue = p[13]
-			console.log('calores from fat value' + caloriesFromFatValue)
 			let totalFat = p[17] + " " + p[18]
-			console.log('total fat', totalFat)
 			let totalFatValue = p[19]
-			console.log('total fat value', totalFatValue)
 			let totalFatDV = p[20]
 			let satFat = p[21] + " " + p[22]
-			console.log('sat fat', satFat)
 			let satFatValue = p[23]
 			let satFatDV = p[24]
-			console.log('sat fat dv', satFatDV)
 			let transFat = p[25] + " " + p[26]
 			let transFatValue = p[26]
 			let transFatDV = p[27]
@@ -64,7 +58,8 @@ const ParseScrapedData = (req, res, next) => {
 			let dietaryFiberValue = p[40]
 			let dietaryFiberDV=p[41]
 			let sugarsValue = p[43]
-			let sugarR = sugarsValue.charAt(1) ? parseInt(sugarsValue.charAt(0)) + sugarsValue.charAt(1) : parseInt(sugarsValue.charAt(0))
+			// eliminates letter 'g' from sugar value, calculates DV based on 20g serving of sugar per day
+			let sugarR = Number.isInteger(sugarsValue.charAt(1)) ? parseInt(sugarsValue.charAt(0)) + sugarsValue.charAt(1) : parseInt(sugarsValue.charAt(0))
 			console.log('sugar r', sugarR)
 			let sugarsDV = (sugarR/20) * 100
 			let proteinValue = p[45]
