@@ -7,9 +7,10 @@ var osmosis = require('osmosis');
 const fs = require('fs')
 
 
-const getRestaurants = (req, res, next) => {
+const getRestaurantMenu = (req, res, next) => {
 let allInfo = []
 let results = []
+let id = 0
 		osmosis
 		.get('http://fastfoodnutrition.org/arbys')
 		.find('div#contentarea  a.listlink.item_link.active_item_link')

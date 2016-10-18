@@ -21,7 +21,7 @@
 	
 }  */
 
-const ParseScrapedData = (req, res, next) => {
+const parseScrapedData = (req, res, next) => {
 		// console.log('resssssssSSSSSS', res.)
 	let results = []
 	let reqInfo = req.restaurantMenu
@@ -31,10 +31,11 @@ const ParseScrapedData = (req, res, next) => {
 
 
 	for(let i = 0; i < reqInfo.length; i++) {
-			let dataObj = { 'id': i }
+			let restaurantFinalMenu = { 'id': i }
 			menuItems = reqInfo[i].Data.replace(/\s+/g, " ") 
 			parsedMenu =  menuItems.split(" ")
 			itemName = reqInfo[i].entreeName
+
 			let p = parsedMenu
 			let calories = p[8]
 			let caloriesValue = p[9]
@@ -43,10 +44,8 @@ const ParseScrapedData = (req, res, next) => {
 			let totalFat = p[17] + " " + p[18]
 			let totalFatValue = p[19]
 			let totalFatDV = p[20]
-			let satFat = p[21] + " " + p[22]
 			let satFatValue = p[23]
 			let satFatDV = p[24]
-			let transFat = p[25] + " " + p[26]
 			let transFatValue = p[26]
 			let transFatDV = p[27]
 			let cholesterolValue = p[29]
@@ -61,18 +60,17 @@ const ParseScrapedData = (req, res, next) => {
 			// eliminates letter 'g' from sugar value, calculates DV based on 20g serving of sugar per day
 			let sugarR = Number.isInteger(sugarsValue.charAt(1)) ? parseInt(sugarsValue.charAt(0)) + sugarsValue.charAt(1) : parseInt(sugarsValue.charAt(0))
 			console.log('sugar r', sugarR)
-			let sugarsDV = (sugarR/20) * 100
+			let sugarsDV = (sugarR/20) * 100 + '%'
 			let proteinValue = p[45]
 			let proteinDV = p[46]
 			let vitaminADV = p[49]
 			let vitaminCDV = p[52]
 			let calciumDV = p[54]
 			let ironDV = p[56]
-			dailyPercentageValue = 
-			console.log(parsedMenu)
-			dataObj['menu item'] = itemName
-			dataObj['menu item']
-			dataObj['item-info'] = parsedMenu
+
+			restaurantFinalMenu['menu item'] = itemName
+			restaurantFinalMenu['item-info'] = parsedMenu
+
 			dailyPercentageValue = {
 				'calories from fat' : caloriesFromFatValue,
 				'total fat': totalFatDV,
@@ -89,12 +87,23 @@ const ParseScrapedData = (req, res, next) => {
 				'calcium' : calciumDV,
 				'iron' : ironDV
 				}
-				dataObj.dailyPercentage = dailyPercentageValue
-				console.log('hi')
-				console.log('daiiiiiiiily %', dataObj)
-			results.push(dataObj)
+			amountPerServing = {
+				'calories' : caloriesValue,
+				'total fat': totalFatValue,
+				'sat fat' : satFatValue,
+				'trans fat': transFatValue,
+				'cholesterol': cholesterolValue,
+				'sodium' : sodiumValue,
+				'total carbs' : totalCarbsValue,
+				'dietary fiber': dietaryFiberValue,
+				'sugars' : sugarsValue,
+				'protein' : proteinValue,
+			}
+				restaurantFinalMenu.dailyPercentage = dailyPercentageValue
+				restaurantFinalMenu.amountPerServing = amountPerServing
+			results.push(restaurantFinalMenu)
 		}
+		res.send(results)
 }
 
 export default ParseScrapedData
-			// dataObj['daily %'] = {parsedMenu[17] + parsedMenu[18] : parsedMenu[19]}

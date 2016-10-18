@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-import getRestaurants from '../controllers/getAllRestaurants'
-import ParseScrapedData from '../../helpers/ParseScrapedData'
+import getRestaurantMenu from '../controllers/getAllRestaurants'
+import parseScrapedData from '../../helpers/ParseScrapedData'
 
 
-router.get('/', getRestaurants, ParseScrapedData)
+router.get('/', getRestaurantMenu, parseScrapedData)
 
 
 
