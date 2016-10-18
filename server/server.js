@@ -3,7 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
 const restaurants = require('./routes/AllRestaurants.js')
-import getRestaurants from './controllers/getAllRestaurants'
+import getRestaurants from './controllers/fastFoodNutrition/getAllRestaurants'
 
 const redis = require('redis')
 const client = redis.createClient(6377, '107.170.50.171')

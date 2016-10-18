@@ -69,10 +69,10 @@ const TopLevelComponent = React.createClass({
 		this.setState({mealsToCompare : [], winningMeal: null})
 		console.log('clear meals', this.state)
 	},
-
+	{/* loops array of objects and grabs each value, which is a long string */}
 	componentDidMount() {
-				return axios.get('/restaurants').then((response) => {
-			console.log('RESPONSE', response.data)
+		return axios.get('/restaurants').then((response) => {
+			console.log('response comp did mount', response )
 			this.setState({allMenus: response.data})
 		})
 	}, 

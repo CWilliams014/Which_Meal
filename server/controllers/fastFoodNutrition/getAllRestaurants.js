@@ -3,15 +3,14 @@
 const cheerio = require('cheerio');
 const request = require('request');
 const promise = require('bluebird')
-var osmosis = require('osmosis');
+const osmosis = require('osmosis');
 const fs = require('fs')
 
 
 const getRestaurantMenu = (req, res, next) => {
 let allInfo = []
-let results = []
-let id = 0
-		osmosis
+
+	osmosis
 		.get('http://fastfoodnutrition.org/arbys')
 		.find('div#contentarea  a.listlink.item_link.active_item_link')
 		.set('entreeName')
@@ -24,12 +23,13 @@ let id = 0
 		})
 		.done(function() {
 			req.restaurantMenu = allInfo
-			next()
+		
+		next()
 	})
 }
 
 
-export default getRestaurants
+export default getRestaurantMenu
 			
 		// .log(console.log)
 		// .error(console.log)

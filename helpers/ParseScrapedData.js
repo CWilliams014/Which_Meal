@@ -106,4 +106,4 @@ const parseScrapedData = (req, res, next) => {
 		res.send(results)
 }
 
-export default ParseScrapedData
+export default parseScrapedData
