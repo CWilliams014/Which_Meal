@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
-import getRestaurants from '../controllers/getAllRestaurants'
+import getRestaurantMenu from '../controllers/fastFoodNutrition/getAllRestaurants'
+import parseScrapedData from '../../helpers/ParseScrapedData'
 
 
-router.get('/', getRestaurants)
+router.get('/', getRestaurantMenu, parseScrapedData)
+
 
 
 module.exports = router;
