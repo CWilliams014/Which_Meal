@@ -1,32 +1,53 @@
 import React from 'react'
 import SearchBar from './SearchBar'
+import MealContainer from './mealContainers/MealContainer'
 import Dropdown from './DropdownMenu'
+import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
 import Table from './compare/Table'
+import CalculateComparison from './buttons/CalculateComparison'
+import Calculate from '.././helpers/CalculateMeals'
 import axios from 'axios'
 import allRestaurantTitles from '../../data/ListOfRestaurantNames'
 
-
+// Assigning each selected restaurant an id which will align with the restaurantsSelected array and 
+	//determine which mealContainer component is displaying which restaurants information
 
 const TopLevelComponent = React.createClass({
 	getInitialState() {
 	    return {
 	        restaurantTitles: [],
 	        mealsToCompare: [],
-	        restaurantSelected: '',
+	        restaurantsTitleSelected: [],
+	        restaurantsSelected: [],
 	        menuDisplayed: '',
 	        meal1: '',
 	        meal2: '',
-	        allMenus: []  
+	        allMenus: [],  
+	        winningMeal: '',
+	        RestaurantID: 0
 	    };
 	},
 
 	selectRestaurant(e) {
-		e.preventDefault()
-		console.log('select restaurant', e.target.name)
-		this.setState({restaurantSelected : e.target.name})
+		let chosenRestaurantTitle = e.target.name
+		let newRestaurantTitleSelected = this.state.restaurantsTitleSelected.slice()
+		newRestaurantTitleSelected.push(chosenRestaurantTitle)
+		this.setState({restaurantsTitleSelected : chosenRestaurantTitle})
 
+	},
+
+	findRestaurant() {
+		let restaurantsSelectedAdded = this.state.restaurantsSelected.slice()
+		for(var i = 0; i < this.state.allMenus.length; i++) {
+			if(this.state.allMenus[i].title === restaurantSelected[restaurantSelected.length - 1]) {
+				this.state.allMenus[i].id = RestaurantID
+				restaurantsSelectedAdded.push(this.state.allMenus[i])
+			}
+		}
+		RestaurantID++
+		this.setState({restaurantsSelected: restaurantsSelectedAdded})
 	},
 
 	selectMeal(e, item) {
@@ -38,28 +59,42 @@ const TopLevelComponent = React.createClass({
 		}
 	},
 
+	compareMeals() {
+		let winner = Calculate(this.state.mealsToCompare[0], this.state.mealsToCompare[1])
+		this.setState({winningMeal: winner})
+		console.log('compare meals top level', this.state)
+	},
+
+	clearMeals() {
+		this.setState({mealsToCompare : [], winningMeal: null})
+		console.log('clear meals', this.state)
+	},
+	{/* loops array of objects and grabs each value, which is a long string */}
 	componentDidMount() {
 		return axios.get('/restaurants').then((response) => {
-			console.log('RESPONSE', response.data)
+			console.log('response comp did mount', response )
 			this.setState({allMenus: response.data})
 		})
-	},
+	}, 
 
 	render() {
 		return (
 			<div>
-				<Dropdown selectRestaurant={this.selectRestaurant}
-									restaurantSelected={this.state.restaurantSelected}
-									restaurantTitles={allRestaurantTitles}	/>
-
-				<SelectedRestaurant restaurant={this.state.restaurantSelected} />
-				<MenuDisplay selectMeal={this.selectMeal} menu={this.state.allMenus} />
-				<Table meals={this.state.mealsToCompare} />
+				<Table calc={this.compareMeals} 
+							 clearMeals={this.clearMeals}
+							 winningMeal={this.state.winningMeal}
+							 meals={this.state.mealsToCompare} />
+				<Winner winningMeal={this.state.winningMeal}/>
 			</div>
 		)
 	}
 })
 
 export default TopLevelComponent
+
+
+			// {this.state.restaurantsSelected.map((restaurant, index) {
+			// 	return (<MealContainer key={index} data={restaurant} />)
+			// })}
 
 // <SearchBar restaurantList={this.state.restaurants}/>
