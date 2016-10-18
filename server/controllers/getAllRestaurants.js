@@ -1,35 +1,47 @@
 'use strict';
-
+//
 const cheerio = require('cheerio');
 const request = require('request');
 const promise = require('bluebird')
 var osmosis = require('osmosis');
 const fs = require('fs')
-// currently hardcoded  for whataburger for now - need to finalize data source
-const getRestaurants = (req, res, next) => {
-let Allinfo = []
 
+
+const getRestaurants = (req, res, next) => {
+let allInfo = []
+let results = []
 		osmosis
 		.get('http://fastfoodnutrition.org/arbys')
 		.find('div#contentarea  a.listlink.item_link.active_item_link')
-		.set('menu item')
+		.set('entreeName')
 		.follow('@href')
 		.find('div#itemcontainer')
 		.contains('Calories')
-		.set('DAATTTAAAA')
+		.set('Data')
 		.data(function(item) {
-		    // do something with listing data
-		    Allinfo.push(item)
+		    allInfo.push(item)
 		})
-		.log(console.log)
-		.error(console.log)
-		.debug(console.log)
 		.done(function() {
-			res.send(Allinfo)
-	})	
-	next()
-
+			req.restaurantMenu = allInfo
+			next()
+	})
 }
 
 
 export default getRestaurants
+			
+		// .log(console.log)
+		// .error(console.log)
+		// .debug(console.log)
+
+	// 			for(let i = 0; i < Allinfo.length; i++) {
+	// 		let items = Allinfo[i].Data.replace(/\s+/g, " ")
+	// 		let parsedMenu = items.split(" ")
+	// 		results.push(parsedMenu)
+	// 		req.menus = results
+	// 	}
+	// 	console.log('reeeeeesults', Allinfo)
+	// 	req.info=results
+	// 	res.send(results)
+	// 	next()
+	// })

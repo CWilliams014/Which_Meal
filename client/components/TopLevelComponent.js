@@ -71,11 +71,11 @@ const TopLevelComponent = React.createClass({
 	},
 
 	componentDidMount() {
-		return axios.get('/restaurants').then((response) => {
+				return axios.get('/restaurants').then((response) => {
 			console.log('RESPONSE', response.data)
 			this.setState({allMenus: response.data})
 		})
-	},
+	}, 
 
 	render() {
 		return (
@@ -91,6 +91,7 @@ const TopLevelComponent = React.createClass({
 })
 
 export default TopLevelComponent
+
 
 			// {this.state.restaurantsSelected.map((restaurant, index) {
 			// 	return (<MealContainer key={index} data={restaurant} />)

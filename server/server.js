@@ -3,6 +3,8 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
 const restaurants = require('./routes/AllRestaurants.js')
+import getRestaurants from './controllers/getAllRestaurants'
+
 const redis = require('redis')
 const client = redis.createClient(6377, '107.170.50.171')
 var dirname = path.join(__dirname, '/../');
@@ -18,6 +20,7 @@ if(env === 'development') {
 	const compiler = webpack(webpackConfig)
 
 	app.use(bodyParser.urlencoded({ extended: true }));
+	app.use(bodyParser.json())
 
 	client.auth('asdfjk123%')
 	client.on('connect', function() {
@@ -41,5 +44,6 @@ if(env === 'development') {
 	app.get('/', (req, res) => {
 	res.sendFile(dirname+ '/Public/index.html')
 	});
+
 }
 
