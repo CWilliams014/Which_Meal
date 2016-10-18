@@ -22,7 +22,9 @@
 }  */
 
 const parseScrapedData = (req, res, next) => {
+	console.log('parseScrapedData')
 		// console.log('resssssssSSSSSS', res.)
+		console.log('req menuuuuuuu', req.restaurantMenu)
 	let results = []
 	let reqInfo = req.restaurantMenu
 	let dailyPercentageValue = {}

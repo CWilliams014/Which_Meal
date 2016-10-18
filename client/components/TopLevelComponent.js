@@ -9,7 +9,7 @@ import Table from './compare/Table'
 import CalculateComparison from './buttons/CalculateComparison'
 import Calculate from '.././helpers/CalculateMeals'
 import axios from 'axios'
-import allRestaurantTitles from '../../data/ListOfRestaurantNames'
+import allRestaurantTitles from '../../data/fastFoodNutritionRestaurantNames'
 import MealWrapper from './MealContainer'
 
 // Assigning each selected restaurant an id which will align with the restaurantsSelected array and 

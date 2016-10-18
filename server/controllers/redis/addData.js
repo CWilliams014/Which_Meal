@@ -11,11 +11,9 @@ const addHashData = (req, res, next) => {
 		console.log('item name', itemName)
 		console.log('daily %', dailyPercentage)
 		console.log('amt per', amtPerServing)
-	client.hmset('Arbys', 'item', itemName, 'dailyPercentage', dailyPercentage, 'amountPerServing', amtPerServing)
+		
+		client.hmset('Arbys', 'item', itemName, 'dailyPercentage', dailyPercentage, 'amountPerServing', amtPerServing)
 	}
-	client.hgetall('Arbys', function(err, replies) {
-		console.log('replies', replies)
-	})
 }
 
 export default addHashData
