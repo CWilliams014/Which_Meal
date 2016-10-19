@@ -70,12 +70,6 @@ const TopLevelComponent = React.createClass({
 		this.setState({mealsToCompare : [], winningMeal: null, showTable: false})
 		console.log('clear meals', this.state)
 	},
-	componentDidMount() {
-		return axios.get('/restaurants').then((response) => {
-			console.log('response comp did mount', response )
-			this.setState({allMenus: response.data})
-		})
-	}, 
 
 
 	render() {
@@ -110,3 +104,11 @@ const TopLevelComponent = React.createClass({
 
 
 export default TopLevelComponent
+
+
+	// // componentDidMount() {
+	// // 	return axios.get('/restaurants').then((response) => {
+	// // 		console.log('response comp did mount', response )
+	// // 		this.setState({allMenus: response.data})
+	// // 	})
+	// }, 

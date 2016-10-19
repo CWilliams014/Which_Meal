@@ -23,12 +23,13 @@
 
 const parseScrapedData = (req, res, next) => {
 	console.log('parseScrapedData')
-		// console.log('resssssssSSSSSS', res.)
-		console.log('req menuuuuuuu', req.restaurantMenu)
+
 	let results = []
-	let reqInfo = req.restaurantMenu
+	let restaurantName = req.restaurantMenu.name
+	let reqInfo = req.restaurantMenu.menu
 	let dailyPercentageValue = {}
 	let amountPerServing = {}
+	let finalData = {} 
 	let menuItems, parsedMenu, itemName;
 
 
@@ -103,8 +104,11 @@ const parseScrapedData = (req, res, next) => {
 				restaurantFinalMenu.amountPerServing = amountPerServing
 			results.push(restaurantFinalMenu)
 		}
+		finalData.name = restaurantName
+		finalData.menu = results
 		res.send(results)
-		req.menu=results
+		req.menu=finalData
+		console.log('reqqqqqq~~~~~~~~~~~~~~', req.menu[7])
 		next()
 }
 

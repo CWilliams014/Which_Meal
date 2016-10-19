@@ -3,9 +3,15 @@ const router = express.Router()
 import getRestaurantMenu from '../controllers/fastFoodNutrition/getAllRestaurants'
 import parseScrapedData from '../../helpers/ParseScrapedData'
 import addHashData from '../controllers/redis/addData'
+import checkQueryExistence from '../controllers/redis/checkQuery'
 
 
-router.get('/', getRestaurantMenu, parseScrapedData, addHashData)
+router.get('/', 
+	checkQueryExistence, 
+	getRestaurantMenu, 
+	parseScrapedData, 
+	addHashData
+	)
 
 
 
