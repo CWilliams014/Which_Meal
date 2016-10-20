@@ -1,6 +1,8 @@
 import React from 'react'
 import { DropdownButton, MenuItem }  from 'react-bootstrap/lib'
 
+//maps over names of restaurants and creates array of MenuItem components(from react-bootstrap)
+
 const Dropdown = React.createClass({
 	render() {
 		console.log('PROPS', this.props)

@@ -10,6 +10,7 @@ import CalculateComparison from './buttons/CalculateComparison'
 import Calculate from '.././helpers/CalculateMeals'
 import axios from 'axios'
 import allRestaurantTitles from '../../data/ListOfRestaurantNames'
+import MealWrapper from './MealContainer'
 
 // Assigning each selected restaurant an id which will align with the restaurantsSelected array and 
 	//determine which mealContainer component is displaying which restaurants information
@@ -26,16 +27,16 @@ const TopLevelComponent = React.createClass({
 	        meal2: '',
 	        allMenus: [],  
 	        winningMeal: '',
-	        RestaurantID: 0
+	        showTable: false,
 	    };
 	},
 
 	selectRestaurant(e) {
+		e.preventDefault()
 		let chosenRestaurantTitle = e.target.name
 		let newRestaurantTitleSelected = this.state.restaurantsTitleSelected.slice()
 		newRestaurantTitleSelected.push(chosenRestaurantTitle)
 		this.setState({restaurantsTitleSelected : chosenRestaurantTitle})
-
 	},
 
 	findRestaurant() {
@@ -54,7 +55,7 @@ const TopLevelComponent = React.createClass({
 		let newMealsToCompare = this.state.mealsToCompare.slice()
 		if(newMealsToCompare.indexOf(item) === -1	) { 
 			newMealsToCompare.push(item)
-			this.setState({mealsToCompare: newMealsToCompare})
+			this.setState({mealsToCompare: newMealsToCompare, showTable: true})
 			console.log('STATE after row click', this.state)
 		}
 	},
@@ -66,10 +67,10 @@ const TopLevelComponent = React.createClass({
 	},
 
 	clearMeals() {
-		this.setState({mealsToCompare : [], winningMeal: null})
+		this.setState({mealsToCompare : [], winningMeal: null, showTable: false})
 		console.log('clear meals', this.state)
 	},
-	{/* loops array of objects and grabs each value, which is a long string */}
+		{/* loops array of objects and grabs each value, which is a long string */}
 	componentDidMount() {
 		return axios.get('/restaurants').then((response) => {
 			console.log('response comp did mount', response )
@@ -77,24 +78,36 @@ const TopLevelComponent = React.createClass({
 		})
 	}, 
 
+<<<<<<< HEAD
+
 	render() {
 		return (
-			<div>
-				<Table calc={this.compareMeals} 
-							 clearMeals={this.clearMeals}
-							 winningMeal={this.state.winningMeal}
-							 meals={this.state.mealsToCompare} />
-				<Winner winningMeal={this.state.winningMeal}/>
-			</div>
+			<div className="row-fluid">
+				<div className="col-xs-6">
+					<MealWrapper 
+											restaurantSelected={this.state.restaurantSelected}
+											restaurantTitles={allRestaurantTitles}	
+						 					restaurant={this.state.restaurantSelected} 
+						 					selectMeal={this.selectMeal} />
+				</div>
+				<div className="col-xs-6">
+					<MealWrapper 
+											restaurantSelected={this.state.restaurantSelected}
+											restaurantTitles={allRestaurantTitles}	
+						 					restaurant={this.state.restaurantSelected} 
+						 					selectMeal={this.selectMeal} />
+				</div>
+				{this.state.showTable &&
+					<Table calc={this.compareMeals} 
+							 	 clearMeals={this.clearMeals}
+								 winningMeal={this.state.winningMeal}
+								 meals={this.state.mealsToCompare} />
+				}
+			<Winner winningMeal={this.state.winningMeal}/>	
 		)
 	}
 })
 
+
+
 export default TopLevelComponent
-
-
-			// {this.state.restaurantsSelected.map((restaurant, index) {
-			// 	return (<MealContainer key={index} data={restaurant} />)
-			// })}
-
-// <SearchBar restaurantList={this.state.restaurants}/>

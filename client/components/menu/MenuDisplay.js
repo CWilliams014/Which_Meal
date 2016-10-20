@@ -8,7 +8,13 @@ import Table from '../compare/Table'
 //loop through menu object - sort and append data to proper position on table 
 
 const MenuDisplay = React.createClass ({
-
+<<<<<<< HEAD
+	
+	componentWillReceiveProps(nextProps) {
+		if(nextProps != this.props.menu) {
+			this.render()
+		}
+	},
 
 	render() {
 		console.log('MENU DISPLAY', this.props)
