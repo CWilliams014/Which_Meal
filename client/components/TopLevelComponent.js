@@ -1,6 +1,5 @@
 import React from 'react'
 import SearchBar from './SearchBar'
-import MealContainer from './mealContainers/MealContainer'
 import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'

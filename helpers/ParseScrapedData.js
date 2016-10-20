@@ -30,7 +30,7 @@ const parseScrapedData = (req, res, next) => {
 	let dailyPercentageValue = {}
 	let amountPerServing = {}
 	let finalData = {} 
-	let menuItems, parsedMenu, itemName;
+	let menuItems, parsedMenu, itemName, caloriesValue;
 
 
 	for(let i = 0; i < reqInfo.length; i++) {
@@ -38,10 +38,14 @@ const parseScrapedData = (req, res, next) => {
 			menuItems = reqInfo[i].Data.replace(/\s+/g, " ") 
 			parsedMenu =  menuItems.split(" ")
 			itemName = reqInfo[i].entreeName
-
 			let p = parsedMenu
+			if(p[i] === 'Calories') {
+				console.log('ccccccccc', p[i + 1])
+			}
+			console.log('paaaaarrrrrsed menu' + i, p)
+
+
 			let calories = p[8]
-			let caloriesValue = p[9]
 			let caloriesFromFat = p[10] + " " +  p[11] + " " + p[12]
 			let caloriesFromFatValue = p[13]
 			let totalFat = p[17] + " " + p[18]
@@ -108,7 +112,6 @@ const parseScrapedData = (req, res, next) => {
 		finalData.menu = results
 		res.send(results)
 		req.menu=finalData
-		console.log('reqqqqqq~~~~~~~~~~~~~~', req.menu.menu[7])
 		next()
 }
 
