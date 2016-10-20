@@ -22,14 +22,29 @@ const MenuDisplay = React.createClass ({
 
 		let columns = [
 			{key:'menu item', label: 'Menu Items'}, 
-			{key: 'calories', label: 'Calories'} , 
-			{key: 'protein', label: 'Protein'} , 
-			{key:'carbohydrates', label: 'Carbohydrates'}, 
-			{key: 'sugars', label: 'Sugar'}, 
-			{key: 'sat fat', label: 'Saturated Fat'}, 
-			{key:'trans fat', label: 'Trans Fat'}, 
-			{key: 'sodium', label: 'Sodium'},
-			{key: 'fiber', label: 'Fiber'}
+			{key: 'calories', label: 'Calories', cell: function(item) {
+				return item.amountPerServing['calories']
+			}} , 
+			{key: 'protein', label: 'Protein', cell: function(item) {
+				return (item.dailyPercentage['protein'] + ' , ' + item.amountPerServing['protein'])
+			}} , 
+			{key:'carbohydrates', label: 'Carbohydrates', cell: function(item) {
+				let carbValueCheck = item.amountPerServing['total carbs']
+				if(carbValueCheck === 'Carbohydrates') carbValueCheck = ''
+				return (item.dailyPercentage['total carbs'] + ' , ' + carbValueCheck)
+			}}, 
+			{key: 'sugars', label: 'Sugar', cell: function(item) {
+				return (item.dailyPercentage['sugars'] + ' , ' + item.amountPerServing['sugars'])
+			}}, 
+			{key: 'sat fat', label: 'Saturated Fat', cell: function(item) {
+				return (item.dailyPercentage['sat fat'] + ' , ' + item.amountPerServing['sat fat'])
+			}},  
+			{key: 'sodium', label: 'Sodium', cell: function(item) {
+				return (item.amountPerServing['sodium'])
+			}},
+			{key: 'dietary fiber', label: 'Fiber', cell: function(item) {
+				return (item.dailyPercentage['dietary fiber'] + ' , ' + item.amountPerServing['dietary fiber'])
+			}}
 			]
 		
 		return (

@@ -108,7 +108,7 @@ const parseScrapedData = (req, res, next) => {
 		finalData.menu = results
 		res.send(results)
 		req.menu=finalData
-		console.log('reqqqqqq~~~~~~~~~~~~~~', req.menu[7])
+		console.log('reqqqqqq~~~~~~~~~~~~~~', req.menu.menu[7])
 		next()
 }
 
