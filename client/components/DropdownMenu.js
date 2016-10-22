@@ -7,6 +7,7 @@ const Dropdown = React.createClass({
 	render() {
 		console.log('PROPS', this.props)
 		const props = this.props.restaurantTitles
+		
 		let names = props.sort().map((element, index) => {
 			return <MenuItem onClick={this.props.selectRestaurant} name={element} key={index}>{element}</MenuItem>
 		})
