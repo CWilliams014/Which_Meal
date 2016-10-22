@@ -1,6 +1,5 @@
 import React from 'react'
 import SearchBar from './SearchBar'
-import MealContainer from './mealContainers/MealContainer'
 import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
@@ -9,7 +8,7 @@ import Table from './compare/Table'
 import CalculateComparison from './buttons/CalculateComparison'
 import Calculate from '.././helpers/CalculateMeals'
 import axios from 'axios'
-import allRestaurantTitles from '../../data/ListOfRestaurantNames'
+import allRestaurantTitles from '../../data/fastFoodNutritionRestaurantNames'
 import MealWrapper from './MealContainer'
 
 // Assigning each selected restaurant an id which will align with the restaurantsSelected array and 
@@ -70,15 +69,7 @@ const TopLevelComponent = React.createClass({
 		this.setState({mealsToCompare : [], winningMeal: null, showTable: false})
 		console.log('clear meals', this.state)
 	},
-		{/* loops array of objects and grabs each value, which is a long string */}
-	componentDidMount() {
-		return axios.get('/restaurants').then((response) => {
-			console.log('response comp did mount', response )
-			this.setState({allMenus: response.data})
-		})
-	}, 
 
-<<<<<<< HEAD
 
 	render() {
 		return (
@@ -103,7 +94,8 @@ const TopLevelComponent = React.createClass({
 								 winningMeal={this.state.winningMeal}
 								 meals={this.state.mealsToCompare} />
 				}
-			<Winner winningMeal={this.state.winningMeal}/>	
+				<Winner winningMeal={this.state.winningMeal}/>	
+			</div>
 		)
 	}
 })
@@ -111,3 +103,11 @@ const TopLevelComponent = React.createClass({
 
 
 export default TopLevelComponent
+
+
+	// // componentDidMount() {
+	// // 	return axios.get('/restaurants').then((response) => {
+	// // 		console.log('response comp did mount', response )
+	// // 		this.setState({allMenus: response.data})
+	// // 	})
+	// }, 

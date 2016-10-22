@@ -39,7 +39,8 @@ if(env === 'development') {
 		console.log('listening on port 3000')
 	})
 
-	app.use('/restaurants', restaurants)
+	app.use('/restaurants', restaurants) 
+	
 
 	app.get('/', (req, res) => {
 	res.sendFile(dirname+ '/Public/index.html')
