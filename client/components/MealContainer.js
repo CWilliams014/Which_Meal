@@ -25,8 +25,9 @@ class MealWrapper extends React.Component {
     getRestaurantData(name) {
       let _name = name
       return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
-        let newData = response.data
-      console.log('get rest response wrapper', newData)
+        let data = response.data
+        let splicedData = data.splice(0,1)
+        console.log('get rest response wrapper', data)
       this.setState({currentMenu: response.data})
       })
     }

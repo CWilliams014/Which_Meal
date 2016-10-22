@@ -7,13 +7,9 @@ import Table from '../compare/Table'
 
 //loop through menu object - sort and append data to proper position on table 
 
+
 const MenuDisplay = React.createClass ({
-	
-	componentWillReceiveProps(nextProps) {
-		if(nextProps != this.props.menu) {
-			this.render()
-		}
-	},
+
 
 	render() {
 		console.log('MENU DISPLAY', this.props)
@@ -21,29 +17,29 @@ const MenuDisplay = React.createClass ({
 		const restaurantDisplayed = this.props.restaurant
 
 		let columns = [
-			{key:'menu item', label: 'Menu Items'}, 
+			{key:'menu item', label: 'Menu Items', cell: function(item) {
+				return item.itemName
+			}}, 
 			{key: 'calories', label: 'Calories', cell: function(item) {
-				return item.amountPerServing['calories']
+				return item.amountPerServing.calories
 			}} , 
 			{key: 'protein', label: 'Protein', cell: function(item) {
-				return (item.dailyPercentage['protein'] + ' , ' + item.amountPerServing['protein'])
+				return (item.dailyPercentageValue.proteinDV + ' , ' + item.amountPerServing.proteinValue)
 			}} , 
 			{key:'carbohydrates', label: 'Carbohydrates', cell: function(item) {
-				let carbValueCheck = item.amountPerServing['total carbs']
-				if(carbValueCheck === 'Carbohydrates') carbValueCheck = ''
-				return (item.dailyPercentage['total carbs'] + ' , ' + carbValueCheck)
+				return (item.dailyPercentageValue.totalCarbsDV + ' , ' + item.amountPerServing.totalCarbsValue)
 			}}, 
 			{key: 'sugars', label: 'Sugar', cell: function(item) {
-				return (item.dailyPercentage['sugars'] + ' , ' + item.amountPerServing['sugars'])
+				return (item.amountPerServing.sugarsValue)
 			}}, 
 			{key: 'sat fat', label: 'Saturated Fat', cell: function(item) {
-				return (item.dailyPercentage['sat fat'] + ' , ' + item.amountPerServing['sat fat'])
+				return (item.dailyPercentageValue.satFatDV + ' , ' + item.amountPerServing.satFatValue)
 			}},  
 			{key: 'sodium', label: 'Sodium', cell: function(item) {
-				return (item.amountPerServing['sodium'])
+				return (item.amountPerServing.sodiumValue + ' , ' + item.dailyPercentageValue.sodiumDV)
 			}},
 			{key: 'dietary fiber', label: 'Fiber', cell: function(item) {
-				return (item.dailyPercentage['dietary fiber'] + ' , ' + item.amountPerServing['dietary fiber'])
+				return (item.dailyPercentageValue.dietaryFiberDV + ' , ' + item.amountPerServing.dietaryFiberValue)
 			}}
 			]
 		
@@ -51,7 +47,7 @@ const MenuDisplay = React.createClass ({
 			<div>
 				<ScrollArea style={{height: '200px', border: '1px solid black'}}>
 					<div>
-						<JsonTable rows={this.props.menu} 
+						<JsonTable rows={menu} 
 											 onClickRow={this.props.selectMeal}
 											 columns={columns} />
 					</div>
