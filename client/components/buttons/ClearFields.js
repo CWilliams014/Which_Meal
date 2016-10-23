@@ -3,7 +3,7 @@ import React from 'react'
 
 const ClearFields = (props) => {
 	return (
-		<button onClick={props.clearMeals}>Clear Fields</button>
+		<button className="clear-fields-button" onClick={props.clearMeals}>Clear Fields</button>
 	)
 }
 

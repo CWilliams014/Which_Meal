@@ -41,13 +41,23 @@ const MenuDisplay = React.createClass ({
 			{key: 'dietary fiber', label: 'Fiber', cell: function(item) {
 				return (item.dailyPercentageValue.dietaryFiberDV + ' , ' + item.amountPerServing.dietaryFiberValue)
 			}}
-			]
-		
+		]
+		let settings = {
+			headerClass: function() {
+				return 'table-head'
+			},
+			rowClass : function() {
+				return 'menu-row'
+			}
+		}
+
 		return (
 			<div>
 				<ScrollArea style={{height: '200px', border: '1px solid black'}}>
 					<div>
-						<JsonTable rows={menu}
+						<JsonTable className="menu-display" 
+											 rows={menu}
+											 settings={settings}
 											 onClickRow={this.props.selectMeal}
 											 columns={columns} />
 					</div>

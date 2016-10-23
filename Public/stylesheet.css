@@ -1,4 +1,17 @@
-.Restaurant-titles {
-	color: red;
-	border: 1px solid black;
+
+
+table th {
+	padding-left: 10px;
+}
+.clear-fields-button {
+	color: blue;
+}
+.table-head {
+	color: orange;
+	overflow: auto;
+
+}
+
+.menu-row {
+	border-bottom: 1px solid black;
 }
