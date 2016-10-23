@@ -10,10 +10,10 @@ import Table from '../compare/Table'
 
 const MenuDisplay = React.createClass ({
 
-
 	render() {
 		console.log('MENU DISPLAY', this.props)
-		const menu = this.props.menu
+		const menu = this.props.menu || [] 
+
 		const restaurantDisplayed = this.props.restaurant
 
 		let columns = [
@@ -47,7 +47,7 @@ const MenuDisplay = React.createClass ({
 			<div>
 				<ScrollArea style={{height: '200px', border: '1px solid black'}}>
 					<div>
-						<JsonTable rows={menu} 
+						<JsonTable rows={menu}
 											 onClickRow={this.props.selectMeal}
 											 columns={columns} />
 					</div>

@@ -5,6 +5,7 @@ const parseData = (req, res, next) => {
 	finishedMenu.unshift(req.restName)
 	let menuArray = req.parsedMenu
 	let l = req.parsedMenu.length;
+	
 	for (var i = 0; i < l; i++) {
 		let finalEntree = {}
 		let amountPerServing = {}

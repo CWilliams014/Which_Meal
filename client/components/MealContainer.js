@@ -12,7 +12,8 @@ class MealWrapper extends React.Component {
         super(props);
         this.state = {
         	selectedRestaurant: '',
-          currentMenu: ''
+          currentMenu: '',
+          sort: false,
         }
         this.selectRestaurant = this.selectRestaurant.bind(this)
         this.getRestaurantData = this.getRestaurantData.bind(this)
@@ -27,12 +28,10 @@ class MealWrapper extends React.Component {
       return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
         let data = response.data
         let splicedData = data.splice(0,1)
-        console.log('get rest response wrapper', data)
       this.setState({currentMenu: response.data})
       })
     }
     render() {
-      console.log('meal wrapper props', this.props)
         return (
         	<div>
               <Dropdown selectRestaurant={this.selectRestaurant}
@@ -42,6 +41,7 @@ class MealWrapper extends React.Component {
               <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
 
               <MenuDisplay selectMeal={this.props.selectMeal} 
+                           sortColumn={this.sortColumn}
                            menu={this.state.currentMenu} />
         	</div>
         )
