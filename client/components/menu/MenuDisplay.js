@@ -8,15 +8,12 @@ import Table from '../compare/Table'
 //loop through menu object - sort and append data to proper position on table 
 
 
-const MenuDisplay = React.createClass ({
-
-	render() {
-		console.log('MENU DISPLAY', this.props)
+const MenuDisplay = (props) => {
+	console.log('MENU DISPLAY', this.props)
+		
 		const menu = this.props.menu || [] 
 
-		const restaurantDisplayed = this.props.restaurant
-
-		let columns = [
+		const columns = [
 			{key:'menu item', label: 'Menu Items', cell: function(item) {
 				return item.itemName
 			}}, 
@@ -42,7 +39,8 @@ const MenuDisplay = React.createClass ({
 				return (item.dailyPercentageValue.dietaryFiberDV + ' , ' + item.amountPerServing.dietaryFiberValue)
 			}}
 		]
-		let settings = {
+
+		const settings = {
 			headerClass: function() {
 				return 'table-head'
 			},
@@ -65,16 +63,7 @@ const MenuDisplay = React.createClass ({
 			</div>
 		)
 	}
-})
+
 
 
 export default MenuDisplay
-
-					// <ul>{menuItems}</ul>
-					// <ul>{calories}</ul>
-					// <ul>{protein}</ul>
-					// <ul>{carbohydrates}</ul>
-					// <ul>{sugar}</ul>
-					// <ul>{satFat}</ul>
-					// <ul>{transFat}</ul>
-					// <ul>{sodium}</ul>
