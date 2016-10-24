@@ -42,12 +42,12 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				include: [path.join(__dirname, 'Public')],
-				exclude: /node_modules/,
-				loaders: ['style', 'css', 'autoprefixer']
+				include: path.join(__dirname, 'Public'),
+				loaders: ['style', 'css']
 			},
 			{
 				test:/\.scss$/,
+				include: path.join(__dirname, 'Public'),
 				exclude:/node-modules/,
 				loaders:['style', 'css', 'sass']
 			},

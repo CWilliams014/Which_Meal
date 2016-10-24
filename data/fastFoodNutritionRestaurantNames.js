@@ -1,8 +1,7 @@
 module.exports = [
 
 		"5 Guys Burgers and Fries",
-		"Arby's",
-		"Baskin-Robbins", 
+		"Arby's", 
 		"Blimpie",
 		"Boston Market" ,
 		"Burger King" ,
@@ -11,8 +10,6 @@ module.exports = [
 		"Chipotle",
 		"Culvers" ,
 		"Dairy Queen",
-		"Domino's Pizza",
-		"Godfather's Pizza",
 		"Hardee's",
 		"Jack in the Box", 
 		"Jimmy Johns",
@@ -36,3 +33,6 @@ module.exports = [
 		"Zaxby's"
 ]
 
+		// "Baskin-Robbins",
+		// 		"Domino's Pizza",
+		// "Godfather's Pizza",

@@ -12,14 +12,16 @@ var dirname = path.join(__dirname, '/../');
 
 const env = 'development'
 
-if(env === 'development') {
+if (env === 'development') {
 	const webpack = require('webpack')
 	const webpackMiddleware = require('webpack-dev-middleware')
 	const webpackConfig = require('../webpack.config')
 	const webpackHotMiddleware = require('webpack-hot-middleware')
 	const compiler = webpack(webpackConfig)
 
-	app.use(bodyParser.urlencoded({ extended: true }));
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
 	app.use(bodyParser.json())
 
 	client.auth('asdfjk123%')
@@ -39,12 +41,11 @@ if(env === 'development') {
 		console.log('listening on port 3000')
 	})
 
-	app.use('/restaurants', restaurants) 
-	
+	app.use('/restaurants', restaurants)
+
 
 	app.get('/', (req, res) => {
-	res.sendFile(dirname+ '/Public/index.html')
+		res.sendFile(dirname + '/Public/index.html')
 	});
 
 }
-

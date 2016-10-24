@@ -5,7 +5,6 @@ import { DropdownButton, MenuItem }  from 'react-bootstrap/lib'
 
 const Dropdown = React.createClass({
 	render() {
-		console.log('PROPS', this.props)
 		const props = this.props.restaurantTitles
 		
 		let names = props.sort().map((element, index) => {
