@@ -9,9 +9,9 @@ import Table from '../compare/Table'
 
 
 const MenuDisplay = (props) => {
-	console.log('MENU DISPLAY', this.props)
+	console.log('MENU DISPLAY props', props)
 		
-		const menu = this.props.menu || [] 
+		const menu = props.menu || [] 
 
 		const columns = [
 			{key:'menu item', label: 'Menu Items', cell: function(item) {
@@ -50,16 +50,12 @@ const MenuDisplay = (props) => {
 		}
 
 		return (
-			<div>
-				<ScrollArea style={{height: '200px', border: '1px solid black'}}>
-					<div>
-						<JsonTable className="menu-display" 
-											 rows={menu}
-											 settings={settings}
-											 onClickRow={this.props.selectMeal}
-											 columns={columns} />
-					</div>
-				</ScrollArea>
+			<div className="menu-display">
+				<JsonTable className="menu-display-table" 
+									 rows={menu}
+									 settings={settings}
+									 onClickRow={props.selectMeal}
+									 columns={columns} />
 			</div>
 		)
 	}

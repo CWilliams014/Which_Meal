@@ -47,6 +47,7 @@ module.exports = {
 			},
 			{
 				test:/\.scss$/,
+				include: path.join(__dirname, 'Public'),
 				exclude:/node-modules/,
 				loaders:['style', 'css', 'sass']
 			},

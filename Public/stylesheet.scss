@@ -1,0 +1,43 @@
+
+* {
+	box-sizing: border-box;
+}
+
+.menu-display-table
+{
+	width: 500px;
+	border-collapse: collapse;
+	float: left;
+}
+.menu-display 
+{
+	float: left;
+}
+/*table header */
+.jsonHeader
+{
+	display: block;
+	width: 500px;
+	font-size: 10px;
+	overflow: auto;
+	color: #fff;
+	background: #000;
+
+}
+
+tbody
+{
+	display: block;
+	width: 500px;
+	height: 200px;
+	background: pink;
+	overflow: auto;
+}
+
+th,td
+{
+	padding: .5em 1em;
+	text-align: left;
+	vertical-align: top;
+	border-left: 1px solid #fff;
+}

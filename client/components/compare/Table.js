@@ -34,14 +34,14 @@ const Table = (props) => {
 			}}
 			]
 
-	return (
-		<div>
-			<JsonTable  rows={props.meals} columns={columns} />
-				<CalculateComparison calc={props.calc} />
-			<ClearFields clearMeals={props.clearMeals} />
-		</div>
-		)
-	}
+return (
+	<div>
+		<JsonTable  rows={props.meals} columns={columns} />
+			<CalculateComparison calc={props.calc} />
+		<ClearFields clearMeals={props.clearMeals} />
+	</div>
+	)
+}
 
 
 
