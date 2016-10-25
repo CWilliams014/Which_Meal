@@ -33,7 +33,7 @@ class MealWrapper extends React.Component {
     }
     render() {
         return (
-        	<div>
+        	<div className="meal-container">
               <Dropdown selectRestaurant={this.selectRestaurant}
                         restaurantSelected={this.props.restaurantSelected}
                         restaurantTitles={this.props.restaurantTitles} />

@@ -51,7 +51,7 @@ const MenuDisplay = (props) => {
 
 		return (
 			<div className="menu-display">
-				<JsonTable className="menu-display-table" 
+				<JsonTable className="table-striped" 
 									 rows={menu}
 									 settings={settings}
 									 onClickRow={props.selectMeal}
