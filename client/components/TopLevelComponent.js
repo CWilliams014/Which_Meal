@@ -73,27 +73,22 @@ const TopLevelComponent = React.createClass({
 
 	render() {
 		return (
-			<div className="row-fluid">
-				<div className="col-xs-6">
+			<div className="flex-container">
+				<div className="meal-wrapper 1">
 					<MealWrapper 
 											restaurantSelected={this.state.restaurantSelected}
 											restaurantTitles={allRestaurantTitles}	
 						 					restaurant={this.state.restaurantSelected} 
 						 					selectMeal={this.selectMeal} />
 				</div>
-				<div className="col-xs-6">
+				<div className="meal-wrapper 2">
 					<MealWrapper 
 											restaurantSelected={this.state.restaurantSelected}
 											restaurantTitles={allRestaurantTitles}	
 						 					restaurant={this.state.restaurantSelected} 
 						 					selectMeal={this.selectMeal} />
-
-					<Table calc={this.compareMeals} 
-							 	 clearMeals={this.clearMeals}
-								 winningMeal={this.state.winningMeal}
-								 meals={this.state.mealsToCompare} />
 				
-				<Winner winningMeal={this.state.winningMeal}/>	
+					<Winner winningMeal={this.state.winningMeal}/>	
 				</div>
 			</div>
 		)
@@ -103,6 +98,12 @@ const TopLevelComponent = React.createClass({
 
 
 export default TopLevelComponent
+
+					// <Table calc={this.compareMeals} 
+					// 		 	 clearMeals={this.clearMeals}
+					// 			 winningMeal={this.state.winningMeal}
+					// 			 meals={this.state.mealsToCompare} />
+
 
 
 	

@@ -1,5 +1,97 @@
 
-* {
+
+.flex-container {
+  display: inline-flex;
+  border: 3px solid black;
+  overflow: auto;
+  width: 100%;
+  /*flex-wrap: wrap;*/
+}
+/*.meal-container {
+  display: inline-flex;
+}*/
+.jsonCell {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.meal-wrapper.1 {
+  flex-grow: 1;
+  border-right: 1px solid blue;
+
+}
+
+.meal-wrapper {
+  margin: 10px;
+  border: 1px solid red;
+}
+
+/*.table-striped {
+  display: flex;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+}*/
+
+.table-head {
+  flex: 0 0 auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  text-align: center;
+}
+.menu-display {
+  position: relative;
+  flex: 1 1 auto;
+  padding-left: 20px;
+  flex-basis: 10px;
+  flex-grow: 2;
+  height: 300px;
+  overflow: auto;
+}
+
+
+/*.menu-display {
+	height: 200px;
+	overflow: scroll;
+}*/
+/*table header */
+/*.jsonHeader {
+	font-size: 10px;
+}*/
+
+/*.table-head {
+	padding: 6px;
+	font-size: 10px;
+}
+
+.meal-container {
+	margin-top: 30px;
+}
+
+.menu-row {
+	font-size: 10px;
+}
+/* table cell */
+/*.jsonCell {
+	padding: 10px;
+	color: red;
+}
+
+.item-dv {
+	color: black;
+}*/
+
+
+
+/* possible table implementations /*
+
+/** {
 	box-sizing: border-box;
 }
 
@@ -14,7 +106,7 @@
 	float: left;
 }
 /*table header */
-.jsonHeader
+/*.jsonHeader
 {
 	display: block;
 	width: 500px;
@@ -23,21 +115,91 @@
 	color: #fff;
 	background: #000;
 
-}
+}*/
 
-tbody
+/*tbody
 {
 	display: block;
 	width: 500px;
 	height: 200px;
+	font-size: 10px;
 	background: pink;
 	overflow: auto;
-}
+}*/
 
-th,td
+/*th,td
 {
 	padding: .5em 1em;
 	text-align: left;
 	vertical-align: top;
 	border-left: 1px solid #fff;
+}*/
+
+
+
+/*.meal-wrapper-1 {
+	float: left;
 }
+
+  table {
+    border: 1px solid #ccc;
+    width: 40%;
+    margin:0;
+    padding:0;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+  }
+
+.menu-row {
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+
+  table th, table td {
+    padding: 10px;
+    text-align: center;
+  }
+
+/*table header */
+/*.jsonHeader {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+*/
+/* responsive mobile design for tables */
+  /*@media screen and (max-width: 600px) {
+
+    table {
+      border: 0;
+    }
+
+    table thead {
+      display: none;
+    }
+
+    table tr {
+      margin-bottom: 10px;
+      display: block;
+      border-bottom: 2px solid #ddd;
+    }
+
+    table td {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+
+    table td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }*/
