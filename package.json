@@ -53,6 +53,7 @@
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.5",
     "react-json-table": "^0.1.1",
+    "react-loading": "0.0.9",
     "react-scrollbar": "^0.4.2",
     "reactable": "^0.14.0",
     "request": "^2.75.0"

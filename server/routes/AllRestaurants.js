@@ -13,7 +13,7 @@ router.get('/',
 	makeDataLegible, 
 	parseData,
 	addHashData
-	)
+)
 
 
 

@@ -14,7 +14,6 @@ module.exports = [
 		"Jack in the Box", 
 		"Jimmy Johns",
 		"KFC",
-		"Little Caesars",
 		"Long John Silver's", 
 		"McDonald's",
 		"Panda Express", 
@@ -22,7 +21,6 @@ module.exports = [
 		"Papa John's" ,
 		"Pizza Hut",
 		"Popeyes" ,
-		"Smashburger",
 		"Sonic",
 		"Starbucks",
 		"Subway", 
@@ -32,7 +30,8 @@ module.exports = [
 		"Whataburger", 
 		"Zaxby's"
 ]
-
+			// "Little Caesars",
+			//		"Smashburger",
 		// "Baskin-Robbins",
 		// 		"Domino's Pizza",
 		// "Godfather's Pizza",

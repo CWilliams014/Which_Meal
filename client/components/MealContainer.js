@@ -4,6 +4,7 @@ import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
 import Table from './compare/Table'
 import axios from 'axios'
+import Loading from 'react-loading'
 // div window component which holds restauranted choice and correct menu
 // needs to be refactored using spread operator
 
@@ -14,6 +15,7 @@ class MealWrapper extends React.Component {
         	selectedRestaurant: '',
           currentMenu: '',
           sort: false,
+          loading: false,
         }
         this.selectRestaurant = this.selectRestaurant.bind(this)
         this.getRestaurantData = this.getRestaurantData.bind(this)
@@ -24,8 +26,10 @@ class MealWrapper extends React.Component {
       this.getRestaurantData(chosen)
     }
     getRestaurantData(name) {
+      this.setState({loading: true})
       let _name = name
       return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
+        this.setState({loading: false})
         let data = response.data
         console.log('getrest data', data)
         let splicedData = data.splice(0,1)
@@ -33,7 +37,8 @@ class MealWrapper extends React.Component {
       })
     }
     render() {
-        return (
+
+return (
         	<div className="meal-container">
               <Dropdown selectRestaurant={this.selectRestaurant}
                         restaurantSelected={this.props.restaurantSelected}
@@ -46,7 +51,12 @@ class MealWrapper extends React.Component {
                            menu={this.state.currentMenu} />
         	</div>
         )
+      
     }
 }
 
 export default MealWrapper;
+
+      // if(this.state.loading) {
+      //   return (<div className="meal-container"><Loading type='balls' color='#e3e3e3'/></div>)
+      // }
