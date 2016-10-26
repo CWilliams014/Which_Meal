@@ -7,10 +7,13 @@ client.auth('asdfjk123%')
 const checkQueryExistence = (req, res, next) => {
 
 	let restName = editRestaurantTitle(req.query.id)
+	
 	//check if restaurant name has been queried before. If so immediately send results, if not continue down middleware
 
-	client.hexists(restName, null, function(error, results) {
+	client.hgetall(restName, function(error, results) {
 		console.log('hgetall restName', restName)
+		// finding results but not returning the menu (ie chipotle)
+		console.log('r', results)
 		if(error || !results) {
 			console.log('check query error', error)
 			next()
