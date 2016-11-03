@@ -1,3 +1,7 @@
+//TODO: position restaurant name
+  // order menu in efficient way 
+  // search bar for menu items
+
 import React from 'react'
 import Dropdown from './DropdownMenu'
 import SelectedRestaurant from './SelectedRestaurant'

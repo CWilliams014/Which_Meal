@@ -10,17 +10,16 @@ const checkQueryExistence = (req, res, next) => {
 	
 	//check if restaurant name has been queried before. If so immediately send results, if not continue down middleware
 
-	client.hkeys(restName, function(error, results) {
+	client.hgetall(restName, function(error, results) {
 		console.log('hgetall restName', restName)
-		// finding results but not returning the menu (ie chipotle)
-		console.log('r', results)
+
 		if(error || !results) {
 			console.log('check query error', error)
 			next()
 		} 
 		if(results && results.menu) {
 			let parsedRestaurantResults = JSON.parse(results.menu)
-			console.log('found in redis dbs')
+			console.log('found in redis dbs,')
 			res.send(parsedRestaurantResults)
 		} 
 	})
