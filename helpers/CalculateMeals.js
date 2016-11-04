@@ -3,9 +3,9 @@
 // TODO: 
 //	- add sugars and other nutrients
 //	- refactor for speed - get to O(n)
-	// - talk to nutritionist about weighing variables
-	// - allow stacking menu items
-	// - allow comparison of any # of meals
+// - talk to nutritionist about weighing variables
+// - allow stacking menu items
+// - allow comparison of any # of meals
 
 const CalculateMeals = (collection) => {
 	console.log('calculate function running', collection)
@@ -14,7 +14,6 @@ const CalculateMeals = (collection) => {
 	let proteinWeight, transWeight, sodiumWeight, carbsWeight, sugarWeight, satFatWeight, caloriesWeight;
 	let obj1Clone = JSON.parse(JSON.stringify(collection[0]));
 	let obj2Clone = JSON.parse(JSON.stringify(collection[1]));
-	let winner = []
 
 	let mealsToCalculate = [obj1Clone, obj2Clone]
 
@@ -23,12 +22,13 @@ const CalculateMeals = (collection) => {
 	// 	let currentMeal = collection[i]
 	// 	let mealsToCalculate.push(JSON.parse(JSON.stringify(currentMeal))
 	// }
-
+	let highest = Number.NEGATIVE_INFINITY
+	let lowest = Number.POSITIVE_INFINITY
+	let winner;
 
 	mealsToCalculate.forEach((element, index) => {
 		console.log('INDEX', index)
-		let highest = Number.NEGATIVE_INFINITY
-		let lowest = Number.POSITIVE_INFINITY
+
 		let temp;
 		element.score = 0;
 
@@ -101,22 +101,24 @@ const CalculateMeals = (collection) => {
 			}
 
 		}
-		if(element.score > highest) {
-			highest = element
+		console.log(element.itemName, element.score)
+		if (element.score > highest) {
+			highest = element.score
+			winner = element
 		}
-		if(element.score < lowest) {
+		if (element.score < lowest) {
 			lowest = element
 		}
 		console.log('meals calc [0]', mealsToCalculate[0])
 	})
+	console.log("HIGHEST", highest)
+	return winner
 	console.log('winner', winner)
 
 }
 
 
 
-
-
-module.exports = { CalculateMeals }
-
-
+module.exports = {
+	CalculateMeals
+}
