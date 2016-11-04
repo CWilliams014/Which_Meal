@@ -4,9 +4,9 @@ import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
-import Table from './compare/Table'
+import MealTable from './tables/MealTable'
 import CalculateComparison from './buttons/CalculateComparison'
-// import Calculate from '../.././helpers/CalculateMeals'
+const CalculateMeals = require('../../helpers/CalculateMeals.js')
 import axios from 'axios'
 import allRestaurantTitles from '../../data/fastFoodNutritionRestaurantNames'
 import MealWrapper from './MealContainer'
@@ -60,7 +60,9 @@ const TopLevelComponent = React.createClass({
 	},
 
 	compareMeals() {
-		let winner = Calculate(this.state.mealsToCompare[0], this.state.mealsToCompare[1])
+		console.log(CalculateMeals.CalculcateMeals)
+		console.log('state meals to compare', this.state.mealsToCompare)
+		let winner = CalculateMeals.CalculateMeals(this.state.mealsToCompare)
 		this.setState({winningMeal: winner})
 		console.log('compare meals top level', this.state)
 	},
@@ -87,9 +89,11 @@ const TopLevelComponent = React.createClass({
 											restaurantTitles={allRestaurantTitles}	
 						 					restaurant={this.state.restaurantSelected} 
 						 					selectMeal={this.selectMeal} />
-				
-					<Winner winningMeal={this.state.winningMeal}/>	
-				</div>
+	
+					</div>
+					<MealTable meals={this.state.mealsToCompare}
+										 calc={this.compareMeals} />
+					<Winner winningMeal={this.state.winningMeal}/>
 			</div>
 		)
 	}

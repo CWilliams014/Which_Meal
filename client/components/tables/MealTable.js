@@ -1,12 +1,13 @@
 import React from 'react'
-import createFragment from 'react-addons-create-fragment';
 import JsonTable from 'react-json-table'
 import ClearFields from '.././buttons/ClearFields'
 import CalculateComparison from '.././buttons/CalculateComparison'
 
-const Table = (props) => {
+const MealTable = (props) => {
 	console.log('table props', props)
 	let meals = props.meals || []
+	let calc = props.calc
+
 		let columns = [
 			{key:'menu item', label: 'Menu Items', cell: function(item) {
 				return item.itemName
@@ -37,7 +38,7 @@ const Table = (props) => {
 return (
 	<div>
 		<JsonTable  rows={props.meals} columns={columns} />
-			<CalculateComparison calc={props.calc} />
+			<CalculateComparison calc={calc} />
 		<ClearFields clearMeals={props.clearMeals} />
 	</div>
 	)
@@ -47,4 +48,4 @@ return (
 
 
 
-export default Table
+export default MealTable

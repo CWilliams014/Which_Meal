@@ -1,7 +1,7 @@
 import React from 'react'
 import JsonTable from 'react-json-table'
 import ScrollArea from 'react-scrollbar'
-import Table from '../compare/Table'
+import MealTable from '../tables/MealTable'
 
 // import Entree from './Entrees'
 

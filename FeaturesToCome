@@ -5,7 +5,6 @@
 
 - Incorporate Google Maps API to find nearest location for their desired food
 
-- Use redis for quick caching rather than storing restaurants in state
-
 - Enable different modes - fat burning, mental performance, hungover, muscle building, etc..
 
+- customizable meals (ie burger with extra cheese and bacon)
