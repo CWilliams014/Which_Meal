@@ -91,9 +91,11 @@ const TopLevelComponent = React.createClass({
 						 					selectMeal={this.selectMeal} />
 	
 					</div>
-					<MealTable meals={this.state.mealsToCompare}
-										 calc={this.compareMeals} />
-					<Winner winningMeal={this.state.winningMeal}/>
+					<div>
+						<MealTable meals={this.state.mealsToCompare}
+											 calc={this.compareMeals} />
+						<Winner winningMeal={this.state.winningMeal}/>
+					</div>
 			</div>
 		)
 	}
