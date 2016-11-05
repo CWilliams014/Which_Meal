@@ -2,7 +2,7 @@
   // order menu in efficient way 
   // search bar for menu items
 
-import React from 'react'
+import  React  from 'react'
 import Dropdown from './DropdownMenu'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
@@ -17,18 +17,26 @@ class MealWrapper extends React.Component {
         super(props);
         this.state = {
         	selectedRestaurant: '',
-          currentMenu: '',
+          currentMenu: [],
+          searchTerm: '',
           sort: false,
           loading: false,
         }
         this.selectRestaurant = this.selectRestaurant.bind(this)
         this.getRestaurantData = this.getRestaurantData.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
     }
     selectRestaurant(e) {
       let chosen = e.target.name
       this.setState({selectedRestaurant : chosen})
       this.getRestaurantData(chosen)
     }
+
+    handleSearch(e) {
+      console.log('handleSearchh', e.target.value)
+      this.setState({searchTerm: e.target.value })
+    }
+
     getRestaurantData(name) {
       this.setState({loading: true})
       let _name = name
@@ -37,30 +45,50 @@ class MealWrapper extends React.Component {
         let data = response.data
         console.log('getrest data', data)
         let splicedData = data.splice(0,1)
-      this.setState({currentMenu: response.data})
+        this.setState({currentMenu: response.data})
       })
     }
-    render() {
+  render() {
+    const _this = this;
+    let menu;
+    menu = this.state.currentMenu.filter(function(item, index) {
+        console.log('item', item.itemName.toLowerCase())
+        console.log('stolower', _this.state.searchTerm.toLowerCase())
+        return item.itemName.toLowerCase().indexOf(_this.state.searchTerm.toLowerCase() >= 0)
+      }) || []
+    
+    console.log('menu', menu)
 
-return (
-        	<div className="meal-container">
-              <Dropdown selectRestaurant={this.selectRestaurant}
+
+  return (
+      <div className="meal-container">
+        <Dropdown selectRestaurant={this.selectRestaurant}
                         restaurantSelected={this.props.restaurantSelected}
                         restaurantTitles={this.props.restaurantTitles} />
+        <input type="search" type="text" onChange={this.handleSearch} value={this.state.searchTerm} />                
+        
+        <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
 
-              <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
-
-              <MenuDisplay selectMeal={this.props.selectMeal} 
-                           sortColumn={this.sortColumn}
-                           menu={this.state.currentMenu} />
-        	</div>
-        )
-      
-    }
+        <MenuDisplay selectMeal={this.props.selectMeal} 
+                     sortColumn={this.sortColumn}
+                     handleSearch={this.handleSearch}
+                     searchTerm={this.state.searctTerm}
+                     menu={menu} />
+      </div>
+    )
+  }
 }
+
+
 
 export default MealWrapper;
 
-      // if(this.state.loading) {
-      //   return (<div className="meal-container"><Loading type='balls' color='#e3e3e3'/></div>)
-      // }
+    // const _this = this
+    // const menu = function() {
+    //   return this.state.currentMenu.filter(function(item, index) {
+    //     console.log('item', item.itemName.toLowerCase())
+    //     console.log('stolower', _this.state.searchTerm.toLowerCase())
+    //     return item.itemName.toLowerCase().indexOf(_this.state.searchTerm.toLowerCase() >= 0)
+    //   }) || [] }
+
+

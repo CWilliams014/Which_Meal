@@ -119,6 +119,5 @@ const CalculateMeals = (collection) => {
 
 
 
-module.exports = {
+module.exports = 
 	CalculateMeals
-}

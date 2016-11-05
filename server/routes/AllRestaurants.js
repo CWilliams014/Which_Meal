@@ -6,7 +6,6 @@ import parseData from '../../helpers/ParseData'
 import addHashData from '../controllers/redis/addData'
 import checkQueryExistence from '../controllers/redis/checkQuery'
 
-console.log('ppppppppppppparse data', parseData)
 
 router.get('/', 
 	checkQueryExistence, 

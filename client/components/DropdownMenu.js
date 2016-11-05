@@ -4,11 +4,12 @@ import { DropdownButton, MenuItem }  from 'react-bootstrap/lib'
 //maps over names of restaurants and creates array of MenuItem components(from react-bootstrap)
 
 const Dropdown = React.createClass({
+
 	render() {
-		const props = this.props.restaurantTitles
+		const {restaurantTitles, selectRestaurant} = this.props
 		
-		let names = props.sort().map((element, index) => {
-			return <MenuItem onClick={this.props.selectRestaurant} name={element} key={index}>{element}</MenuItem>
+		let names = restaurantTitles.sort().map((element, index) => {
+			return <MenuItem onClick={selectRestaurant} name={element} key={index}>{element}</MenuItem>
 		})
 
 		return (
