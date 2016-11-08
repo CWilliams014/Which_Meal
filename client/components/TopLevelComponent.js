@@ -3,7 +3,7 @@ import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
-import MealTable from './tables/MealTable'
+import MealCompareTable from './tables/MealTable'
 import CalculateComparison from './buttons/CalculateComparison'
 const CalculateMeals = require('../../helpers/CalculateMeals.js')
 import axios from 'axios'
@@ -57,24 +57,25 @@ const TopLevelComponent = React.createClass({
 
 	render() {
 		return (
-			<div className="flex-container">
-				<div className="meal-wrapper 1">
-					<MealWrapper restaurantTitles={allRestaurantTitles}
-											 restaurantTitles={allRestaurantTitles}	
-						 					 selectMeal={this.selectMeal} />
-				</div>
-				<div className="meal-wrapper 2">
-					<MealWrapper 
-											restaurantTitles={allRestaurantTitles}	
-						 					restaurant={this.state.restaurantSelected} 
-						 					selectMeal={this.selectMeal} />
-	
+			<div className="container">
+				<div className="row">
+					<div className="col-sm-6 meal-wrapper 1">
+						<MealWrapper restaurantTitles={allRestaurantTitles}
+												 restaurantTitles={allRestaurantTitles}	
+							 					 selectMeal={this.selectMeal} />
 					</div>
-					<div>
-						<MealTable meals={this.state.mealsToCompare}
+					<div className="col-sm-6 meal-wrapper 2">
+						<MealWrapper 
+												restaurantTitles={allRestaurantTitles}	
+							 					restaurant={this.state.restaurantSelected} 
+							 					selectMeal={this.selectMeal} />
+						</div>
+					</div>
+				<div className="col-sm-6">
+					<MealCompareTable meals={this.state.mealsToCompare}
 											 calc={this.compareMeals} />
-						<Winner winningMeal={this.state.winningMeal}/>
-					</div>
+					<Winner winningMeal={this.state.winningMeal}/>
+				</div>
 			</div>
 		)
 	}

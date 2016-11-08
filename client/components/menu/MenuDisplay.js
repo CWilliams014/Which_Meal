@@ -45,7 +45,8 @@ const MenuDisplay = (props) => {
 		},
 		rowClass : function() {
 			return 'menu-row'
-		}
+		},
+		noRowsMessage: 'Choose a restaurant!'
 	}
 
 	return (

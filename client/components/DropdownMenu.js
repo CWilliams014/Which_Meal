@@ -18,7 +18,7 @@ const Dropdown = React.createClass({
 
 		return (
 			<div>
-					<DropdownButton  title="Dropdown" id="bg-nested-dropdown">
+					<DropdownButton  title="Restaurants" id="bg-nested-dropdown">
 						{names}
 		    	</DropdownButton>
     	</div>
