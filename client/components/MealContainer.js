@@ -41,11 +41,12 @@ class MealWrapper extends React.Component {
 
   getRestaurantData(name) {
     this.setState({loading: true})
+    console.log('loading beffffore get call', this.state.loading)
     let _name = name
     return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
       this.setState({loading: false})
+      console.log('loading after get call', this.state.loading)
       let data = response.data
-      console.log('getrest data', data)
       let splicedData = data.splice(0,1)
       this.setState({currentMenu: response.data})
     })
@@ -76,6 +77,7 @@ class MealWrapper extends React.Component {
                      sortColumn={this.sortColumn}
                      handleSearch={this.handleSearch}
                      searchTerm={this.state.searctTerm}
+                     loading={this.state.loading}
                      menu={newMenu} />
       </div>
     )
