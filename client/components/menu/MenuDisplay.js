@@ -57,7 +57,16 @@ const MenuDisplay = (props) => {
 								 columns={columns} />
 		</div>
 	)
-	}
+}
+
+const r = React.PropTypes
+
+MenuDisplay.propTypes = {
+	handleSearch: r.func.isRequired,
+	menu: r.array,
+	searchTerm : r.string,
+	selectMeal : r.func.isRequired,
+}
 
 
 

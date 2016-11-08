@@ -7,6 +7,8 @@ const CalculateComparison = (props) => {
 	)
 }
  
-
+CalculateComparison.propTypes = {
+	calc : React.PropTypes.func
+}
 
 export default CalculateComparison

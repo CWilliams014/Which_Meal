@@ -4,6 +4,10 @@ import { DropdownButton, MenuItem }  from 'react-bootstrap/lib'
 //maps over names of restaurants and creates array of MenuItem components(from react-bootstrap)
 
 const Dropdown = React.createClass({
+	propTypes : {
+		selectRestaurant : React.PropTypes.func,
+		restaurantTitles : React.PropTypes.array
+	},
 
 	render() {
 		const {restaurantTitles, selectRestaurant} = this.props
@@ -21,6 +25,7 @@ const Dropdown = React.createClass({
     )
 	}
 })
+
 
 
 export default Dropdown

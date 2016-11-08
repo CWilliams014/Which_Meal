@@ -9,6 +9,7 @@ import MenuDisplay from './menu/MenuDisplay'
 import MealTable from './tables/MealTable'
 import axios from 'axios'
 import Loading from 'react-loading'
+import SearchBar from './search/SearchBar'
 // div window component which holds restauranted choice and correct menu
 // needs to be refactored using spread operator
 
@@ -60,16 +61,15 @@ class MealWrapper extends React.Component {
         
       if(currItem.includes(currSearch)) {
         newMenu.push(item)
-        console.log('newwwwww menu', newMenu)
       }
     }) 
   return (
       <div className="meal-container">
         <Dropdown selectRestaurant={this.selectRestaurant}
-                        restaurantSelected={this.props.restaurantSelected}
-                        restaurantTitles={this.props.restaurantTitles} />
-        <input type="search" type="text" onChange={this.handleSearch} value={this.state.searchTerm} />                
-        
+                  restaurantTitles={this.props.restaurantTitles} />
+                       
+        <SearchBar handleSearch={this.handleSearch} 
+                   val={this.state.searchTerm} />
         <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
 
         <MenuDisplay selectMeal={this.props.selectMeal} 
@@ -82,6 +82,12 @@ class MealWrapper extends React.Component {
   }
 }
 
+const r = React.PropTypes
+
+MealWrapper.proptypes = {
+  restaurantTitles : r.array,
+  selectMeal : r.func.isRequired
+}
 
 
 export default MealWrapper;

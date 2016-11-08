@@ -7,4 +7,8 @@ const ClearFields = (props) => {
 	)
 }
 
+ClearFields.propTypes = {
+	clearMeals : React.PropTypes.func
+}
+
 export default ClearFields

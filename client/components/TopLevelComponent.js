@@ -1,5 +1,4 @@
 import React from 'react'
-import SearchBar from './SearchBar'
 import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
@@ -11,7 +10,7 @@ import axios from 'axios'
 import allRestaurantTitles from '../../data/fastFoodNutritionRestaurantNames'
 import MealWrapper from './MealContainer'
 
-
+// selectRestaurant func not being used right now. But may need functionality for later reference
 
 const TopLevelComponent = React.createClass({
 	getInitialState() {
@@ -19,7 +18,6 @@ const TopLevelComponent = React.createClass({
 	        mealsToCompare: [],
 	        restaurantsTitleSelected: [],
 	        restaurantsSelected: [],
-	        menuDisplayed: '',
 	        allMenus: [],  
 	        winningMeal: '',
 	        showTable: false,
@@ -61,13 +59,12 @@ const TopLevelComponent = React.createClass({
 		return (
 			<div className="flex-container">
 				<div className="meal-wrapper 1">
-					<MealWrapper 
-											restaurantTitles={allRestaurantTitles}	
-						 					selectMeal={this.selectMeal} />
+					<MealWrapper restaurantTitles={allRestaurantTitles}
+											 restaurantTitles={allRestaurantTitles}	
+						 					 selectMeal={this.selectMeal} />
 				</div>
 				<div className="meal-wrapper 2">
 					<MealWrapper 
-											restaurantSelected={this.state.restaurantSelected}
 											restaurantTitles={allRestaurantTitles}	
 						 					restaurant={this.state.restaurantSelected} 
 						 					selectMeal={this.selectMeal} />
