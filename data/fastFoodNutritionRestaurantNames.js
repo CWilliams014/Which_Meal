@@ -7,11 +7,9 @@ module.exports = [
 		"Burger King" ,
 		"Carl's Jr",
 		"Chick-fil-A",
-		"Chipotle",
 		"Culvers" ,
 		"Dairy Queen",
 		"Hardee's",
-		"Jack in the Box", 
 		"Jimmy Johns",
 		"KFC",
 		"Long John Silver's", 
@@ -30,6 +28,8 @@ module.exports = [
 		"Whataburger", 
 		"Zaxby's"
 ]
+		// 	"Jack in the Box", 
+		// "Chipotle",
 			// "Little Caesars",
 			//		"Smashburger",
 		// "Baskin-Robbins",

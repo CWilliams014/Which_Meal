@@ -8,7 +8,7 @@ const addHashData = (req, res, next) => {
 		let restaurantName = restInfo.shift()
 		console.log('rest name', restaurantName)
 		let stringRestInfo = JSON.stringify(restInfo)
-		client.hmset(restaurantName, {"menu" : stringRestInfo}, redis.print)
+		client.hmset("restaurants", {"restaurantName" : restaurantName, "menu" : stringRestInfo}, redis.print)
 }
 
 export default addHashData

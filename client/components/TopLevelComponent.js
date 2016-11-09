@@ -16,6 +16,7 @@ const TopLevelComponent = React.createClass({
 	getInitialState() {
 	    return {
 	        mealsToCompare: [],
+	        allRestaurantMenus : {},
 	        restaurantsTitleSelected: [],
 	        restaurantsSelected: [],
 	        allMenus: [],  
@@ -37,8 +38,14 @@ const TopLevelComponent = React.createClass({
 		if(newMealsToCompare.indexOf(item) === -1	) { 
 			newMealsToCompare.push(item)
 			this.setState({mealsToCompare: newMealsToCompare, showTable: true})
-			console.log('STATE after row click', this.state)
 		}
+	},
+
+	addSelectedRestaurant(obj) {
+		console.log('received obj', obj)
+		let newRestaurantsSelected = Object.assign({}, this.state.restaurantsSelected, obj)
+		this.setState({restaurantsSelected : newRestaurantsSelected})
+		console.log('restaurant added', this.state.restaurantsSelected)
 	},
 
 	compareMeals() {
@@ -62,19 +69,26 @@ const TopLevelComponent = React.createClass({
 					<div className="col-sm-6 meal-wrapper 1">
 						<MealWrapper restaurantTitles={allRestaurantTitles}
 												 restaurantTitles={allRestaurantTitles}	
+												 restaurantsSelected={this.state.restaurantsSelected}
+												 addSelectedRestaurant={this.addSelectedRestaurant}
 							 					 selectMeal={this.selectMeal} />
 					</div>
 					<div className="col-sm-6 meal-wrapper 2">
-						<MealWrapper 
-												restaurantTitles={allRestaurantTitles}	
-							 					restaurant={this.state.restaurantSelected} 
-							 					selectMeal={this.selectMeal} />
+						<MealWrapper  addSelectedRestaurant={this.addSelectedRestaurant}
+													restaurantTitles={allRestaurantTitles}
+													restaurantsSelected={this.state.restaurantsSelected}
+							 						restaurant={this.state.restaurantSelected} 
+							 						selectMeal={this.selectMeal} />
 						</div>
 					</div>
 				<div className="col-sm-6">
+				{this.state.showTable &&
 					<MealCompareTable meals={this.state.mealsToCompare}
-											 calc={this.compareMeals} />
-					<Winner winningMeal={this.state.winningMeal}/>
+											 calc={this.compareMeals} />}
+					
+					
+						<Winner winningMeal={this.state.winningMeal}
+						/>
 				</div>
 			</div>
 		)
@@ -90,6 +104,11 @@ export default TopLevelComponent
 					// 			 winningMeal={this.state.winningMeal}
 					// 			 meals={this.state.mealsToCompare} />
 
+	// componentDidMount() {
+	// 	axios.get('/loadAll').then((response) => {
+	// 		console.log('respnoseeeee', response)
+	// 	})
+	// },
 
 
 	

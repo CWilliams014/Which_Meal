@@ -14,56 +14,69 @@ import SearchBar from './search/SearchBar'
 // needs to be refactored using spread operator
 
 class MealWrapper extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        	selectedRestaurant: '',
-          currentMenu: [],
-          searchTerm: '',
-          sort: false,
-          loading: false,
-        }
-        this.selectRestaurant = this.selectRestaurant.bind(this)
-        this.getRestaurantData = this.getRestaurantData.bind(this)
-        this.handleSearch = this.handleSearch.bind(this)
-    }
-    
-  selectRestaurant(e) {
-    let chosen = e.target.name
-    this.setState({selectedRestaurant : chosen})
-    this.getRestaurantData(chosen)
-  }
-
-  handleSearch(e) {
-    console.log('handleSearchh', e.target.value)
-    this.setState({searchTerm: e.target.value })
-  }
-
-  getRestaurantData(name) {
-    this.setState({loading: true})
-    console.log('loading beffffore get call', this.state.loading)
-    let _name = name
-    return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
-      this.setState({loading: false})
-      console.log('loading after get call', this.state.loading)
-      let data = response.data
-      let splicedData = data.splice(0,1)
-      this.setState({currentMenu: response.data})
-    })
+  constructor(props) {
+      super(props);
+      this.state = {
+      	selectedRestaurant: '',
+        currentMenu: [],
+        searchTerm: '',
+        sort: false,
+        loading: false,
+      }
+      this.selectRestaurant = this.selectRestaurant.bind(this)
+      this.getRestaurantData = this.getRestaurantData.bind(this)
+      this.handleSearch = this.handleSearch.bind(this)
   }
   
-  render() {
-    const _this = this;
-    var menu;
-    var newMenu = []
-    this.state.currentMenu.filter(function(item, index) {
-      let currItem = item.itemName.toLowerCase()
-      let currSearch = _this.state.searchTerm.toLowerCase()
-        
-      if(currItem.includes(currSearch)) {
-        newMenu.push(item)
-      }
-    }) 
+selectRestaurant(e) {
+  this.setState({loading: true, selectedRestaurant : chosen})
+  const allRests = this.props.restaurantsSelected
+  let chosen = e.target.name
+  console.log('allll rests baby', allRests[chosen])
+  
+  if(allRests.hasOwnProperty(chosen)) {
+    console.log('in there', chosen)
+    console.log('all rests', allRests.chosen)
+    this.setState({currentMenu : allRests[chosen], loading: false})
+    console.log('found', this.state.currentMenu)
+  }
+    else {
+      this.getRestaurantData(chosen)
+  }
+}
+
+handleSearch(e) {
+  this.setState({searchTerm: e.target.value })
+}
+
+getRestaurantData(name) {
+  console.log('not found', name)
+  this.setState({loading: true})
+  let restObj = {}
+  let _name = name
+  return axios.get('/restaurants', {params: { id: _name}}).then((response) => {
+    let data = response.data
+    restObj[_name] = data
+    let splicedData = data.splice(0,1)
+    this.props.addSelectedRestaurant(restObj)
+    this.setState({currentMenu: response.data, loading: false})
+    console.log('state after axio.get', this.state)
+  })
+}
+
+render() {
+  const _this = this;
+  var menu;
+  var newMenu = []
+  console.log('this.state.currentMenu', this.state.currentMenu)
+  this.state.currentMenu.filter(function(item, index) {
+    let currItem = item.itemName.toLowerCase()
+    let currSearch = _this.state.searchTerm.toLowerCase()
+      
+    if(currItem.includes(currSearch)) {
+      newMenu.push(item)
+    }
+  }) 
   return (
       <div className="meal-container">
         <Dropdown selectRestaurant={this.selectRestaurant}
