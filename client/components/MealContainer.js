@@ -10,6 +10,7 @@ import MealTable from './tables/MealTable'
 import axios from 'axios'
 import Loading from 'react-loading'
 import SearchBar from './search/SearchBar'
+import MenuNav from './navbar/MenuNav'
 // div window component which holds restauranted choice and correct menu
 // needs to be refactored using spread operator
 
@@ -76,12 +77,12 @@ render() {
   }) 
   return (
       <div className="meal-container">
-        <div className="row navbar navbar-default" data-spy="affix" data-offset-top="2" data-offset-bottom="2">
-          <Dropdown selectRestaurant={this.selectRestaurant}
-                    restaurantTitles={this.props.restaurantTitles} />
-          <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />           
-          <SearchBar handleSearch={this.handleSearch} 
-                     val={this.state.searchTerm} />
+        <div>
+          <MenuNav  selectRestaurant={this.selectRestaurant}
+                    restaurantTitles={this.props.restaurantTitles} 
+                    selectedRestaurant={this.state.selectedRestaurant}           
+                    handleSearch={this.handleSearch} 
+                    searchTerm={this.state.searchTerm} />
         </div>
 
           <MenuDisplay selectMeal={this.props.selectMeal} 
