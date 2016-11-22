@@ -5,6 +5,9 @@ const Header = () => {
 	return (
 	<div>
 		<WelcomeTitle />
+		<div>
+		<hr/>
+		</div>
 		<AppDescription />
 	</div>
 	)
