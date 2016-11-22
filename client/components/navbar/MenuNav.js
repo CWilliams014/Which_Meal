@@ -5,11 +5,14 @@ import SelectedRestaurant from '../SelectedRestaurant'
 
 const MenuNav = (props) => {
 	const {selectRestaurant, restaurantTitles, selectedRestaurant, handleSearch, searchTerm} = props
-		return (    
+		
+	return (    
 		<div className="row navbar navbar-default">      
 			<Dropdown selectRestaurant={selectRestaurant}
 	              restaurantTitles={restaurantTitles} />
+
 	    <SelectedRestaurant restToDisplay={selectedRestaurant} />           
+	    
 	    <SearchBar handleSearch={handleSearch} 
 	               val={searchTerm} />
 	  </div>

@@ -8,4 +8,8 @@ const SelectedRestaurant = (props) => {
 	)
 }
 
+SelectedRestaurant.propTypes = {
+	restToDisplay: React.PropTypes.string.isRequired
+}
+
 export default SelectedRestaurant
