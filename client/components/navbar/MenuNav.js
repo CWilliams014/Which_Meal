@@ -16,6 +16,16 @@ const MenuNav = (props) => {
   )
 }
 
+const r = React.PropTypes
+
+MenuNav.propTypes = {
+	selectRestaurant : r.func.isRequired,
+	restaurantTitles : r.array.isRequired,
+	selectedRestaurant : r.string.isRequired,
+	handleSearch : r.func.isRequired,
+	searchTerm : r.string.isRequired
+}
+
 
 
 export default MenuNav

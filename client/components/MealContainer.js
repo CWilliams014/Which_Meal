@@ -80,7 +80,7 @@ render() {
         <div>
           <MenuNav  selectRestaurant={this.selectRestaurant}
                     restaurantTitles={this.props.restaurantTitles} 
-                    selectedRestaurant={this.state.selectedRestaurant}           
+                    selectedRestaurant={this.state.selectedRestaurant}          
                     handleSearch={this.handleSearch} 
                     searchTerm={this.state.searchTerm} />
         </div>
