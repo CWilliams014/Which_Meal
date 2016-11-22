@@ -14,15 +14,15 @@ import MealWrapper from './MealContainer'
 
 const TopLevelComponent = React.createClass({
 	getInitialState() {
-	    return {
-	        mealsToCompare: [],
-	        allRestaurantMenus : {},
-	        restaurantsTitleSelected: [],
-	        restaurantsSelected: [],
-	        allMenus: [],  
-	        winningMeal: '',
-	        showTable: false,
-	    };
+    return {
+      mealsToCompare: [],
+      allRestaurantMenus : {},
+      restaurantsTitleSelected: [],
+      restaurantsSelected: [],
+      allMenus: [],  
+      winningMeal: '',
+      showTable: false,
+    };
 	},
 
 	selectRestaurant(e) {
@@ -64,7 +64,7 @@ const TopLevelComponent = React.createClass({
 
 	render() {
 		return (
-			<div className="container">
+			<div className="container-fluid">
 				<div className="row">
 					<div className="col-sm-6 meal-wrapper 1">
 						<MealWrapper restaurantTitles={allRestaurantTitles}

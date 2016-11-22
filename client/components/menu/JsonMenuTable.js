@@ -9,20 +9,24 @@ const JsonMenuTable = (props) => {
 		return 'table-head'
 	},
 	rowClass : function() {
-		return 'menu-row'
+		return 'row-centered menu-row'
 	},
 	noRowsMessage: 'Choose a restaurant!'
 	}
 
 	const columns = [
 		{key:'menu item', label: 'Menu Items', cell: function(item) {
-			return item.itemName
+			return item.itemName 
 		}}, 
 		{key: 'calories', label: 'Calories', cell: function(item) {
 			return item.amountPerServing.calories
 		}} , 
 		{key: 'protein', label: 'Protein', cell: function(item) {
-			return (item.dailyPercentageValue.proteinDV + ' , ' + item.amountPerServing.proteinValue)
+			let elemDV = item.dailyPercentageValue.proteinDV || ""
+			let elemAps = item.amountPerServing.proteinValue || ""
+			let comma = elemDV && elemAps ? " , " : ""
+			
+			return (`${elemDV}${comma}${elemAps}`)
 		}} , 
 		{key:'carbohydrates', label: 'Carbohydrates', cell: function(item) {
 			return (item.dailyPercentageValue.totalCarbsDV + ' , ' + item.amountPerServing.totalCarbsValue)

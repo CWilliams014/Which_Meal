@@ -32,11 +32,8 @@ selectRestaurant(e) {
   this.setState({loading: true, selectedRestaurant : chosen})
   const allRests = this.props.restaurantsSelected
   let chosen = e.target.name
-  console.log('allll rests baby', allRests[chosen])
   
   if(allRests.hasOwnProperty(chosen)) {
-    console.log('in there', chosen)
-    console.log('all rests', allRests.chosen)
     this.setState({currentMenu : allRests[chosen], loading: false})
     console.log('found', this.state.currentMenu)
   }
@@ -79,19 +76,22 @@ render() {
   }) 
   return (
       <div className="meal-container">
-        <Dropdown selectRestaurant={this.selectRestaurant}
-                  restaurantTitles={this.props.restaurantTitles} />
-                       
-        <SearchBar handleSearch={this.handleSearch} 
-                   val={this.state.searchTerm} />
-        <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
+        <div className="row">
+          <Dropdown selectRestaurant={this.selectRestaurant}
+                    restaurantTitles={this.props.restaurantTitles} />
+                         
+          <SearchBar handleSearch={this.handleSearch} 
+                     val={this.state.searchTerm} />
+        </div>
+          <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
 
-        <MenuDisplay selectMeal={this.props.selectMeal} 
-                     sortColumn={this.sortColumn}
-                     handleSearch={this.handleSearch}
-                     searchTerm={this.state.searctTerm}
-                     loading={this.state.loading}
-                     menu={newMenu} />
+          <MenuDisplay selectMeal={this.props.selectMeal} 
+                       sortColumn={this.sortColumn}
+                       handleSearch={this.handleSearch}
+                       searchTerm={this.state.searctTerm}
+                       loading={this.state.loading}
+                       menu={newMenu} />
+        
       </div>
     )
   }

@@ -17,10 +17,10 @@ const Dropdown = React.createClass({
 		})
 
 		return (
-			<div>
-					<DropdownButton  title="Restaurants" id="bg-nested-dropdown">
-						{names}
-		    	</DropdownButton>
+		<div className="col-sm-6">
+			<DropdownButton  title="Restaurants" id="bg-nested-dropdown">
+					{names}
+	    	</DropdownButton>
     	</div>
     )
 	}
