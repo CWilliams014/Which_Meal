@@ -9,6 +9,7 @@ const CalculateMeals = require('../../helpers/CalculateMeals.js')
 import axios from 'axios'
 import allRestaurantTitles from '../../data/fastFoodNutritionRestaurantNames'
 import MealWrapper from './MealContainer'
+import Header from './header/Header'
 
 // selectRestaurant func not being used right now. But may need functionality for later reference
 
@@ -65,31 +66,32 @@ const TopLevelComponent = React.createClass({
 	render() {
 		return (
 			<div className="container-fluid">
-				<div className="row">
-					<div className="col-sm-6 meal-wrapper 1">
-						<MealWrapper restaurantTitles={allRestaurantTitles}
-												 restaurantTitles={allRestaurantTitles}	
-												 restaurantsSelected={this.state.restaurantsSelected}
-												 addSelectedRestaurant={this.addSelectedRestaurant}
-							 					 selectMeal={this.selectMeal} />
-					</div>
-					<div className="col-sm-6 meal-wrapper 2">
-						<MealWrapper  addSelectedRestaurant={this.addSelectedRestaurant}
-													restaurantTitles={allRestaurantTitles}
-													restaurantsSelected={this.state.restaurantsSelected}
-							 						restaurant={this.state.restaurantSelected} 
-							 						selectMeal={this.selectMeal} />
+				<Header />
+					<div className="row">
+						<div className="col-sm-6 meal-wrapper 1">
+							<MealWrapper restaurantTitles={allRestaurantTitles}
+													 restaurantTitles={allRestaurantTitles}	
+													 restaurantsSelected={this.state.restaurantsSelected}
+													 addSelectedRestaurant={this.addSelectedRestaurant}
+								 					 selectMeal={this.selectMeal} />
 						</div>
+						<div className="col-sm-6 meal-wrapper 2">
+							<MealWrapper  addSelectedRestaurant={this.addSelectedRestaurant}
+														restaurantTitles={allRestaurantTitles}
+														restaurantsSelected={this.state.restaurantsSelected}
+								 						restaurant={this.state.restaurantSelected} 
+								 						selectMeal={this.selectMeal} />
+							</div>
+						</div>
+					<div className="col-sm-6">
+					{this.state.showTable &&
+						<MealCompareTable meals={this.state.mealsToCompare}
+												 calc={this.compareMeals} />}
+						
+						
+							<Winner winningMeal={this.state.winningMeal}
+							/>
 					</div>
-				<div className="col-sm-6">
-				{this.state.showTable &&
-					<MealCompareTable meals={this.state.mealsToCompare}
-											 calc={this.compareMeals} />}
-					
-					
-						<Winner winningMeal={this.state.winningMeal}
-						/>
-				</div>
 			</div>
 		)
 	}
