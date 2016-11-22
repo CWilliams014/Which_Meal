@@ -76,7 +76,7 @@ render() {
   }) 
   return (
       <div className="meal-container">
-        <div className="row">
+        <div className="row navbar navbar-default">
           <Dropdown selectRestaurant={this.selectRestaurant}
                     restaurantTitles={this.props.restaurantTitles} />
                          
