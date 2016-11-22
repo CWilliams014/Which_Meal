@@ -1,7 +1,7 @@
 $lineHeight: 15px;
 
 body {
-  font-family: Helvetica;
+  font-family: Lucida Grande;
 }
 .meal-wrapper {
   border: 1px solid pink;
@@ -15,7 +15,11 @@ body {
 .meal-container {
   max-width: 100%;
 }
-
+.navbar-default .navbar-text {
+  color: black;
+  font-family: Lucida Grande;
+  font-weight: 400;
+}
 .menu-display {
   width: 500px;
   height:200px;
@@ -35,6 +39,10 @@ body {
 .dropdown {
   height: 30px;
   padding: 10px;
+}
+
+#dropdown-menu {
+  margin-left: -10px;
 }
 
 .btn {
@@ -225,4 +233,3 @@ body {
   }*/
 
 
-  

@@ -29,9 +29,9 @@ class MealWrapper extends React.Component {
   }
   
 selectRestaurant(e) {
+  const chosen = e.target.name
   this.setState({loading: true, selectedRestaurant : chosen})
   const allRests = this.props.restaurantsSelected
-  let chosen = e.target.name
   
   if(allRests.hasOwnProperty(chosen)) {
     this.setState({currentMenu : allRests[chosen], loading: false})
@@ -76,14 +76,13 @@ render() {
   }) 
   return (
       <div className="meal-container">
-        <div className="row navbar navbar-default">
+        <div className="row navbar navbar-default" data-spy="affix" data-offset-top="2" data-offset-bottom="2">
           <Dropdown selectRestaurant={this.selectRestaurant}
                     restaurantTitles={this.props.restaurantTitles} />
-                         
+          <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />           
           <SearchBar handleSearch={this.handleSearch} 
                      val={this.state.searchTerm} />
         </div>
-          <SelectedRestaurant restToDisplay={this.state.selectedRestaurant} />
 
           <MenuDisplay selectMeal={this.props.selectMeal} 
                        sortColumn={this.sortColumn}

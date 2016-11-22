@@ -5,7 +5,7 @@
 
 .header p {
   display: inline-block;
-  font-family: Helvetica;
+  font-family: sans-serif;
   font-size: 72px;
   color: black;
   text-transform: uppercase;
@@ -60,6 +60,11 @@
   -webkit-animation-delay: 0.8s;
   font-weight: 100;
 }
+
+/*.header .meal-letter {
+  font-size: 58px;
+
+}*/
 
 /*.header:hover p {
   animation: reset 1s 1;

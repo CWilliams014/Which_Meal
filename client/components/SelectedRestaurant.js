@@ -2,7 +2,7 @@ import React from 'react'
 
 const SelectedRestaurant = (props) => {
 	return (
-		<div>
+		<div className="navbar-text">
 			{props.restToDisplay}
 		</div>
 	)
