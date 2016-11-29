@@ -19,7 +19,7 @@ const MenuDisplay = (props) => {
 		}
 
 	return (
-		<div className="table menu-display">
+		<div className="table menu-display row-fluid">
 			{util}
 		</div>
 	)

@@ -53,21 +53,31 @@ body {
 }*/
 
 .searchBar {
-  padding: 10px;
-
+  padding-top: 10px;
+  height: 34px;
 }
 
 .searchBar input {
-  font-size: 10px;
+  font-size: 14px;
   border-radius: 4px;
-  height: 30px;
+  height: 64px;
+  width: 90%;
 }
 
-/*.dropdown {
-  height: 30px;
-  padding: 10px;
-  vertical-align: middle;
-}*/
+.selected-restaurant {
+  font-size: 56px;
+}
+
+.dropdown {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+#bg-nested-dropdown {
+  font-size: 16px;
+  height: 64px;
+}
 
 #dropdown-menu {
   margin-left: -10px;

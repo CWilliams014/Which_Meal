@@ -2,7 +2,7 @@ import React from 'react'
 
 const SelectedRestaurant = (props) => {
 	return (
-		<div className="col-xs-4">
+		<div className="col-xs-4 selected-restaurant">
 			{props.restToDisplay}
 		</div>
 	)

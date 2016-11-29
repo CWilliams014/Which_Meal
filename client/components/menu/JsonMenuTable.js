@@ -47,7 +47,7 @@ const JsonMenuTable = (props) => {
 
 	return (
 		<div className="menu-display">
-			<JsonTable className="menu-table" 
+			<JsonTable className="menu-table container" 
 								 rows={menu}
 								 settings={settings}
 								 onClickRow={selectMeal}

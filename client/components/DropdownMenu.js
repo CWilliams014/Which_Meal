@@ -18,7 +18,7 @@ const Dropdown = React.createClass({
 
 		return (
 		<div className="col-xs-4">
-			<DropdownButton  title="Restaurants" id="bg-nested-dropdown">
+			<DropdownButton  bsSize="large" title="Restaurants" id="bg-nested-dropdown">
 					{names}
 	    	</DropdownButton>
     	</div>
