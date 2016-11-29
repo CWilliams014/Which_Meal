@@ -2,8 +2,8 @@ import React from 'react'
 
 const SearchBar = (props) => {
 	return (
-		<div className="searchBar col-sm-4">
-			<input type="search" className="form-control" placeholder="Search menu" type="text" onChange={props.handleSearch} value={props.val} />
+		<div className="searchBar col-xs-4">
+			<input type="search" placeholder="Search menu" type="text" onChange={props.handleSearch} value={props.val} />
 		</div>
 	)
 }

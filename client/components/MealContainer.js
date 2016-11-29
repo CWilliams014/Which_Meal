@@ -11,6 +11,7 @@ import axios from 'axios'
 import Loading from 'react-loading'
 import SearchBar from './search/SearchBar'
 import MenuNav from './navbar/MenuNav'
+import Dummy from './navbar/dummyNav'
 // div window component which holds restauranted choice and correct menu
 // needs to be refactored using spread operator
 
@@ -77,7 +78,7 @@ render() {
   }) 
   return (
       <div className="meal-container">
-        <div>
+        <div className="container">
           <MenuNav  selectRestaurant={this.selectRestaurant}
                     restaurantTitles={this.props.restaurantTitles} 
                     selectedRestaurant={this.state.selectedRestaurant}          

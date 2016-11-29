@@ -34,29 +34,23 @@ body {
 .meal-wrapper {
   border: 1px solid pink;
   overflow: auto;
+  width: 100%;
 }
 
 .meal-compare-table {
   border: 1px solid black;
 }
 
-.meal-container {
-  max-width: 100%;
-      -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
-}
+
 .navbar-default .navbar-text {
   color: black;
   font-family: Lucida Grande;
   font-weight: 400;
 }
-.menu-display {
+/*.menu-display {
   width: 500px;
   height:200px;
-}
+}*/
 
 .searchBar {
   padding: 10px;
@@ -69,10 +63,11 @@ body {
   height: 30px;
 }
 
-.dropdown {
+/*.dropdown {
   height: 30px;
   padding: 10px;
-}
+  vertical-align: middle;
+}*/
 
 #dropdown-menu {
   margin-left: -10px;

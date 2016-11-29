@@ -66,21 +66,14 @@ const TopLevelComponent = React.createClass({
 	render() {
 		return (
 			<div className="container-fluid">
+			<div className="row">
 				<Header />
-					<div className="row">
 						<div className="col-sm-6 meal-wrapper 1">
 							<MealWrapper restaurantTitles={allRestaurantTitles}
 													 restaurantTitles={allRestaurantTitles}	
 													 restaurantsSelected={this.state.restaurantsSelected}
 													 addSelectedRestaurant={this.addSelectedRestaurant}
 								 					 selectMeal={this.selectMeal} />
-						</div>
-						<div className="col-sm-6 meal-wrapper 2">
-							<MealWrapper  addSelectedRestaurant={this.addSelectedRestaurant}
-														restaurantTitles={allRestaurantTitles}
-														restaurantsSelected={this.state.restaurantsSelected}
-								 						restaurant={this.state.restaurantSelected} 
-								 						selectMeal={this.selectMeal} />
 							</div>
 						</div>
 					<div className="col-sm-6">
@@ -100,6 +93,15 @@ const TopLevelComponent = React.createClass({
 
 
 export default TopLevelComponent
+
+
+						// <div className="col-sm-6 meal-wrapper 2">
+						// 	<MealWrapper  addSelectedRestaurant={this.addSelectedRestaurant}
+						// 								restaurantTitles={allRestaurantTitles}
+						// 								restaurantsSelected={this.state.restaurantsSelected}
+						// 		 						restaurant={this.state.restaurantSelected} 
+						// 		 						selectMeal={this.selectMeal} />
+						// 	</div>
 
 					// <Table calc={this.compareMeals} 
 					// 		 	 clearMeals={this.clearMeals}
