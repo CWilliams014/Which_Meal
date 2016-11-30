@@ -1,6 +1,6 @@
 $lineHeight: 15px;
 html {
-  font-size: 80%;
+/*  font-size: 80%;*/
 }
 body {
   font-family: Lucida Grande;
@@ -38,6 +38,7 @@ body {
   overflow: auto;
   width: 100%;
   height: 500px;
+  zoom: 70%;
 }
 
 .meal-compare-table {
