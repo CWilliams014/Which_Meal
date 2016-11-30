@@ -7,17 +7,19 @@ import Dummy from './dummyNav'
 const MenuNav = (props) => {
 	const {selectRestaurant, restaurantTitles, selectedRestaurant, handleSearch, searchTerm} = props
 		
-	return (    
+	return (
+	<div>    
 		<div className="row">
      
 			<Dropdown selectRestaurant={selectRestaurant}
 	              restaurantTitles={restaurantTitles} />
 
-	    <SelectedRestaurant restToDisplay={selectedRestaurant} />           
+           
 	    
 	    <SearchBar handleSearch={handleSearch} 
 	               val={searchTerm} />
-
+	    </div>
+	    <SelectedRestaurant restToDisplay={selectedRestaurant} /> 
 	  </div>
   )
 }

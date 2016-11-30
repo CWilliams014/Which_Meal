@@ -1,5 +1,7 @@
 $lineHeight: 15px;
-
+html {
+  font-size: 80%;
+}
 body {
   font-family: Lucida Grande;
 }
@@ -35,12 +37,20 @@ body {
   border: 1px solid pink;
   overflow: auto;
   width: 100%;
+  height: 500px;
 }
 
 .meal-compare-table {
   border: 1px solid black;
 }
 
+/*.selected-restaurant {
+  text-align: left;
+  vertical-align: middle;
+  margin: auto;
+  display: inline-block;
+
+}*/
 
 .navbar-default .navbar-text {
   color: black;
@@ -52,9 +62,9 @@ body {
   height:200px;
 }*/
 
-.searchBar {
+/*.searchBar {
   padding-top: 10px;
-  height: 34px;
+
 }
 
 .searchBar input {
@@ -62,26 +72,29 @@ body {
   border-radius: 4px;
   height: 64px;
   width: 90%;
-}
+}*/
 
-.selected-restaurant {
-  font-size: 56px;
-}
+/*.selected-restaurant .rest-name {
+text-align: center;
+margin: auto;
+ }*/
 
-.dropdown {
+
+
+/*.dropdown {
   padding-top: 10px;
   padding-bottom: 10px;
 
-}
+}*/
 
-#bg-nested-dropdown {
+/*#bg-nested-dropdown {
   font-size: 16px;
   height: 64px;
-}
+}*/
 
-#dropdown-menu {
+/*#dropdown-menu {
   margin-left: -10px;
-}
+}*/
 
 .btn {
   height: 30px;
