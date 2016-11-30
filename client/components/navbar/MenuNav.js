@@ -8,18 +8,14 @@ const MenuNav = (props) => {
 	const {selectRestaurant, restaurantTitles, selectedRestaurant, handleSearch, searchTerm} = props
 		
 	return (
-	<div>    
-		<div className="row">
-     
-			<Dropdown selectRestaurant={selectRestaurant}
-	              restaurantTitles={restaurantTitles} />
-
-           
-	    
-	    <SearchBar handleSearch={handleSearch} 
-	               val={searchTerm} />
-	    </div>
-	    <SelectedRestaurant restToDisplay={selectedRestaurant} /> 
+		<div>    
+			<div className="row menu-nav">    
+				<Dropdown selectRestaurant={selectRestaurant}
+		              restaurantTitles={restaurantTitles} />   
+		    <SearchBar handleSearch={handleSearch} 
+		               val={searchTerm} />
+		  </div>
+		    <SelectedRestaurant restToDisplay={selectedRestaurant} /> 
 	  </div>
   )
 }
