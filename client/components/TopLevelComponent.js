@@ -64,10 +64,22 @@ const TopLevelComponent = React.createClass({
 
 
 	render() {
+		let selectedMeals;
+		if(this.state.showTable) {
+			selectedMeals = ( <div className="col-sm-6"> 
+													<MealCompareTable meals={this.state.mealsToCompare}
+												 										calc={this.compareMeals} /> 
+												</div>
+											)
+		}
+		else {
+			selectedMeals = (<div></div>)
+		}
 		return (
 			<div className="container-fluid">
 			<div className="row">
 				<Header />
+					{selectedMeals}
 						<div className="col-sm-6 meal-wrapper 1">
 							<MealWrapper restaurantTitles={allRestaurantTitles}
 													 restaurantTitles={allRestaurantTitles}	
@@ -76,15 +88,6 @@ const TopLevelComponent = React.createClass({
 								 					 selectMeal={this.selectMeal} />
 							</div>
 						</div>
-					<div className="col-sm-6">
-					{this.state.showTable &&
-						<MealCompareTable meals={this.state.mealsToCompare}
-												 calc={this.compareMeals} />}
-						
-						
-							<Winner winningMeal={this.state.winningMeal}
-							/>
-					</div>
 			</div>
 		)
 	}
