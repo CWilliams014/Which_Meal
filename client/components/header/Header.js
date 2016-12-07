@@ -10,7 +10,7 @@ const Header = (props) => {
 		appDescript = <div></div>
 	}
 	return (
-	<div>
+	<div className="header-wrapper container text-center">
 		<WelcomeTitle />
 
 		{appDescript}
