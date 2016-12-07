@@ -6,7 +6,6 @@ const JsonMenuTable = (props) => {
 
 	const settings = {
 		headerClass: function(currentClass, columnKey) {
-		console.log('columnKey ', columnKey)
 		if(columnKey === 'menu item') {
 			return 'table-head'
 		} else {
@@ -17,7 +16,6 @@ const JsonMenuTable = (props) => {
 		return 'row-centered menu-row'
 	},
 	cellClass: function(currentClass, columnKey, rowData) {
-		console.log('columnKey: ', columnKey)
 		if(columnKey === 'menu item') {
 			return 'pull-left'
 		}

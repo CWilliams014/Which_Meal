@@ -11,7 +11,7 @@ const MenuDisplay = (props) => {
 	let util;
 
 	if(props.loading === true) {
-		util = <div className="big">Loading...</div>
+		util = <div className="loading text-center">Loading...</div>
 	}
 		else {
 			util = <JsonMenuTable menu={menu} selectMeal={selectMeal}/>

@@ -11,6 +11,7 @@ import '../Public/searchBar.scss'
 import '../Public/menuNav.scss'
 import '../Public/selectedRestaurant.scss'
 import '../Public/MealCompareTable.scss'
+import '../Public/loading.scss'
 
 render(<TopLevelComponent />, document.getElementById('app'))
 

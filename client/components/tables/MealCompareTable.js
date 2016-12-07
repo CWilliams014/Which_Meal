@@ -11,7 +11,6 @@ const MealCompareTable = (props) => {
 
 	const settings = {
 		headerClass: function(currentClass, columnKey) {
-			console.log('columnKey ', columnKey)
 				return 'table-head'
 		},
 		rowClass : function() {
