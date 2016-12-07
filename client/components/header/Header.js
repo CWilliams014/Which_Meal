@@ -1,14 +1,19 @@
 import React from 'react'
 import WelcomeTitle from './WelcomeTitle'
 import AppDescription from './AppDescription'
-const Header = () => {
+
+const Header = (props) => {
+	let appDescript;
+	if(props.showHeader) {
+		appDescript = <AppDescription />
+	} else {
+		appDescript = <div></div>
+	}
 	return (
 	<div>
 		<WelcomeTitle />
-		<div>
-		<hr/>
-		</div>
-		<AppDescription />
+
+		{appDescript}
 	</div>
 	)
 }

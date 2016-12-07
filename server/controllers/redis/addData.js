@@ -6,8 +6,8 @@ client.auth('asdfjk123%')
 const addHashData = (req, res, next) => {
 		let restInfo = req.data
 		let restaurantName = restInfo.shift()
-		console.log('rest name', restaurantName)
 		let stringRestInfo = JSON.stringify(restInfo)
+
 		client.hmset("restaurants", {"restaurantName" : restaurantName, "menu" : stringRestInfo}, redis.print)
 }
 

@@ -1,0 +1,25 @@
+.meal-compare {
+overflow: auto;
+  width: 100%;
+  height: auto;
+  zoom: 70%;
+padding-bottom: 10px;
+/*	height: 0;*/
+}
+
+.meal-compare div.menu-table.container thead th {
+	background-color: black;
+/*  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #4a5564));
+  background-image: -moz-linear-gradient(#4a5564, #646f7f);
+  background-image: -webkit-linear-gradient(#4a5564, #646f7f);
+  background-image: linear-gradient(#4a5564, #646f7f);
+  border-top: 1px solid #858d99;*/
+}
+
+/*copied from chrome dev tools to target MealCompareTable */
+
+#app > div > div > div.container-fluid > div > table > thead > tr  > th{
+	background-color: #5962D7;
+
+}

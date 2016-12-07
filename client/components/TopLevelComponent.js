@@ -3,7 +3,7 @@ import Dropdown from './DropdownMenu'
 import Winner from './Winner'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
-import MealCompareTable from './tables/MealTable'
+import MealCompareTable from './tables/MealCompareTable'
 import CalculateComparison from './buttons/CalculateComparison'
 const CalculateMeals = require('../../helpers/CalculateMeals.js')
 import axios from 'axios'
@@ -23,6 +23,7 @@ const TopLevelComponent = React.createClass({
       allMenus: [],  
       winningMeal: '',
       showTable: false,
+      showHeader: true,
     };
 	},
 
@@ -38,7 +39,7 @@ const TopLevelComponent = React.createClass({
 		let newMealsToCompare = this.state.mealsToCompare.slice()
 		if(newMealsToCompare.indexOf(item) === -1	) { 
 			newMealsToCompare.push(item)
-			this.setState({mealsToCompare: newMealsToCompare, showTable: true})
+			this.setState({mealsToCompare: newMealsToCompare, showTable: true, showHeader: false})
 		}
 	},
 
@@ -65,16 +66,18 @@ const TopLevelComponent = React.createClass({
 
 	render() {
 		let selectedMeals;
+		let header;
 		if(this.state.showTable) {
-			selectedMeals = ( <div className="col-sm-6"> 
+			selectedMeals = ( <div className="container-fluid text-center"> 
 													<MealCompareTable meals={this.state.mealsToCompare}
 												 										calc={this.compareMeals} /> 
 												</div>
 											)
-		}
-		else {
+		}	else {
 			selectedMeals = (<div></div>)
 		}
+
+		if(this.state.showHeader) { selectedMeals = (<Header/>) }
 		return (
 			<div className="container-fluid">
 			<div className="row">

@@ -6,9 +6,11 @@ import '../Public/header.scss'
 import '../Public/AppDescription.scss'
 import '../Public/mealContainer.scss'
 import '../Public/menuTable.css'
-import '../Public/dropdown.scss'
+import '../Public/buttons.scss'
 import '../Public/searchBar.scss'
 import '../Public/menuNav.scss'
 import '../Public/selectedRestaurant.scss'
+import '../Public/MealCompareTable.scss'
 
 render(<TopLevelComponent />, document.getElementById('app'))
+

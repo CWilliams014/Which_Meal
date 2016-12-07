@@ -2,6 +2,7 @@ import React from 'react'
 import JsonTable from 'react-json-table'
 import ClearFields from '.././buttons/ClearFields'
 import CalculateComparison from '.././buttons/CalculateComparison'
+import ButtonsWrapper from '.././buttons/ButtonsWrapper'
 
 const MealCompareTable = (props) => {
 	console.log('table props', props)
@@ -36,10 +37,9 @@ const MealCompareTable = (props) => {
 	]
 
 return (
-	<div className="meal-compare-table">
-		<JsonTable  rows={props.meals} columns={columns} />
-			<CalculateComparison calc={calc} />
-		<ClearFields clearMeals={props.clearMeals} />
+	<div className="meal-compare">
+		<JsonTable  className="menu-table container" id="menu-compare-table" rows={props.meals} columns={columns} />
+			<ButtonsWrapper />
 	</div>
  )
 }
@@ -50,9 +50,6 @@ MealCompareTable.propTypes = {
 	meals: r.array,
 	calc: r.func.isRequired
 }
-
-
-
 
 
 export default MealCompareTable

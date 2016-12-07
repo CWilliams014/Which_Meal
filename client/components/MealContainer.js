@@ -6,7 +6,6 @@ import  React  from 'react'
 import Dropdown from './DropdownMenu'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
-import MealTable from './tables/MealTable'
 import axios from 'axios'
 import Loading from 'react-loading'
 import SearchBar from './search/SearchBar'
@@ -107,7 +106,7 @@ MealWrapper.proptypes = {
 
 
 export default MealWrapper;
-
+ 
     // const _this = this
     // const menu = function() {
     //   return this.state.currentMenu.filter(function(item, index) {

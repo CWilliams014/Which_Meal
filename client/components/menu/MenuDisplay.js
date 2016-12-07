@@ -1,8 +1,7 @@
 import React from 'react'
 import JsonMenuTable from './JsonMenuTable'
-import MealTable from '../tables/MealTable'
 import  Loading  from 'react-loading'
-import LoadSpinner from '../Spinner'
+ 
 
 //loop through menu object - sort and append data to proper position on table 
 

@@ -3,7 +3,7 @@ import React from 'react'
 
 const CalculateComparison = (props) => {
 	return (
-		<button onClick={props.calc}>COMPARE</button>
+		<button role="button" id="button" className="btn btn-default btn-lg" onClick={props.calc}>Compare! </button>
 	)
 }
  
