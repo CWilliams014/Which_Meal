@@ -5,8 +5,13 @@ const JsonMenuTable = (props) => {
 	const {menu, selectMeal } = props
 
 	const settings = {
-	headerClass: function() {
-		return 'table-head'
+		headerClass: function(currentClass, columnKey) {
+		console.log('columnKey ', columnKey)
+		if(columnKey === 'menu item') {
+			return 'table-head'
+		} else {
+				return 'table-head'
+		}
 	},
 	rowClass: function() {
 		return 'row-centered menu-row'

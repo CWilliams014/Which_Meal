@@ -18,14 +18,19 @@ table.menu-table {
     border-radius: 5px;
     min-width: 160px;
 }
-      
+
+/* pulls 'Menu items' column left */    
+.menu-table > thead > tr > th:nth-child(1) {
+  text-align: left;
+}
+
 .menu-table thead th {
 
     font-size: 16px;
     font-weight: 400;
     color: #fff;
 /*            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);*/
-    text-align: left;
+    text-align: center;
     padding: 20px;
     background-size: 100%;
 /*  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #4a5564));
@@ -35,6 +40,10 @@ table.menu-table {
     background-color: #5484A4;
     border-top: 1px solid #858d99;
 }
+
+/*.menu-table thead tr:first-child th {
+  text-align: left;
+}*/
 
 .menu-table thead th:first-child {
     -moz-border-top-right-radius: 5px;
@@ -116,6 +125,11 @@ table.menu-table {
         width: 100%;
     }
 }
+.menu-table > thead > tr > th:nth-child(1) {
+
+}
+
+
 
 
 

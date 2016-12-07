@@ -10,14 +10,14 @@ const MealCompareTable = (props) => {
 	let calc = props.calc
 
 	const settings = {
-		headerClass: function() {
-			return 'table-head'
+		headerClass: function(currentClass, columnKey) {
+			console.log('columnKey ', columnKey)
+				return 'table-head'
 		},
 		rowClass : function() {
 			return 'row-centered menu-row'
 		},
 		cellClass: function(currentClass, columnKey, rowData) {
-			console.log('columnKey: ', columnKey)
 			if(columnKey === 'menu item') {
 				return 'pull-left'
 			}
