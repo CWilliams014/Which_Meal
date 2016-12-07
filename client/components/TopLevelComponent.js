@@ -73,24 +73,22 @@ const TopLevelComponent = React.createClass({
 												 										calc={this.compareMeals} /> 
 												</div>
 											)
-		}	else {
-			selectedMeals = (<div></div>)
-		}
+		}	else { selectedMeals = (<div></div>) }
 
-		if(this.state.showHeader) { selectedMeals = (<Header/>) }
+
 		return (
 			<div className="container-fluid">
 			<div className="row">
-				<Header />
-					{selectedMeals}
-						<div className="col-sm-6 meal-wrapper 1">
-							<MealWrapper restaurantTitles={allRestaurantTitles}
-													 restaurantTitles={allRestaurantTitles}	
-													 restaurantsSelected={this.state.restaurantsSelected}
-													 addSelectedRestaurant={this.addSelectedRestaurant}
-								 					 selectMeal={this.selectMeal} />
-							</div>
-						</div>
+				<Header showHeader={this.state.showHeader} />
+				{selectedMeals}
+				<div className="col-sm-6 meal-wrapper 1">
+					<MealWrapper restaurantTitles={allRestaurantTitles}
+											 restaurantTitles={allRestaurantTitles}	
+											 restaurantsSelected={this.state.restaurantsSelected}
+											 addSelectedRestaurant={this.addSelectedRestaurant}
+						 					 selectMeal={this.selectMeal} />
+					</div>
+				</div>
 			</div>
 		)
 	}
