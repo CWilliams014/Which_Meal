@@ -9,7 +9,22 @@ const MealCompareTable = (props) => {
 	let meals = props.meals || []
 	let calc = props.calc
 
-	let columns = [
+	const settings = {
+		headerClass: function() {
+			return 'table-head'
+		},
+		rowClass : function() {
+			return 'row-centered menu-row'
+		},
+		cellClass: function(currentClass, columnKey, rowData) {
+			console.log('columnKey: ', columnKey)
+			if(columnKey === 'menu item') {
+				return 'pull-left'
+			}
+		}
+	}
+
+	const columns = [
 		{key:'menu item', label: 'Menu Items', cell: function(item) {
 			return item.itemName
 		}}, 
@@ -38,7 +53,7 @@ const MealCompareTable = (props) => {
 
 return (
 	<div className="meal-compare">
-		<JsonTable  className="menu-table container" id="menu-compare-table" rows={props.meals} columns={columns} />
+		<JsonTable  settings={settings} className="menu-table container" id="menu-compare-table" rows={props.meals} columns={columns} />
 			<ButtonsWrapper />
 	</div>
  )

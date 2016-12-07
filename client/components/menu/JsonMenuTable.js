@@ -8,8 +8,14 @@ const JsonMenuTable = (props) => {
 	headerClass: function() {
 		return 'table-head'
 	},
-	rowClass : function() {
+	rowClass: function() {
 		return 'row-centered menu-row'
+	},
+	cellClass: function(currentClass, columnKey, rowData) {
+		console.log('columnKey: ', columnKey)
+		if(columnKey === 'menu item') {
+			return 'pull-left'
+		}
 	},
 	noRowsMessage: 'Choose a restaurant!'
 	}
@@ -47,7 +53,7 @@ const JsonMenuTable = (props) => {
 
 	return (
 		<div className="menu-display">
-			<JsonTable className="menu-table container" 
+			<JsonTable className="menu-table container text-center" 
 								 rows={menu}
 								 settings={settings}
 								 onClickRow={selectMeal}
