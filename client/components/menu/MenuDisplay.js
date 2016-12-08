@@ -1,19 +1,16 @@
 import React from 'react'
 import JsonMenuTable from './JsonMenuTable'
-import  Loading  from 'react-loading'
- 
+import Loading from '.././loading/Loading'
 
 //loop through menu object - sort and append data to proper position on table 
 
 const MenuDisplay = (props) => {
-	console.log('MenuDisplay props : ', props)
-	const {menu, selectMeal} = props
+	const {menu, selectMeal, loading} = props
 	let util;
 
-	if(props.loading === true) {
-		util = <div className="loading text-center">Loading...</div>
-	}
-		else {
+	if(loading === true) {
+		util = <Loading />
+	}	else {
 			util = <JsonMenuTable menu={menu} selectMeal={selectMeal}/>
 		}
 
