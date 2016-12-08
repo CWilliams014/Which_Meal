@@ -41,7 +41,8 @@ module.exports = {
 				test:/\.js$/,
 				include: [
 					path.join(__dirname, 'client'),
-					path.join(__dirname, 'server')
+					path.join(__dirname, 'server'),
+					path.join(__dirname, 'test')
 				],
 				exclude: /node_modules/,
 				loaders: ['react-hot', 'babel']
@@ -64,6 +65,14 @@ module.exports = {
 			}
 		]
 	},
+
+	externals: {
+		'cheerio': 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
+	},
+
 	resolve: {
 		extentions: ['', '.js']
 	}

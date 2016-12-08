@@ -11,16 +11,16 @@ const JsonMenuTable = (props) => {
 		} else {
 				return 'table-head'
 		}
-	},
-	rowClass: function() {
-		return 'row-centered menu-row'
-	},
-	cellClass: function(currentClass, columnKey, rowData) {
-		if(columnKey === 'menu item') {
-			return 'pull-left'
-		}
-	},
-	noRowsMessage: 'Choose a restaurant!'
+		},
+		rowClass: function() {
+			return 'row-centered menu-row'
+		},
+		cellClass: function(currentClass, columnKey, rowData) {
+			if(columnKey === 'menu item') {
+				return 'pull-left'
+			}
+		},
+		noRowsMessage: 'Choose a restaurant!'
 	}
 
 	const columns = [
