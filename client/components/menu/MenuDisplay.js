@@ -6,7 +6,7 @@ import  Loading  from 'react-loading'
 //loop through menu object - sort and append data to proper position on table 
 
 const MenuDisplay = (props) => {
-
+	console.log('MenuDisplay props : ', props)
 	const {menu, selectMeal} = props
 	let util;
 

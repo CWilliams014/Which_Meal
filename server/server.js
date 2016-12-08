@@ -6,9 +6,7 @@ const restaurants = require('./routes/getRestaurant.js')
 import getRestaurants from './controllers/fastFoodNutrition/getAllRestaurants'
 import loadAll from './controllers/redis/getAllRestaurants'
 const {redis, client} = require('.././helpers/redis/redis.Config')
-
-var dirname = path.join(__dirname, '/../');
-
+const dirname = path.join(__dirname, '/../');
 
 const env = 'development'
 

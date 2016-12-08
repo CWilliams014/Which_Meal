@@ -2,7 +2,6 @@ import React from 'react'
 import SearchBar from '../search/SearchBar'
 import Dropdown from '../DropdownMenu'
 import SelectedRestaurant from '../SelectedRestaurant'
-import Dummy from './dummyNav'
 
 const MenuNav = (props) => {
 	const {selectRestaurant, restaurantTitles, selectedRestaurant, handleSearch, searchTerm} = props

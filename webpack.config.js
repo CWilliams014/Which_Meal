@@ -31,6 +31,11 @@ module.exports = {
 	},
 
 	module: {
+		preLoaders: [
+      { test: /\.json$/, 
+      	loader: 'json'
+      },
+    ],
 		loaders: [
 			{
 				test:/\.js$/,
@@ -38,6 +43,7 @@ module.exports = {
 					path.join(__dirname, 'client'),
 					path.join(__dirname, 'server')
 				],
+				exclude: /node_modules/,
 				loaders: ['react-hot', 'babel']
 			},
 			{
@@ -48,7 +54,7 @@ module.exports = {
 			{
 				test:/\.scss$/,
 				include: path.join(__dirname, 'Public'),
-				exclude:/node-modules/,
+				exclude:/node_modules/,
 				loaders:['style', 'css', 'sass']
 			},
 			{

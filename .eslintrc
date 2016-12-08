@@ -19,7 +19,6 @@
   	},
 
     "rules": {
-        "max-len": [1, 90, 2, {ignoreComments: true}],
         "no-var": 1,
         "react/jsx-key": 1,
         "no-console": 0
