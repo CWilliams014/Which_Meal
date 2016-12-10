@@ -3,7 +3,6 @@ import WelcomeTitle from './WelcomeTitle'
 import AppDescription from './AppDescription'
 
 const Header = (props) => {
-	console.log('header props :')
 	return (
 		<div className="header-wrapper container text-center">
 			<WelcomeTitle />

@@ -96,7 +96,7 @@ class MealWrapper extends React.Component {
 const r = React.PropTypes
 
 MealWrapper.proptypes = {
-  restaurantTitles : r.array,
+  restaurantTitles : r.array.isRequired,
   selectMeal : r.func.isRequired
 }
 

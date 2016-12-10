@@ -6,7 +6,6 @@ import { DropdownButton, MenuItem }  from 'react-bootstrap/lib'
 const Dropdown = (props) => {
 
 	const {restaurantTitles, selectRestaurant} = props
-	console.log('Dropdown props', props)
 
 	let names = restaurantTitles.sort().map((element, index) => {
 		return <MenuItem onClick={selectRestaurant} name={element} key={index}>{element}</MenuItem>
@@ -22,8 +21,8 @@ const Dropdown = (props) => {
 }
 
 Dropdown.propTypes = {
-		selectRestaurant : React.PropTypes.func,
-		restaurantTitles : React.PropTypes.array
+		selectRestaurant : React.PropTypes.func.isRequired,
+		restaurantTitles : React.PropTypes.array.isRequired
 	}
 
 

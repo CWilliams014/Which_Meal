@@ -25,11 +25,10 @@ const MenuDisplay = (props) => {
 const r = React.PropTypes
 
 MenuDisplay.propTypes = {
-	handleSearch: r.func.isRequired,
 	loading: r.bool,
-	menu: r.array,
+	menu: r.array.isRequired,
 	searchTerm : r.string,
-	selectMeal : r.func.isRequired,
+	selectMeal : r.func.isRequired
 }
 
 

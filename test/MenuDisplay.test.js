@@ -6,13 +6,6 @@ import TestUtils from 'react-addons-test-utils'
 import { expect } from 'chai'
 const { shallow } = require('enzyme');
 
-
-describe('test test 12 12 />', () => {
-	it('should pass test', () => {
-		expect(1 + 1).to.equal(2);
-	})
-})
-
 describe('MenuDisplay />', () => {
 	it('should render <Loading /> if props.loading = true', () => {
 		const wrapper = shallow(<MenuDisplay loading={true}/>)

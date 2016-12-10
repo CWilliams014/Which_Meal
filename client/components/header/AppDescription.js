@@ -1,9 +1,9 @@
 import React from 'react'
 
 const AppDescription = (props) => {
-	if(!props.showHeader) {
-		return (<div></div>)
-	}
+	
+	if(!props.showHeader) { return (<div></div>) }
+
 	return (
 		<div className="app-description">
 			<p className="app-description 1">Choose a restaurant</p>

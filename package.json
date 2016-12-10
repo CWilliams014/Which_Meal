@@ -1,8 +1,8 @@
 {
   "name": "webpack-starter-setup",
   "version": "1.0.0",
-  "description": "webpack setup boilerplate",
-  "main": "webpack-production.config.js",
+  "description": "which meal",
+  "main": "webpack.config.js",
   "scripts": {
     "start": "nodemon --watch server --exec babel-node -- server/server.js",
     "lint": "node_modules/.bin/eslint webpack.config.* client",
