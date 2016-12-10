@@ -4,7 +4,7 @@ import JsonMenuTable from '.././client/components/menu/JsonMenuTable'
 import Loading from '.././client/components/loading/Loading'
 import TestUtils from 'react-addons-test-utils'
 import { expect } from 'chai'
-const { shallow } = require('enzyme');
+import  { shallow } from 'enzyme'
 
 describe('MenuDisplay />', () => {
 	it('should render <Loading /> if props.loading = true', () => {
