@@ -5,16 +5,14 @@ import CalculateComparison from '.././buttons/CalculateComparison'
 import ButtonsWrapper from '.././buttons/ButtonsWrapper'
 import tableColumns from '../../.././lib/TableColumns'
 
-const MealCompareTable = (props) => {
-	console.log('table props', props)
-	let meals = props.meals || []
-	let calc = props.calc
+const columns = tableColumns
 
-	const settings = {
+const settings = {
 		headerClass: function(currentClass, columnKey) {
 				return 'table-head'
 		},
-		rowClass : function() {
+		rowClass : function(currentClass, columnKey) {
+			console.log('currentClass :', currentClass, 'columnKey :', columnKey)
 			return 'row-centered menu-row'
 		},
 		cellClass: function(currentClass, columnKey, rowData) {
@@ -24,22 +22,72 @@ const MealCompareTable = (props) => {
 		}
 	}
 
-	const columns = tableColumns
+class MealCompareTable  extends React.Component {
+	constructor(props) {
+		super(props)
 
-return (
-	<div className="meal-compare">
-		<JsonTable  settings={settings} className="menu-table container" id="menu-compare-table" rows={props.meals} columns={columns} />
-			<ButtonsWrapper />
-	</div>
- )
+		this.state = {
+			color: 'red',
+		}
+	}
+
+	componentDidMount() {
+		console.log(this.node.onClickRow)
+	}
+
+	highlight(e, item) {
+		this.onClickRow(item)
+	}
+	sett () {
+		return {
+			headerClass: function(currentClass, columnKey) {
+				return 'table-head'
+		},
+		rowClass : function(currentClass, columnKey) {
+			console.log('currentClass :', currentClass, 'columnKey :', columnKey)
+				return 'row-centered menu-row'
+		},
+		cellClass: function(currentClass, columnKey, rowData) {
+			if(columnKey === 'menu item') {
+					return 'pull-left'
+				}
+			}
+		}
+	}
+
+render() {
+	return (
+		<div className="meal-compare">
+			<JsonTable  settings={settings} ref={node => this.node = node} className="menu-table container" id="menu-compare-table" rows={this.props.meals} columns={columns} />
+				<ButtonsWrapper compare={this.props.compare} clear={this.props.clear} />
+		</div>
+	 )
+	}
 }
 
 const r = React.PropTypes 
 
 MealCompareTable.propTypes = {
-	meals: r.array,
-	calc: r.func.isRequired
+	meals: r.array.isRequired,
+	compare: r.func.isRequired,
+	clear: r.func.isRequired
 }
 
 
 export default MealCompareTable
+
+
+	
+	//  settings = {
+	// 	headerClass: function(currentClass, columnKey) {
+	// 			return 'table-head'
+	// 	},
+	// 	rowClass : function() {
+	// 		return 'row-centered menu-row'
+	// 	},
+	// 	cellClass: function(currentClass, columnKey, rowData) {
+	// 		if(columnKey === 'menu item') {
+	// 			return 'pull-left'
+	// 		}
+	// 	}
+	// }

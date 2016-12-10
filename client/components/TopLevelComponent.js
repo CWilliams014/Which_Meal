@@ -50,11 +50,10 @@ const TopLevelComponent = React.createClass({
 
 
 	render() {
-		let selectedMeals;
-		let header;
+		let selectedMeals, header;
 
 		if(this.state.showTable) {
-			selectedMeals = ( <div className="container-fluid text-center"> <MealCompareTable meals={this.state.mealsToCompare} calc={this.compareMeals} /> </div> )
+			selectedMeals = ( <div className="container-fluid text-center"> <MealCompareTable compare={this.compareMeals} meals={this.state.mealsToCompare} clear={this.clearMeals} /> </div> )
 		}	else { selectedMeals = (<div></div>) }
 
 

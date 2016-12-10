@@ -2,6 +2,8 @@ import React from 'react'
 import JsonTable from 'react-json-table'
 import tableColumns from '../../.././lib/TableColumns'
 
+
+
 const JsonMenuTable = (props) => {
 	const {menu, selectMeal } = props
 

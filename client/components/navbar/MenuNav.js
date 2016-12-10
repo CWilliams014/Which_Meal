@@ -4,6 +4,7 @@ import Dropdown from '../DropdownMenu'
 import SelectedRestaurant from '../SelectedRestaurant'
 
 const MenuNav = (props) => {
+	
 	const {selectRestaurant, restaurantTitles, selectedRestaurant, handleSearch, searchTerm} = props
 		
 	return (

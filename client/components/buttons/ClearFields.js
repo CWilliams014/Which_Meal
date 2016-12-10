@@ -2,13 +2,14 @@ import React from 'react'
 
 
 const ClearFields = (props) => {
+	const { clear } = props
 	return (
-		<button role="button" id="buttons" className="btn btn-default btn-lg" onClick={props.clearMeals}>Clear</button>
+		<button role="button" id="buttons" className="btn btn-default btn-lg" onClick={clear}>Clear</button>
 	)
 }
 
 ClearFields.propTypes = {
-	clearMeals : React.PropTypes.func
+	clear : React.PropTypes.func.isRequired
 }
 
 export default ClearFields
