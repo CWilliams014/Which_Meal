@@ -43,8 +43,13 @@ body {
 .meal-compare-table {
   border: 1px solid black;
 }
-.winner {
-  background-color: red !important;
+.winner td {
+  background-color: #070B3E !important;
+  color: white !important;
+  float: none !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+
 }
 
 /*.selected-restaurant {

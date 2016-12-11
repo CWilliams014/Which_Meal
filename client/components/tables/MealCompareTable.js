@@ -16,13 +16,6 @@ class MealCompareTable  extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		console.log('winner comp did mount', this.props.winner)
-	}
-
-	highlight(e, item) {
-		this.onClickRow(item)
-	}
 	settings () {
 		const _this = this
 		return {
@@ -52,8 +45,7 @@ render() {
 	return (
 		<div className="meal-compare">
 			<JsonTable  settings={this.settings()} ref={node => this.node = node} className="menu-table container" id="menu-compare-table" rows={this.props.meals} columns={columns} />
-				<ButtonsWrapper compare={this.props.compare} clear={this.props.clear} />
-				<p>{w}</p>
+			<ButtonsWrapper compare={this.props.compare} clear={this.props.clear} />
 		</div>
 	 )
 	}
