@@ -7,45 +7,37 @@ import tableColumns from '../../.././lib/TableColumns'
 
 const columns = tableColumns
 
-const settings = {
-		headerClass: function(currentClass, columnKey) {
-				return 'table-head'
-		},
-		rowClass : function(currentClass, columnKey) {
-			console.log('currentClass :', currentClass, 'columnKey :', columnKey)
-			return 'row-centered menu-row'
-		},
-		cellClass: function(currentClass, columnKey, rowData) {
-			if(columnKey === 'menu item') {
-				return 'pull-left'
-			}
-		}
-	}
-
 class MealCompareTable  extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			color: 'red',
+			class: 'winner',
 		}
 	}
 
 	componentDidMount() {
-		console.log(this.node.onClickRow)
+		console.log('winner comp did mount', this.props.winner)
 	}
 
 	highlight(e, item) {
 		this.onClickRow(item)
 	}
-	sett () {
+	settings () {
+		const _this = this
 		return {
 			headerClass: function(currentClass, columnKey) {
 				return 'table-head'
 		},
 		rowClass : function(currentClass, columnKey) {
-			console.log('currentClass :', currentClass, 'columnKey :', columnKey)
+			if(columnKey.itemName === _this.props.winner.itemName) {
+				console.log('column key', columnKey)
+				console.log('props.winner', _this.props.winner.itemName)
+				return 'winner'
+			} else {
+			
 				return 'row-centered menu-row'
+			}
 		},
 		cellClass: function(currentClass, columnKey, rowData) {
 			if(columnKey === 'menu item') {
@@ -56,10 +48,12 @@ class MealCompareTable  extends React.Component {
 	}
 
 render() {
+	const w = JSON.stringify(this.props.winner)
 	return (
 		<div className="meal-compare">
-			<JsonTable  settings={settings} ref={node => this.node = node} className="menu-table container" id="menu-compare-table" rows={this.props.meals} columns={columns} />
+			<JsonTable  settings={this.settings()} ref={node => this.node = node} className="menu-table container" id="menu-compare-table" rows={this.props.meals} columns={columns} />
 				<ButtonsWrapper compare={this.props.compare} clear={this.props.clear} />
+				<p>{w}</p>
 		</div>
 	 )
 	}

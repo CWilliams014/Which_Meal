@@ -8,26 +8,16 @@
 // - allow comparison of any # of meals
 
 const CalculateMeals = (collection) => {
-	console.log('calculate function running', collection)
-
 
 	let proteinWeight, transWeight, sodiumWeight, carbsWeight, sugarWeight, satFatWeight, caloriesWeight;
 	let obj1Clone = JSON.parse(JSON.stringify(collection[0]));
 	let obj2Clone = JSON.parse(JSON.stringify(collection[1]));
-
 	let mealsToCalculate = [obj1Clone, obj2Clone]
-
-	// for(let i = 0; i < collection.length; i++) {
-	// 	console.log('collection i', collection[i])
-	// 	let currentMeal = collection[i]
-	// 	let mealsToCalculate.push(JSON.parse(JSON.stringify(currentMeal))
-	// }
 	let highest = Number.NEGATIVE_INFINITY
 	let lowest = Number.POSITIVE_INFINITY
 	let winner;
-
+	
 	mealsToCalculate.forEach((element, index) => {
-		console.log('INDEX', index)
 
 		let temp;
 		element.score = 0;
@@ -101,13 +91,14 @@ const CalculateMeals = (collection) => {
 			}
 
 		}
-		console.log(element.itemName, element.score)
 		if (element.score > highest) {
 			highest = element.score
 			winner = element
+			console.log('winning', winner)
 		}
 		if (element.score < lowest) {
 			lowest = element
+			console.log('lowest', lowest)
 		}
 		console.log('meals calc [0]', mealsToCalculate[0])
 	})
