@@ -12,7 +12,7 @@ const Dropdown = (props) => {
 	})
 
 	return (
-		<div className="col-xs-4">
+		<div className="col-xs-4 dropdown-wrapper">
 			<DropdownButton  bsSize="large" title="Restaurants" id="bg-nested-dropdown">
 				{names}
     	</DropdownButton>

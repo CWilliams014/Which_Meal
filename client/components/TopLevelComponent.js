@@ -41,7 +41,9 @@ const TopLevelComponent = React.createClass({
 
 	compareMeals() {
 		let winner = CalculateMeals(this.state.mealsToCompare)
+		console.log('winner state', winner)
 		this.setState({winningMeal: winner})
+		console.log('state winner', this.state)
 	},
 
 	clearMeals() {
@@ -53,7 +55,7 @@ const TopLevelComponent = React.createClass({
 		let selectedMeals, header;
 
 		if(this.state.showTable) {
-			selectedMeals = ( <div className="container-fluid text-center"> <MealCompareTable compare={this.compareMeals} meals={this.state.mealsToCompare} clear={this.clearMeals} /> </div> )
+			selectedMeals = ( <div className="container-fluid text-center"> <MealCompareTable compare={this.compareMeals} meals={this.state.mealsToCompare} clear={this.clearMeals} winner={this.state.winningMeal} /> </div> )
 		}	else { selectedMeals = (<div></div>) }
 
 
