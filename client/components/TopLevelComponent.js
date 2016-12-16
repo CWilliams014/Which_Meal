@@ -59,6 +59,8 @@ const TopLevelComponent = React.createClass({
 	render() {
 		let selectedMeals, header, mainButton
 
+		if(this.state.initialLoad) mainButton = (<div className="main-button text-center"><Dropdown restaurantTitles={allRestaurantTitles} /></div>)
+
 		if(this.state.showTable) {
 			selectedMeals = ( <div className="container-fluid text-center"> <MealCompareTable compare={this.compareMeals} meals={this.state.mealsToCompare} clear={this.clearMeals} winner={this.state.winningMeal} /> </div> )
 		}	else { selectedMeals = (<div></div>) }
@@ -68,6 +70,7 @@ const TopLevelComponent = React.createClass({
 			<div className="container-fluid">
 			<div className="row">
 				<Header showHeader={this.state.showHeader} />
+				{mainButton}
 				{selectedMeals}
 				<div className="col-sm-6 meal-wrapper 1">
 					<MealWrapper restaurantTitles={allRestaurantTitles}	
