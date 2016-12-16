@@ -7,7 +7,6 @@ import Dropdown from './DropdownMenu'
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
 import axios from 'axios'
-import Loading from 'react-loading'
 import SearchBar from './search/SearchBar'
 import MenuNav from './navbar/MenuNav'
 // div window component which holds restauranted choice and correct menu

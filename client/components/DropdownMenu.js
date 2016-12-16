@@ -21,7 +21,7 @@ const Dropdown = (props) => {
 }
 
 Dropdown.propTypes = {
-		selectRestaurant : React.PropTypes.func.isRequired,
+		selectRestaurant : React.PropTypes.func,
 		restaurantTitles : React.PropTypes.array.isRequired
 	}
 
