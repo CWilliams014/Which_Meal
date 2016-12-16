@@ -1,10 +1,14 @@
 .searchBar {
 /*  padding-top: 10px;*/
 	padding-right: 0;
+
 }
 
 .searchBar input {
-  height: 45px;
-  border-radius: 5px;
-  width: 152px;
+  height: 35px;
+  border-radius: 0px;
+  width: 115px;
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
