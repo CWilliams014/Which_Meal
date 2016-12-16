@@ -7,11 +7,11 @@ const AppDescription = (props) => {
 	return (
 		<div className="app-description">
 			<p className="app-description 1">Choose a restaurant</p>
-				<br></br>
-			<p className="app-description 2">Select any number of meals to compare </p>
-				<br></br>
-			<p className="app-description 3">Click Compare</p>
-				<br></br>
+			<br></br>
+			<p className="app-description 2">Select meals to compare</p>
+			<br></br>
+			<p className="app-description 3">Click Compare </p>
+		
 		</div>
 	)
 }

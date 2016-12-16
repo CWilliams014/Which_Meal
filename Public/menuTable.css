@@ -1,3 +1,5 @@
+@import '_colors.scss';
+
 table.menu-table.container {
     max-width: 800px;
 }

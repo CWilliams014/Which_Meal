@@ -12,6 +12,8 @@ import '../Public/menuNav.scss'
 import '../Public/selectedRestaurant.scss'
 import '../Public/MealCompareTable.scss'
 import '../Public/loading.scss'
+import '../Public/_colors.scss'
+import '../Public/menuPointer.scss'
 // const purify = require('purify-css')
 
 render(<TopLevelComponent />, document.getElementById('app'))

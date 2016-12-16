@@ -1,6 +1,8 @@
 $lineHeight: 15px;
-html {
-/*  font-size: 80%;*/
+#app {
+  background: url('./photos/croissants.jpg');
+  background-size: 100%;
+  background-color: rgba(255, 0, 0, .5)
 }
 body {
   font-family: 'Quicksand', Lucida Grande;
