@@ -70,7 +70,7 @@ const TopLevelComponent = React.createClass({
 											 addSelectedRestaurant={this.addSelectedRestaurant}
 						 					 selectMeal={this.selectMeal} />
 					</div>
-					YOIJOIJIJLKJLKJLKJLKJ
+		
 				</div>
 			</div>
 		)
