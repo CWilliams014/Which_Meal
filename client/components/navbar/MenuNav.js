@@ -16,6 +16,7 @@ const MenuNav = (props) => {
 		               val={searchTerm} />
 		  </div>
 		    <SelectedRestaurant restToDisplay={selectedRestaurant} /> 
+		   
 	  </div>
   )
 }
