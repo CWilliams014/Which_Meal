@@ -29,6 +29,7 @@ class MealWrapper extends React.Component {
   selectRestaurant(e) {
     const chosen = e.target.name
     const allRests = this.props.restaurantsSelected
+    this.props.moveButton()
     this.setState({loading: true, selectedRestaurant : chosen})
     
     if(allRests.hasOwnProperty(chosen)) {
@@ -63,31 +64,32 @@ class MealWrapper extends React.Component {
 
     this.state.currentMenu.filter(function(item, index) {
       currItem = item.itemName.toLowerCase()
-      currSearch = _this.state.searchTerm.toLowerCase()
-        
+      currSearch = _this.state.searchTerm.toLowerCase()       
       if(currItem.includes(currSearch)) {
         newMenu.push(item)
       }
     })
 
   return (
-      <div className="meal-container">
-        <div className="container">
-          <MenuNav  selectRestaurant={this.selectRestaurant}
-                    restaurantTitles={this.props.restaurantTitles} 
-                    selectedRestaurant={this.state.selectedRestaurant}          
-                    handleSearch={this.handleSearch} 
-                    searchTerm={this.state.searchTerm} />
-        </div>
-
-          <MenuDisplay selectMeal={this.props.selectMeal} 
-                       sortColumn={this.sortColumn}
-                       handleSearch={this.handleSearch}
-                       searchTerm={this.state.searctTerm}
-                       loading={this.state.loading}
-                       menu={newMenu} />
-        
+    <div className="meal-container">
+      <div className="container">
+        <MenuNav  selectRestaurant={this.selectRestaurant}
+                  restaurantTitles={this.props.restaurantTitles} 
+                  selectedRestaurant={this.state.selectedRestaurant}          
+                  handleSearch={this.handleSearch} 
+                  initialLoad={this.props.initialLoad}
+                  searchTerm={this.state.searchTerm} />
       </div>
+
+        <MenuDisplay selectMeal={this.props.selectMeal} 
+                     sortColumn={this.sortColumn}
+                     initialLoad={this.props.initialLoad}
+                     handleSearch={this.handleSearch}
+                     searchTerm={this.state.searctTerm}
+                     loading={this.state.loading}
+                     menu={newMenu} />
+
+    </div>   
     )
   }
 }
