@@ -37,7 +37,7 @@ body {
   overflow: auto;
   width: 100%;
   height: 500px;
-  zoom: 70%;
+  
 }
 
 .meal-compare-table {
@@ -65,39 +65,7 @@ body {
   font-family: Lucida Grande;
   font-weight: 400;
 }
-/*.menu-display {
-  width: 500px;
-  height:200px;
-}*/
 
-
-
-/*.selected-restaurant .rest-name {
-text-align: center;
-margin: auto;
- }*/
-
-
-
-/*.dropdown {
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-}*/
-
-/*#bg-nested-dropdown {
-  font-size: 16px;
-  height: 64px;
-}*/
-
-/*#dropdown-menu {
-  margin-left: -10px;
-}*/
-
-/*.btn {
-  height: 30px;
-  font-size: 11px;
-}*/
 
 
 .table-head {
@@ -111,9 +79,7 @@ margin: auto;
   font-size: 10px;
 }
 
-.menu-row {
-  line-height: 5px;
-}
+
 
 .spinner {
   color: red;
@@ -126,152 +92,6 @@ margin: auto;
   font-size: 16px;
 }
 
-/*.menu-display {
-	height: 200px;
-	overflow: scroll;
-}
-/*table header */
-/*.jsonHeader {
-	font-size: 10px;
-}*/
 
-/*.table-head {
-	padding: 6px;
-	font-size: 10px;
-}
-
-.meal-container {
-	margin-top: 30px;
-}
-
-.menu-row {
-	font-size: 10px;
-}
-/* table cell */
-/*.jsonCell {
-	padding: 10px;
-	color: red;
-}
-
-.item-dv {
-	color: black;
-}*/
-
-
-
-/* possible table implementations /*
-
-/** {
-	box-sizing: border-box;
-}
-
-.menu-display-table
-{
-	width: 500px;
-	border-collapse: collapse;
-	float: left;
-}
-.menu-display 
-{
-	float: left;
-}
-/*table header */
-/*.jsonHeader
-{
-	display: block;
-	width: 500px;
-	font-size: 10px;
-	overflow: auto;
-	color: #fff;
-	background: #000;
-
-}*/
-
-/*tbody
-{
-	display: block;
-	width: 500px;
-	height: 200px;
-	font-size: 10px;
-	background: pink;
-	overflow: auto;
-}*/
-
-/*th,td
-{
-	padding: .5em 1em;
-	text-align: left;
-	vertical-align: top;
-	border-left: 1px solid #fff;
-}*/
-
-
-
-/*.meal-wrapper-1 {
-	float: left;
-}
-
-  table {
-    border: 1px solid #ccc;
-    width: 40%;
-    margin:0;
-    padding:0;
-    border-collapse: collapse;
-    border-spacing: 0;
-
-  }
-
-.menu-row {
-    border: 1px solid #ddd;
-    padding: 5px;
-  }
-
-  table th, table td {
-    padding: 10px;
-    text-align: center;
-  }
-
-/*table header */
-/*.jsonHeader {
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-  }
-*/
-/* responsive mobile design for tables */
-  /*@media screen and (max-width: 600px) {
-
-    table {
-      border: 0;
-    }
-
-    table thead {
-      display: none;
-    }
-
-    table tr {
-      margin-bottom: 10px;
-      display: block;
-      border-bottom: 2px solid #ddd;
-    }
-
-    table td {
-      display: block;
-      text-align: right;
-      font-size: 13px;
-      border-bottom: 1px dotted #ccc;
-    }
-
-    table td:last-child {
-      border-bottom: 0;
-    }
-
-    table td:before {
-      content: attr(data-label);
-      float: left;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }*/
 
 

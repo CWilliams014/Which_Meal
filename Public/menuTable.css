@@ -1,3 +1,8 @@
+table.menu-table.container {
+    max-width: 800px;
+}
+
+
 table.menu-table {
 
   background: #fff;
@@ -11,12 +16,20 @@ table.menu-table {
   cursor: pointer;
   min-width: 160px;
 }
-        
+/*.menu-table > thead > tr > th.table-head {
+    padding: 10px;
+}*/   
+/*
+#app > div > div > div.container-fluid.text-center > div > table > thead > tr > th {
+    padding: 20px;
+}*/  
 .menu-table thead {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     min-width: 160px;
+    line-height: 2px;
+
 }
 
 /* pulls 'Menu items' column left */    
@@ -25,13 +38,12 @@ table.menu-table {
 }
 
 .menu-table thead th {
-
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 400;
     color: #fff;
 /*            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);*/
     text-align: center;
-    padding: 20px;
+
     background-size: 100%;
 /*  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #4a5564));
     background-image: -moz-linear-gradient(#646f7f, #4a5564);
@@ -39,8 +51,11 @@ table.menu-table {
     background-image: linear-gradient(#646f7f, #4a5564);*/
     background-color: #5484A4;
     border-top: 1px solid #858d99;
+    padding: 25px;
 }
-
+/*#app > div > div > div.col-sm-6.meal-wrapper.\31 > div > div.table.menu-display.row-fluid > div > table > thead > tr > th:nth-child(6) {
+    padding:5px;
+}*/
 /*.menu-table thead tr:first-child th {
   text-align: left;
 }*/
@@ -61,8 +76,8 @@ table.menu-table {
 .menu-table tbody tr td {
     font-weight: 400;
     color: #5f6062;
-    font-size: 13px;
-    padding: 20px 20px 20px 20px;
+    font-size: 10px;
+    padding: 12px 12px 12px 12px;
     border-bottom: 1px solid #e0e0e0;
 }
 
