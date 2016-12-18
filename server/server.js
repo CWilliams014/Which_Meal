@@ -17,9 +17,7 @@ if (env === 'development') {
 	const webpackHotMiddleware = require('webpack-hot-middleware')
 	const compiler = webpack(webpackConfig)
 
-	app.use(bodyParser.urlencoded({
-		extended: true
-	}));
+	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(bodyParser.json())
 
 
