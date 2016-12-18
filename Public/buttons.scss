@@ -28,14 +28,15 @@ padding-left: 0;
   margin: 0 10px 0 0;
   padding: 15px 45px;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 2px;
   appearance: none;
   box-shadow: none;
   border-radius: 0;
+  color: black;
   color: #fff;
-  background-color: #6496c8;
+  background: rgba(0,0,0,0);
   text-shadow: -1px 1px #417cb8;
-  border: none;
+  border: solid 5px #6496c8;
 }
 
 #bg-nested-dropdown:hover {
@@ -46,6 +47,11 @@ padding-left: 0;
 #bg-nested-dropdown:active {
   background-color: #27496d;
   text-shadow: -1px 1px #193047;
+}
+
+ul.dropdown-menu {
+	
+	overflow: scroll;
 }
 
 #buttons {

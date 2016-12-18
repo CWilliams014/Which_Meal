@@ -23,7 +23,10 @@ const TopLevelComponent = React.createClass({
       winningMeal: '',
       showTable: false,
       showHeader: true,
-      initialLoad : true
+      initialLoad : true,
+      button: {
+      	launched: false
+      }
     };
 	},
 
@@ -59,28 +62,26 @@ const TopLevelComponent = React.createClass({
 	render() {
 		let selectedMeals, header, mainButton
 
-		if(this.state.initialLoad) mainButton = (<div className="main-button text-center"><Dropdown restaurantTitles={allRestaurantTitles} /></div>)
-
 		if(this.state.showTable) {
 			selectedMeals = ( <div className="container-fluid text-center"> <MealCompareTable compare={this.compareMeals} meals={this.state.mealsToCompare} clear={this.clearMeals} winner={this.state.winningMeal} /> </div> )
-		}	else { selectedMeals = (<div></div>) }
+		}	
 
 
 		return (
 			<div className="container-fluid">
-			<div className="row">
-				<Header showHeader={this.state.showHeader} />
-				{mainButton}
-				{selectedMeals}
-				<div className="col-sm-6 meal-wrapper 1">
-					<MealWrapper restaurantTitles={allRestaurantTitles}	
-											 restaurantsSelected={this.state.restaurantsSelected}
-											 addSelectedRestaurant={this.addSelectedRestaurant}
-											 moveButton={this.moveButton}
-											 initialLoad={this.state.initialLoad}
-						 					 selectMeal={this.selectMeal} />
-					</div>
-		
+				<div className="row main-row">
+					<Header showHeader={this.state.showHeader} />
+					{mainButton}
+					{selectedMeals}
+					<div className="col-sm-6 meal-wrapper 1">
+						<MealWrapper restaurantTitles={allRestaurantTitles}	
+												 initialLoad={this.state.initialLoad}
+												 restaurantsSelected={this.state.restaurantsSelected}
+												 addSelectedRestaurant={this.addSelectedRestaurant}
+												 moveButton={this.moveButton}
+												 initialLoad={this.state.initialLoad}
+							 					 selectMeal={this.selectMeal} />
+					</div>		
 				</div>
 			</div>
 		)
