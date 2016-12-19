@@ -29,7 +29,7 @@ MenuNav.propTypes = {
 	selectedRestaurant : r.string.isRequired,
 	handleSearch : r.func.isRequired,
 	searchTerm : r.string.isRequired,
-	initialLoad : r.string.isRequired
+	initialLoad : r.bool.isRequired
 }
 
 

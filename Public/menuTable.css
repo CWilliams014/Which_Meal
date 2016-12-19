@@ -32,7 +32,6 @@ table.menu-table {
     border-radius: 5px;
     min-width: 160px;
     line-height: 2px;
-
 }
 
 /* pulls 'Menu items' column left */    
@@ -149,6 +148,12 @@ table.menu-table {
 }
 .menu-table > thead > tr > th:nth-child(1) {
 
+}
+
+.main-json-table {
+  height: auto;
+  max-height: 300px;
+  overflow-x: hidden;
 }
 
 

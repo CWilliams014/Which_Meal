@@ -1,7 +1,7 @@
 import React from 'react'
 import JsonTable from 'react-json-table'
 import tableColumns from '../../.././lib/TableColumns'
-
+import Sticky from 'react-stickynode'
 
 
 const JsonMenuTable = (props) => {
@@ -29,11 +29,13 @@ const JsonMenuTable = (props) => {
 
 	return (
 		<div className="menu-display">
-			<JsonTable className="menu-table container text-center" 
-								 rows={menu}
-								 settings={settings}
-								 onClickRow={selectMeal}
-								 columns={columns} />
+			<div className="main-json-table">
+				<JsonTable className="menu-table container text-center" 
+									 rows={menu}
+									 settings={settings}
+									 onClickRow={selectMeal}
+									 columns={columns} />	
+			</div>			 
 		</div>
 	)
 }
