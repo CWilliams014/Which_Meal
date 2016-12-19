@@ -29,11 +29,6 @@ class MealCompareTable  extends React.Component {
 				return 'winner'
 			} else {			
 					return 'row-centered menu-row'
-			}
-		},
-		cellClass: function(currentClass, columnKey, rowData) {
-			if(columnKey === 'menu item') {
-					return 'pull-left'
 				}
 			}
 		}
