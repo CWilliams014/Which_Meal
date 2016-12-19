@@ -55,7 +55,7 @@ const TopLevelComponent = React.createClass({
 	},
 
 	clearMeals() {
-		this.setState({mealsToCompare : [], winningMeal: null, showTable: false})
+		this.setState({mealsToCompare : [], winningMeal: '', showTable: false})
 	},
 
 

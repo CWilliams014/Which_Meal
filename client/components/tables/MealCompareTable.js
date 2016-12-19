@@ -18,17 +18,18 @@ class MealCompareTable  extends React.Component {
 
 	settings () {
 		const _this = this
+		let winner = _this.props.winner.itemName || ''
 		return {
 			headerClass: function(currentClass, columnKey) {
 				return 'table-head'
 		},
 		rowClass : function(currentClass, columnKey) {
-			if(columnKey.itemName === _this.props.winner.itemName) {
+			console.log('winn', winner)
+			if(columnKey.itemName === winner) {
 				console.log('column key', columnKey)
 				console.log('props.winner', _this.props.winner.itemName)
 				return 'winner'
-			} else {
-			
+			} else {			
 				return 'row-centered menu-row'
 			}
 		},

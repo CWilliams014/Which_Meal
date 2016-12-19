@@ -17,6 +17,7 @@ table.menu-table {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   min-width: 160px;
+
 }
 /*.menu-table > thead > tr > th.table-head {
     padding: 10px;

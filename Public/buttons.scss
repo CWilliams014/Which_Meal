@@ -32,11 +32,12 @@ padding-left: 0;
   appearance: none;
   box-shadow: none;
   border-radius: 0;
-  color: black;
+
   color: #fff;
   background: rgba(0,0,0,0);
   text-shadow: -1px 1px #417cb8;
   border: solid 5px #6496c8;
+  max-width: 200px;
 }
 
 #bg-nested-dropdown:hover {
@@ -49,25 +50,34 @@ padding-left: 0;
   text-shadow: -1px 1px #193047;
 }
 
-ul.dropdown-menu {
+/*ul.dropdown-menu {
 	
 	overflow: scroll;
-}
+}*/
+
+/*compare /clear buttons */
 
 #buttons {
-
-	max-width: 115px;
-	min-width: 115px;
-	font-size: 14px;
-	border-radius: 0px;
-	margin-top: 10px;
-	height: 35px;
-
+	display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 15px 45px;
+  font-size: 18px;
+  line-height: 2px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  border: solid 5px #6496c8;
+  max-width: 200px;
+  min-width: 200px;
+  background-color: white;
+  color: #6496c8;
 
 }
 
 .buttons {
-
+	padding-top: 10px;
 }
 
 .main-button {
