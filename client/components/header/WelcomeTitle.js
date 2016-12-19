@@ -9,10 +9,10 @@ const WelcomeTitle = () => {
 		  <p className="header-letter">c</p>
 		  <p className="header-letter">h</p>
 
-		  <p className="meal-letter"> M</p>
-		  <p className="meal-letter">e</p>
-		  <p className="meal-letter">a</p>
-		  <p className="meal-letter">l ?</p>
+		  <p className="meal-letter" id="meal">M</p>
+		  <p className="meal-letter" id="meal">e</p>
+		  <p className="meal-letter" id="meal">a</p>
+		  <p className="meal-letter" id="meal">l ?</p>
 		</div>
 	)
 }
