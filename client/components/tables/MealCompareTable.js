@@ -21,7 +21,7 @@ class MealCompareTable  extends React.Component {
 		let winner = _this.props.winner.itemName || ''
 		return {
 			headerClass: function(currentClass, columnKey) {
-				return 'table-head'
+				return 'table-head compare'
 		},
 		rowClass : function(currentClass, columnKey) {
 
