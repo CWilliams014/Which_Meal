@@ -1,10 +1,14 @@
 .meal-compare {
 
 
-
-
 	padding-bottom: 10px;
 /*	height: 0;*/
+}
+
+.json-table-compare {
+  height: auto;
+  max-height: 150px;
+  overflow-x: hidden;
 }
 
 .meal-compare div.menu-table.container thead th {
