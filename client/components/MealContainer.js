@@ -60,7 +60,7 @@ class MealWrapper extends React.Component {
 
   render() {
     const _this = this;
-    let newMenu = [], currItem, currSearch, mainButton
+    let newMenu = [], currItem, currSearch, mainButton, first, second
 
     this.state.currentMenu.filter(function(item, index) {
       currItem = item.itemName.toLowerCase()
@@ -68,6 +68,11 @@ class MealWrapper extends React.Component {
       if(currItem.includes(currSearch)) {
         newMenu.push(item)
       }
+      newMenu.sort((a,b) => {
+        first = parseInt(a.amountPerServing.calories)
+        second = parseInt(b.amountPerServing.calories)
+        return second - first
+      })
     })
   if(this.props.initialLoad) mainButton = (<div className="main-button text-center"><Dropdown restaurantTitles={this.props.restaurantTitles} selectRestaurant={this.selectRestaurant}/></div>)
   return (

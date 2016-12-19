@@ -6,7 +6,8 @@ import tableColumns from '../../.././lib/TableColumns'
 
 const JsonMenuTable = (props) => {
 	const {menu, selectMeal } = props
-
+	const columns = tableColumns
+	console.log('jsonmenutalbe', menu)
 	const settings = {
 		headerClass: function(currentClass, columnKey) {
 		if(columnKey === 'menu item') {
@@ -25,8 +26,6 @@ const JsonMenuTable = (props) => {
 		},
 		noRowsMessage: 'Choose a restaurant!'
 	}
-
-	const columns = tableColumns
 
 	return (
 		<div className="menu-display">
