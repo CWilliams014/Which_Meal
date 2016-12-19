@@ -24,13 +24,11 @@ class MealCompareTable  extends React.Component {
 				return 'table-head'
 		},
 		rowClass : function(currentClass, columnKey) {
-			console.log('winn', winner)
+
 			if(columnKey.itemName === winner) {
-				console.log('column key', columnKey)
-				console.log('props.winner', _this.props.winner.itemName)
 				return 'winner'
 			} else {			
-				return 'row-centered menu-row'
+					return 'row-centered menu-row'
 			}
 		},
 		cellClass: function(currentClass, columnKey, rowData) {
@@ -45,7 +43,9 @@ render() {
 	const w = JSON.stringify(this.props.winner)
 	return (
 		<div className="meal-compare">
-			<JsonTable  settings={this.settings()} ref={node => this.node = node} className="menu-table container" id="menu-compare-table" rows={this.props.meals} columns={columns} />
+			<div className="json-table-compare">
+				<JsonTable  settings={this.settings()} ref={node => this.node = node} className="menu-table container" id="menu-compare-table" rows={this.props.meals} columns={columns} />
+			</div>
 			<ButtonsWrapper compare={this.props.compare} clear={this.props.clear} />
 		</div>
 	 )
