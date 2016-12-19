@@ -6,9 +6,17 @@ padding-left: 0;
 .dropdown-wrapper {
 	padding-left: 0;
 	padding-right: 0;
+	opacity: .9;
+
 }
 
-#bg-nested-dropdown {
+.dropdown-menu {
+	    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+/*#bg-nested-dropdown {
 	height: 35px;
 	margin: auto;
 	font-size:14px;
@@ -18,20 +26,67 @@ padding-left: 0;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   text-align: center;
   padding:10px;
+  opacity: .9;
+}*/
+
+#bg-nested-dropdown {
+	display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 15px 45px;
+  font-size: 18px;
+  line-height: 2px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+
+  color: #fff;
+  background: rgba(0,0,0,0);
+  text-shadow: black 1px 1px 1px;
+  border: solid 5px #6496c8;
+  max-width: 200px;
 }
 
+#bg-nested-dropdown:hover {
+	background-color: #346392;
+  text-shadow: black 1px 1px 1px;
+}
+
+#bg-nested-dropdown:active {
+  background-color: #27496d;
+  text-shadow: black 1px 1px 1px;
+}
+
+/*ul.dropdown-menu {
+	
+	overflow: scroll;
+}*/
+
+/*compare /clear buttons */
+
 #buttons {
-
-	max-width: 115px;
-	min-width: 115px;
-	font-size: 14px;
-	border-radius: 0px;
-	margin-top: 10px;
-	height: 35px;
-
+	display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 15px 45px;
+  font-size: 18px;
+  line-height: 2px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  border: solid 5px #6496c8;
+  max-width: 200px;
+  min-width: 200px;
+  background-color: white;
+  color: #6496c8;
 
 }
 
 .buttons {
+	padding-top: 10px;
+}
 
+.main-button {
+	margin-left: 40%;
+	margin-top: 8%;
 }

@@ -1,12 +1,23 @@
 $lineHeight: 15px;
 #app {
-  background: url('./photos/croissants.jpg');
-  background-size: 100%;
-  background-color: rgba(255, 0, 0, .5)
+/*  background-size: 100%;
+  background-color: rgba(255, 0, 0, .5);
+  overflow: scroll;*/
 }
 body {
   font-family: 'Quicksand', Lucida Grande;
 }
+html, body { 
+  background: url('./photos/croissants.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/*.main-row {
+  overflow-y: scroll;
+}*/
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

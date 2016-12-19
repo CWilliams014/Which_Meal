@@ -5,8 +5,10 @@ import Loading from '.././loading/Loading'
 //loop through menu object - sort and append data to proper position on table 
 
 const MenuDisplay = (props) => {
-	const {menu, selectMeal, loading} = props
+	const {menu, selectMeal, loading, initialLoad} = props
 	let util;
+
+	if(initialLoad) return null
 
 	if(loading === true) {
 		util = <Loading />
