@@ -19,6 +19,7 @@ class MealCompareTable  extends React.Component {
 	settings () {
 		const _this = this
 		let winner = _this.props.winner.itemName || ''
+		console.log('winnnnnnnnner', winner)
 		return {
 			headerClass: function(currentClass, columnKey) {
 				return 'table-head compare'
@@ -26,6 +27,7 @@ class MealCompareTable  extends React.Component {
 		rowClass : function(currentClass, columnKey) {
 
 			if(columnKey.itemName === winner) {
+				console.log('wunt', columnKey.itemName)
 				return 'winner'
 			} else {			
 					return 'row-centered menu-row'
@@ -35,7 +37,6 @@ class MealCompareTable  extends React.Component {
 	}
 
 render() {
-	const w = JSON.stringify(this.props.winner)
 	return (
 		<div className="meal-compare">
 			<div className="json-table-compare">

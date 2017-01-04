@@ -74,7 +74,9 @@ class MealWrapper extends React.Component {
         return second - first
       })
     })
+    
   if(this.props.initialLoad) mainButton = (<div className="main-button text-center"><Dropdown restaurantTitles={this.props.restaurantTitles} selectRestaurant={this.selectRestaurant}/></div>)
+  
   return (
     <div className="meal-container">
       <div className="container">

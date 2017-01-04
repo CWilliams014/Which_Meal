@@ -57,14 +57,8 @@ html, body {
 .meal-compare-table {
   border: 1px solid black;
 }
-.winner td {
-  background-color: #070B3E !important;
-  color: white !important;
-  float: none !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
 
-}
+
 
 /*.selected-restaurant {
   text-align: left;
@@ -93,6 +87,9 @@ html, body {
   font-size: 10px;
 }
 
+.winner {
+  background-color: yellow !important;
+}
 
 
 .spinner {
