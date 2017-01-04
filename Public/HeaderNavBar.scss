@@ -2,3 +2,15 @@
 	background-color: black;
 	border: none;
 }
+
+ul.Nav.nav.navbar-nav {
+	  float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+ul.Nav.nav.navbar-nav li {
+	display: inline-block;
+  float:none;
+}
