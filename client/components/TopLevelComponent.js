@@ -1,6 +1,7 @@
 import React from 'react'
 import Dropdown from './DropdownMenu'
 import Winner from './Winner'
+import { BrowserRouter as Router, Link, Match, Miss } from 'react-router';
 import SelectedRestaurant from './SelectedRestaurant'
 import MenuDisplay from './menu/MenuDisplay'
 import MealCompareTable from './tables/MealCompareTable'
@@ -10,6 +11,8 @@ import axios from 'axios'
 import allRestaurantTitles from '../../data/fastFoodNutritionRestaurantNames'
 import MealWrapper from './MealContainer'
 import Header from './header/Header'
+import HeaderNavBar from './header/HeaderNavBar'
+import About from './about/About'
 
 
 
@@ -68,22 +71,26 @@ const TopLevelComponent = React.createClass({
 
 
 		return (
-			<div className="container-fluid">
-				<div className="row main-row">
-					<Header showHeader={this.state.showHeader} />
-					{mainButton}
-					{selectedMeals}
-					<div className="col-sm-6 meal-wrapper 1">
-						<MealWrapper restaurantTitles={allRestaurantTitles}	
-												 initialLoad={this.state.initialLoad}
-												 restaurantsSelected={this.state.restaurantsSelected}
-												 addSelectedRestaurant={this.addSelectedRestaurant}
-												 moveButton={this.moveButton}
-												 initialLoad={this.state.initialLoad}
-							 					 selectMeal={this.selectMeal} />
-					</div>		
+
+				<div className="container-fluid">
+					<div className="row main-row">
+
+						<Header showHeader={this.state.showHeader} />
+						{mainButton}
+						{selectedMeals}
+						<div className="col-sm-6 meal-wrapper 1">
+							<MealWrapper restaurantTitles={allRestaurantTitles}	
+													 initialLoad={this.state.initialLoad}
+													 restaurantsSelected={this.state.restaurantsSelected}
+													 addSelectedRestaurant={this.addSelectedRestaurant}
+													 moveButton={this.moveButton}
+													 initialLoad={this.state.initialLoad}
+								 					 selectMeal={this.selectMeal} />
+						</div>		
+					</div>
+
 				</div>
-			</div>
+
 		)
 	}
 })
