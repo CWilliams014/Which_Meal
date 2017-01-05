@@ -11,6 +11,10 @@
   overflow-x: hidden;
 }
 
+.table-head.compare {
+  background-color: #4A7095;
+}
+
 .meal-compare div.menu-table.container thead th {
 	background-color: black;
 /*  background-size: 100%;
@@ -23,7 +27,7 @@
 
 /*copied from chrome dev tools to target MealCompareTable */
 
-#app > div > div > div.container-fluid > div > table > thead > tr  > th{
+/*#app > div > div > div.container-fluid > div > table > thead > tr  > th{
 	background-color: #5962D7;
 
-}
+}*/

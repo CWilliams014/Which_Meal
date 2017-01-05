@@ -1,5 +1,11 @@
 @import '_colors.scss';
 
+.main-json-table {
+  height: auto;
+  max-height: 350px;
+  overflow-x: hidden;
+}
+
 table.menu-table.container {
     max-width: 800px;
 }
@@ -32,7 +38,6 @@ table.menu-table {
     border-radius: 5px;
     min-width: 160px;
     line-height: 2px;
-
 }
 
 /* pulls 'Menu items' column left */    
@@ -62,10 +67,10 @@ table.menu-table {
 /*.menu-table thead tr:first-child th {
   text-align: left;
 }*/
-
-.menu-table table > tbody > tr:nth-child(1) td{
+/*
+.menu-table table > tbody > td: first-child{
     text-align: left;
-}
+}*/
 
 .menu-table thead th:first-child {
     -moz-border-top-right-radius: 5px;
@@ -150,6 +155,8 @@ table.menu-table {
 .menu-table > thead > tr > th:nth-child(1) {
 
 }
+
+
 
 
 
